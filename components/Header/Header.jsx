@@ -14,19 +14,24 @@ const Header = () => {
       <HeaderContainer>
         <Image src={"/images/logo.png"} width={75} height={75} alt="logo" />
         <div className="section">
-          <Link className="section-link" href={"/login"}>
+          <Link className="section-link" href={"/"}>
             Home
           </Link>
-          <Link className="section-link" href={"/"}>
+          <Link className="section-link" href={"/overview"}>
             Overview
           </Link>
-          <Link className="section-link" href={"/"}>
+          <Link className="section-link" href={"/spot-trading"}>
             Spot trading
           </Link>
         </div>
 
         <div>
-          <button>Sign up</button>
+          <button>
+            {" "}
+            <Link className="section-link" href={"/register"}>
+              Sign up
+            </Link>
+          </button>
         </div>
 
         <div className="hamburger" onClick={handleHamburger}>
@@ -43,13 +48,13 @@ const Header = () => {
             <Link className="section-link" href={"/login"}>
               Home
             </Link>
-            <Link className="section-link" href={"/"}>
+            <Link className="section-link" href={"/overview"}>
               Overview
             </Link>
-            <Link className="section-link" href={"/"}>
+            <Link className="section-link" href={"/spot-trading"}>
               Spot trading
             </Link>
-            <Link className="section-link" href={"/"}>
+            <Link className="section-link" href={"/register"}>
               Sign up
             </Link>
           </MobileSection>
