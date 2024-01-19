@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <>
       <HeaderContainer>
-        <Image src={"/images/logo.jpg"} width={50} height={50} alt="logo" />
+        <Image src={"/images/logo.png"} width={75} height={75} alt="logo" />
         <div className="section">
           <Link className="section-link" href={"/login"}>
             Home
