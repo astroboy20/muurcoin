@@ -45,7 +45,7 @@ const Header = () => {
       {isOpen && (
         <>
           <MobileSection>
-            <Link className="section-link" href={"/login"}>
+            <Link className="section-link" href={"/"}>
               Home
             </Link>
             <Link className="section-link" href={"/overview"}>

@@ -1,8 +1,11 @@
+import { Overview } from '@/container/Overview'
 import React from 'react'
 
 const overview = () => {
   return (
-    <div>overview</div>
+    <>
+        <Overview/>
+    </>
   )
 }
 
