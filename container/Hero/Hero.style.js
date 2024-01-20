@@ -4,7 +4,11 @@ export const HeroContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 5%;
+   padding: 2% 4%;
+  color: white;
+  background: linear-gradient(to right, #2627a5, #120c34, #85226a);
+
+  margin-top: 100px;
   .hero-text {
     display: flex;
     flex-direction: column;
@@ -19,7 +23,7 @@ export const HeroContainer = styled.header`
     /* width: 60%; */
   }
   @media screen and (max-width: 786px) {
-    margin-top:10% ;
+    margin-top:100px ;
     .hero-text {
       text-align: center;
       width: 100%;

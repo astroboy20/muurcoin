@@ -4,6 +4,13 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 2% 4%;
+  color: white;
+  background: linear-gradient(to right, #2627a5, #120c34, #85226a);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
   .section {
     display: flex;
     gap: 20px;
@@ -22,7 +29,11 @@ export const HeaderContainer = styled.header`
   .hamburger {
     display: none;
   }
+  .active {
+    border-bottom: 2px solid #ea4ba7;
+  }
   @media screen and (max-width: 786px) {
+    padding: 4%;
     .section,
     button {
       display: none;
@@ -36,12 +47,13 @@ export const HeaderContainer = styled.header`
 export const MobileSection = styled.div`
   display: flex;
   flex-direction: column;
-  gap:20px;
+  gap: 20px;
   margin-top: 20px;
-  text-align:center ;
-  background-color:#000 ;
-  padding:40px ;
-  /* transform:10s ease-in-out ; */
+  text-align: center;
+  background-color: #000;
+  padding: 40px;
+  position: absolute;
+  width: 100%;
   .section-link {
     text-decoration: none;
     color: #fff;

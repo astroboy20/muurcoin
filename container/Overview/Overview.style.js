@@ -1,8 +1,22 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const OverviewContainer = styled.div`
-    padding:2% 4% ;
-    background-color:#181A20 ;
-    color:#fff ;
-    height:100dvh ;
-`
+  margin-top: 120px;
+  padding: 4%;
+  background-color: #181a20;
+  color: #fff;
+  /* height:100dvh ; */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  h1 {
+    font-size: 42px;
+  }
+  @media screen and (max-width: 800px) {
+   margin-top:100px ;
+   padding:8% 4% ;
+   h1 {
+    font-size: 30px;
+  }
+  }
+`;

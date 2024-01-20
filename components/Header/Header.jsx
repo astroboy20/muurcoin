@@ -4,23 +4,29 @@ import { HeaderContainer, MobileSection } from "./Header.style";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
+import { useRouter } from "next/router";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter()
   const handleHamburger = () => {
     setIsOpen(!isOpen);
   };
+  const isActiveLink = (href)=>{
+    return router.pathname === href
+  }
   return (
     <>
       <HeaderContainer>
         <Image src={"/images/logo.png"} width={75} height={75} alt="logo" />
         <div className="section">
-          <Link className="section-link" href={"/"}>
+          <Link className={`section-link ${isActiveLink("/") && "active"}`} href={"/"}>
             Home
           </Link>
-          <Link className="section-link" href={"/overview"}>
+          <Link className={`section-link ${isActiveLink("/overview") && "active"}`} href={"/overview"}>
             Overview
           </Link>
-          <Link className="section-link" href={"/spot-trading"}>
+          <Link className={`section-link ${isActiveLink("/spot-trading") && "active"}`} href={"/spot-trading"}>
             Spot trading
           </Link>
         </div>

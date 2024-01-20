@@ -16,10 +16,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/logo.jpg" />
       </Head>
-      <Layout>
+      {/* <Layout> */}
         <Header />
         <HeroSection />
-      </Layout>
+      {/* </Layout> */}
     </>
   );
 }

@@ -13,17 +13,20 @@ const SymbolOverviewNoSSR = dynamic(
 
 const Overview = () => {
   return (
-    <OverviewContainer>
-      Overview
-      {/* <Header/> */}
-      <CryptoCurrencyMarket
-        colorTheme="dark"
-        width="100%"
-        height={490}
-        // autosize
-        displayCurrency="USD"
-      ></CryptoCurrencyMarket>
-    </OverviewContainer>
+    <>
+      <Header />
+      <OverviewContainer>
+        <h1> Overview</h1>
+
+        <CryptoCurrencyMarket
+          colorTheme="dark"
+          width="100%"
+          height={490}
+          // autosize
+          displayCurrency="USD"
+        ></CryptoCurrencyMarket>
+      </OverviewContainer>
+    </>
   );
 };
 
