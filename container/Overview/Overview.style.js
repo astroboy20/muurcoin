@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const OverviewContainer = styled.div`
   margin-top: 120px;
   padding: 4%;
-  background-color: #181a20;
+  background-color:rgb(37,37,39) ;
   color: #fff;
   /* height:100dvh ; */
   display: flex;
