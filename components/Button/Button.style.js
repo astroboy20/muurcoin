@@ -15,6 +15,7 @@ export const TransparentButton = styled.button`
   padding: 15px 20px;
   border-radius: 10px;
   width:100% ;
+  /* text-align:center ; */
 `;
 export const SmallButtonStyle = styled.button`
   background: #ea4ba7;

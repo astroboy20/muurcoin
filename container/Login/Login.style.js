@@ -19,8 +19,8 @@ export const LoginContainer = styled.div`
   .form {
     width: 50%;
     padding: 2% 6%;
-    display:flex ;
-    flex-direction:column ;
+    display: flex;
+    flex-direction: column;
   }
   .header {
     display: flex;
@@ -77,17 +77,25 @@ export const LoginContainer = styled.div`
     top: 50%;
     position: absolute;
   }
+  .button-style {
+    display: flex;
+    align-items: center;
+    /* text-align:center ; */
+    justify-content:center ;
+    gap: 5px;
+    font-size: 13.3px;
+    font-weight: 600;
+  }
 
-  @media screen and (max-width:789px) {
-    padding:5% 0% ;
-    
-    .btc{
-        display:none ;
+  @media screen and (max-width: 789px) {
+    padding: 5% 0%;
 
+    .btc {
+      display: none;
     }
-    .form{
-        width:100% ;
-        gap:25px;
+    .form {
+      width: 100%;
+      gap: 25px;
     }
   }
 `;
