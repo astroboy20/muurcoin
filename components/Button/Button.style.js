@@ -16,6 +16,6 @@ export const SmallButtonStyle = styled.button`
   width:40% ;
   @media screen and (max-width:800px) {
     width:60% ;
-    margin:0 60px ;
+    margin:0 auto ;
   }
 `;
