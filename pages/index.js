@@ -14,7 +14,7 @@ export default function Home() {
         <title>Murrcoin</title>
         <meta name="description" content="muurcoin" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/images/logo.jpg" />
+        <link rel="icon" href="/images/logo.png" />
       </Head>
       {/* <Layout> */}
         <Header />
