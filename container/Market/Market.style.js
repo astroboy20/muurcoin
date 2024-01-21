@@ -11,4 +11,11 @@ h1{
     font-size:36px ;
     margin-bottom:20px ;
 }
+
+@media screen and (max-width: 800px) {
+   padding:8% 4% ;
+   h1 {
+    font-size: 24px;
+  }
+  }
 `
