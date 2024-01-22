@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 2% 4%;
   color: white;
   background: linear-gradient(to right, #2627a5, #120c34, #85226a);
@@ -11,6 +8,11 @@ export const HeaderContainer = styled.header`
   top: 0;
   width: 100%;
   z-index: 100;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .section {
     display: flex;
     gap: 20px;
@@ -53,6 +55,7 @@ export const MobileSection = styled.div`
   background-color: #000;
   padding: 40px;
   position: absolute;
+  left:0 ;
   width: 100%;
   .section-link {
     text-decoration: none;

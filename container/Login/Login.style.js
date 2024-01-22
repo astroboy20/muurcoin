@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const LoginContainer = styled.div`
-  background-color: rgb(37, 37, 39);
+  background-color: #000;
   color: #fff;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   /* flex-direction: column; */
   gap: 20px;
@@ -33,6 +33,8 @@ export const LoginContainer = styled.div`
   .link-div {
     text-align: right;
     padding: 3% 0;
+    font-size: 14px;
+    text-decoration: underline;
   }
   .link {
     color: #fff;
@@ -46,9 +48,9 @@ export const LoginContainer = styled.div`
   }
   .signup {
     color: #fff;
+    text-decoration: underline;
 
     text-align: right;
-    text-decoration: none;
   }
   .form-container {
   }
@@ -81,7 +83,7 @@ export const LoginContainer = styled.div`
     display: flex;
     align-items: center;
     /* text-align:center ; */
-    justify-content:center ;
+    justify-content: center;
     gap: 5px;
     font-size: 13.3px;
     font-weight: 600;

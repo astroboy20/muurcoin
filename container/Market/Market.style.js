@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MarketContainer = styled.div`
-  background-color: rgb(37, 37, 39);
+  background-color: #000;
   color: white;
   padding: 6% 4%;
   display: flex;
