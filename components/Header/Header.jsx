@@ -49,7 +49,7 @@ const Header = () => {
             <button>
               {" "}
               <Link className="section-link" href={"/auth"}>
-                Sign up
+               Get started
               </Link>
             </button>
           </div>

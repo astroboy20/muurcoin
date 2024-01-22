@@ -12,27 +12,51 @@ export const HeroContainer = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* gap:200px; */
   }
   .hero-text {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    /* width: 40%; */
     gap: 20px;
   }
   .hero-text h1 {
-    font-size: 60px;
+    font-size: 100px;
     font-weight: 700;
+  }
+  .hero-text h3 {
+    font-size: 28px;
+    /* font-weight: 700; */
+  }
+  .hero-text p {
+    font-size: 20px;
+    /* font-weight: 700; */
   }
   .hero-image {
     /* width: 60%; */
   }
   @media screen and (max-width: 786px) {
     margin-top: 100px;
-    padding:10% 4% ;
+    padding: 10% 4%;
     .hero-text {
       text-align: center;
       width: 100%;
       gap: 20px;
+    }
+    .hero-text h1 {
+    font-size: 60px;
+    font-weight: 700;
+  }
+  .hero-text h3 {
+    font-size: 28px;
+    /* font-weight: 700; */
+  }
+  .hero-text p {
+    font-size: 20px;
+    /* font-weight: 700; */
+  }
+    .hero-image {
+      display: none;
     }
   }
 `;
@@ -68,8 +92,8 @@ export const Introduction = styled.div`
 
   @media screen and (max-width: 786px) {
     flex-direction: column;
-    gap:50px;
-    padding:6% ;
+    gap: 50px;
+    padding: 6%;
     .information {
       width: 100%;
     }

@@ -61,4 +61,11 @@ export const MobileSection = styled.div`
     text-decoration: none;
     color: #fff;
   }
+  button {
+    background: #ea4ba7;
+    border: none;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+  }
 `;
