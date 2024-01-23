@@ -49,7 +49,7 @@ const Header = () => {
             <button>
               {" "}
               <Link className="section-link" href={"/auth"}>
-               Get started
+                Get started
               </Link>
             </button>
           </div>
@@ -74,8 +74,8 @@ const Header = () => {
               <Link className="section-link" href={"/spot-trading"}>
                 Spot trading
               </Link>
-              <Link className="section-link" href={"/register"}>
-                Sign up
+              <Link className="section-link" href={"/auth"}>
+                Get started
               </Link>
             </MobileSection>
           </>
