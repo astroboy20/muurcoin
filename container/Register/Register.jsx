@@ -78,7 +78,7 @@ const Register = () => {
         </div>
 
         <div className="signup-div">
-          Don`t have an account?{" "}
+          Have an account?{" "}
           <Link className="signup" href={"/register"}>
             Sign Up
           </Link>

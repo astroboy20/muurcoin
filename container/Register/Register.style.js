@@ -11,17 +11,28 @@ export const RegisterContainer = styled.div`
   .btc {
     width: 50%;
     height: 100vh;
-    background: url("/images/btc.jpg");
+    background: url("/images/login.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    /* background-size: cover; */
     background-position: center center;
+    position:fixed;
   }
   .form {
     width: 50%;
     padding: 2% 6%;
     display: flex;
     flex-direction: column;
+    position:relative;
+    left:50% ;
+    -ms-overflow-style: none;  
+  scrollbar-width: none; 
   }
+
+.form::-webkit-scrollbar {
+  display: none;
+}
+
+
   .header {
     display: flex;
     gap: 5x;
@@ -98,6 +109,8 @@ export const RegisterContainer = styled.div`
     .form {
       width: 100%;
       gap: 25px;
+      left:0 ;
+      /* right: 0; */
     }
   }
 `;
