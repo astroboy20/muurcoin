@@ -19,7 +19,7 @@ const Skills = () => {
 
           <div className="body">
             <div>
-              <IoIosCheckmarkCircle />
+              <IoIosCheckmarkCircle color="#ea4ba7"/>
             </div>
             <div>
               <h3>Buy, Sell, And Trade On The Go</h3>
@@ -28,7 +28,7 @@ const Skills = () => {
           </div>
           <div className="body">
             <div>
-              <IoIosCheckmarkCircle />
+              <IoIosCheckmarkCircle color="#ea4ba7"/>
             </div>
             <div>
               <h3>Take Control Of Your Wealth</h3>
