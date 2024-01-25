@@ -9,7 +9,7 @@ import Image from "next/image";
 const HeroSection = () => {
   return (
     <HeroContainer>
-      <div className="header">
+      <div className="header" data-aos="fade-right" data-aos-delay="1000">
         {/* <div></div> */}
         <div className="hero-text">
           <div>
@@ -18,14 +18,19 @@ const HeroSection = () => {
           </div>
 
           <p>
-            we provide the best service for your <br/> company products in real world
-            and in meta-verse
+            we provide the best service for your <br /> company products in real
+            world and in meta-verse
           </p>
 
           <Button size={"small"}>Get started</Button>
         </div>
         <div className="hero-image">
-          <Image src={"/images/hero1.jpg"} alt="hero" width={500} height={400} />
+          <Image
+            src={"/images/hero1.jpg"}
+            alt="hero"
+            width={500}
+            height={400}
+          />
         </div>
       </div>
 

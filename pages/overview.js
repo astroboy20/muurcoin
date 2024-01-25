@@ -1,6 +1,7 @@
 import { Overview } from "@/container/Overview";
 import React from "react";
 import Head from "next/head";
+import { Footer } from "@/components/Footer";
 
 const overview = () => {
   return (
@@ -12,6 +13,7 @@ const overview = () => {
         <link rel="icon" href="/images/logo.png" />
       </Head>
       <Overview />
+      <Footer/>
     </>
   );
 };
