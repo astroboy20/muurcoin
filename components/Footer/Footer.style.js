@@ -1,31 +1,49 @@
 import styled from "styled-components";
 
-export const HowContainer = styled.div`
+export const FooterContainer = styled.div`
   background-color: #000;
   color: #fff;
-  padding:  4%;
-
-  h1 {
-    font-size: 36px;
-    margin-bottom: 40px;
-    text-align:center ;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  .top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 4%;
   }
+  .left,
+  .center,
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .bottom {
+    text-align: center;
+    padding: 3% 0;
+  }
+  .hr {
+    background-color: #fff;
+    width: 100%;
+  }
+ 
 
   @media screen and (max-width: 800px) {
     padding: 8% 4%;
-    h1 {
-      font-size: 24px;
+
+    .top{
+        flex-direction:column ;
     }
+    
   }
-  
 `;
 
 export const Introduction = styled.div`
-  /* padding: 5%; */
   display: flex;
   justify-content: space-between;
-  gap:20px;
-  /* background-color: rgba(11, 13, 62, 0.5); */
+  gap: 20px;
   .information {
     display: flex;
     flex-direction: column;
@@ -50,4 +68,3 @@ export const Introduction = styled.div`
     }
   }
 `;
-

@@ -5,6 +5,10 @@ import { Header } from "@/components/Header";
 import { HeroSection } from "@/container/Hero";
 import { Layout } from "@/container/Layout/Layout";
 import { Market } from "@/container/Market";
+import { Footer } from "@/components/Footer";
+import { How } from "@/container/HowItWorks";
+import { What } from "@/container/What";
+import { Skills } from "@/container/Skills/Skills";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +22,13 @@ export default function Home() {
         <link rel="icon" href="/images/logo.png" />
       </Head>
       {/* <Layout> */}
-        <Header />
-        <HeroSection />
-        <Market/>
+      <Header />
+      <HeroSection />
+      <Market />
+      <How />
+      <What />
+      <Skills />
+      <Footer />
       {/* </Layout> */}
     </>
   );

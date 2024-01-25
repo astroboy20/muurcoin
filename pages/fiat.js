@@ -1,9 +1,9 @@
 import React from 'react'
 
-const spotTrading = () => {
+const fiat = () => {
   return (
     <div>spot-trading</div>
   )
 }
 
-export default spotTrading
+export default fiat

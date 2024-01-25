@@ -25,7 +25,7 @@ const HeroSection = () => {
           <Button size={"small"}>Get started</Button>
         </div>
         <div className="hero-image">
-          <Image src={"/images/hero.jpg"} alt="hero" width={500} height={500} />
+          <Image src={"/images/hero1.jpg"} alt="hero" width={500} height={400} />
         </div>
       </div>
 

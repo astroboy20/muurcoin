@@ -37,11 +37,11 @@ const Header = () => {
             </Link>
             <Link
               className={`section-link ${
-                isActiveLink("/spot-trading") && "active"
+                isActiveLink("/fiat") && "active"
               }`}
               href={"/spot-trading"}
             >
-              Spot trading
+              Fiat
             </Link>
           </div>
 
@@ -71,8 +71,8 @@ const Header = () => {
               <Link className="section-link" href={"/overview"}>
                 Overview
               </Link>
-              <Link className="section-link" href={"/spot-trading"}>
-                Spot trading
+              <Link className="section-link" href={"/fiat"}>
+                Fiat
               </Link>
               <Link className="section-link" href={"/auth"}>
                 Get started
