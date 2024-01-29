@@ -1,13 +1,17 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-  padding: 2% 4%;
-  color: white;
-  background: linear-gradient(to right, #2627a5, #120c34, #85226a);
+  padding: 0% 4%;
+  color: black;
+  background: linear-gradient(to right, #eedae3, #edf0fa, #edf0fa);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
+ 
+  &.is-blurred {
+    opacity:0.9 ;
+  }
   nav {
     display: flex;
     justify-content: space-between;
@@ -19,20 +23,25 @@ export const HeaderContainer = styled.header`
   }
   .section-link {
     text-decoration: none;
-    color: #fff;
+    font-weight:600 ;
+    /* color: #fff; */
   }
   button {
-    background: #ea4ba7;
+    /* background: #ea4ba7; */
     border: none;
-    color: #fff;
+    /* color: #fff; */
     padding: 15px 20px;
     border-radius: 10px;
+  }
+  .icons{
+    display: flex;
+    gap: 20px;
   }
   .hamburger {
     display: none;
   }
   .active {
-    border-bottom: 2px solid #ea4ba7;
+    border-bottom: 2px solid  #8358FF;
   }
   @media screen and (max-width: 786px) {
     padding: 4%;
@@ -55,8 +64,9 @@ export const MobileSection = styled.div`
   background-color: #000;
   padding: 40px;
   position: absolute;
-  left:0 ;
+  left: 0;
   width: 100%;
+  height: 100%;
   .section-link {
     text-decoration: none;
     color: #fff;

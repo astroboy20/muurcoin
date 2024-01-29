@@ -5,6 +5,7 @@ export const InputDiv = styled.div`
   margin: 4% 0;
   font-size: 13px;
   gap: 5px;
+  width:40% ;
 `;
 export const Container = styled.div`
   display: flex;
