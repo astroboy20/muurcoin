@@ -5,7 +5,7 @@ export const HeroContainer = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3% 4% 25%;
+  padding: 3% 4% 30%;
   background: linear-gradient(to right, #eedae3, #edf0fa, #edf0fa);
   clip-path: polygon(50% 0%, 100% 0, 100% 71%, 68% 100%, 0% 75%, 0 0);
   color: black;

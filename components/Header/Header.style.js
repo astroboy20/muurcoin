@@ -8,9 +8,13 @@ export const HeaderContainer = styled.header`
   top: 0;
   width: 100%;
   z-index: 100;
- 
+
   &.is-blurred {
-    opacity:0.9 ;
+    background: rgba(255, 255, 255, 0.26);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.1px);
+    -webkit-backdrop-filter: blur(13.1px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
   nav {
     display: flex;
@@ -23,7 +27,7 @@ export const HeaderContainer = styled.header`
   }
   .section-link {
     text-decoration: none;
-    font-weight:600 ;
+    font-weight: 600;
     /* color: #fff; */
   }
   button {
@@ -33,7 +37,7 @@ export const HeaderContainer = styled.header`
     padding: 15px 20px;
     border-radius: 10px;
   }
-  .icons{
+  .icons {
     display: flex;
     gap: 20px;
   }
@@ -41,7 +45,7 @@ export const HeaderContainer = styled.header`
     display: none;
   }
   .active {
-    border-bottom: 2px solid  #8358FF;
+    border-bottom: 2px solid #8358ff;
   }
   @media screen and (max-width: 786px) {
     padding: 4%;

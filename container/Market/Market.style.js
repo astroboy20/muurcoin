@@ -16,14 +16,14 @@ export const MarketContainer = styled.div`
   height:auto ;
   background: #131740;
   color: white;
-  padding: 0% 4%;
+  padding: 0% 0%;
   display: flex;
   flex-direction: column;
   .hero-image {
     position: relative;
     margin: auto;
     z-index:1;
-    top: -250px;
+    top: -350px;
 
     &::before {
       content: "";
@@ -45,7 +45,7 @@ export const MarketContainer = styled.div`
     position: relative;
     margin: auto;
     z-index:1;
-    top: -150px;
+    top: -200px;
     width:100% ;
   }
   h1 {

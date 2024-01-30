@@ -1,52 +1,89 @@
 import styled from "styled-components";
 
 export const SkillContainer = styled.div`
-  background-color: #000;
-  color: #fff;
+  background-color: #f5f8fa;
+  color: #000;
   padding: 4%;
+  text-align: center;
 
   .skill-container {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  /* justify-content:flex-start ; */
-  /* align-items:center ; */
-  .text {
-    text-align: left;
-    width: 50%;
-    display: flex;
+    justify-content: center;
+    align-items: CENTER;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
   }
+
   .header {
     display: flex;
-    gap: 5px;
+    gap: 20px;
     flex-direction: column;
   }
-  .body {
-    display: flex;
-    /* align-items: center; */
-    gap: 5px;
-  }
+
   p {
-    font-size: 12px;
+    font-size: 16px;
   }
   .image {
+    width: 100%;
   }
   h1 {
-    font-size: 30px;
+    font-size: 32px;
+  }
+  h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .icons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon {
+    display: flex;
+    gap: 10px;
+    width: 20%;
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 2%;
+    border-radius: 10px;
+    margin: 10px;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
   }
 
   @media screen and (max-width: 800px) {
     .skill-container {
-      flex-direction: column-reverse;
+      /* flex-direction: column-reverse; */
       text-align: center;
     }
 
     .text {
       width: 100%;
     }
+    .icons {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction:column ;
+    width:100% ;
+  }
+  .icon {
+    gap: 10px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 2%;
+    border-radius: 10px;
+    margin: 10px;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
 
     padding: 8% 4%;
     h1 {

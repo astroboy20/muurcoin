@@ -3,6 +3,9 @@ import { WhatContainer } from "./What.style";
 import Image from "next/image";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import Button from "@/components/Button/Button";
+import { RiBriefcase3Fill } from "react-icons/ri";
+import { FaUserPlus } from "react-icons/fa6";
+import { MdInsertChart } from "react-icons/md";
 
 const What = () => {
   return (
@@ -10,47 +13,57 @@ const What = () => {
       <div className="what-container" data-aos="fade-up" data-aos-delay="1000">
         <div className="image">
           <Image
-            src={"/images/what.png"}
-            width={350}
-            height={350}
+            src={"/images/crypto_trading_feature.jpg"}
+            width={500}
+            height={500}
             alt="what-image"
-            objectFit=""
+            objectFit="cover"
+            style={{
+              borderRadius: "10px",
+            }}
           />
         </div>
         <div className="text">
           <div className="header">
-            <h1>What Is Rockie</h1>
-            <p>
-              Experience a variety of trading on Bitcost. You can use various
-              types of coin transactions such as Spot Trade, Futures Trade, P2P,
-              Staking, Mining, and margin
-            </p>
+            <h1>Create your cryptocurrency portfolio today</h1>
+            <p>Start your first trade with these easy steps.</p>
           </div>
 
           <div className="body">
-            <div>
-              <IoIosCheckmarkCircle color="#ea4ba7" />
+            <div className="icon">
+              <RiBriefcase3Fill fontSize={"30px"} color="#8358FF" />
             </div>
             <div>
-              <h3>View real-time cryptocurrency prices</h3>
+              <h3>Verify your identity</h3>
               <p>
                 {" "}
-                Experience A Variety Of Trading On Bitcost. You Can Use Various
-                Types Of Coin Transactions Such As Spot Trade, Futures Trade.
-                P2P, Staking, Mining And Margin
+                Complete the identity verification process to secure your
+                account and transactions.
               </p>
             </div>
           </div>
           <div className="body">
             <div>
-              <IoIosCheckmarkCircle color="#ea4ba7" />
+              <FaUserPlus fontSize={"30px"} color="#8358FF"/>
             </div>
             <div>
-              <h3>Buy and sell BTC, ETH, XRP, OKB, Etc...</h3>
+              <h3>Fund your account.</h3>
               <p>
-                Experience A Variety Of Trading On Bitcost. You Can Use Various
-                Types Of Coin Transactions Such As Spot Trade, Futures Trade,
-                P2P, Staking Mining And Margin Explore More
+                Add funds to your crypto account to start trading crypto. You
+                can add funds with a variety of payment methods.
+              </p>
+            </div>
+          </div>
+          <div className="body">
+            <div className="icon">
+              <MdInsertChart fontSize={"30px"} color="#8358FF"/>
+            </div>
+
+            <div>
+              <h3>Start trading</h3>
+              <p>
+                Complete the identity verification process to secure your
+                account and transactions.
               </p>
             </div>
           </div>
