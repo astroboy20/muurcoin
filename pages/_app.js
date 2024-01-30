@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles, theme } from "@/theme";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { DarkModeProvider } from "@/Features/DarkMode";
 // import "@/styles/global.css";
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -13,9 +14,11 @@ export default function App({ Component, pageProps }) {
     });
   }, []);
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <DarkModeProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </DarkModeProvider>
   );
 }

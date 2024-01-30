@@ -28,7 +28,7 @@ export const HeaderContainer = styled.header`
   .section-link {
     text-decoration: none;
     font-weight: 600;
-    /* color: #fff; */
+    color: #000;
   }
   button {
     /* background: #ea4ba7; */
@@ -41,6 +41,7 @@ export const HeaderContainer = styled.header`
     display: flex;
     gap: 20px;
     align-items:center ;
+    cursor: pointer;
   }
   .hamburger {
     display: none;
