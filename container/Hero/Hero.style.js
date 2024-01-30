@@ -10,7 +10,10 @@ export const HeroContainer = styled.header`
   clip-path: polygon(50% 0%, 100% 0, 100% 71%, 68% 100%, 0% 75%, 0 0);
   color: black;
   margin-top: 110px;
-
+  .section-link {
+    text-decoration: none;
+    color: #fff;
+  }
   .hero-text {
     display: flex;
     flex-direction: column;

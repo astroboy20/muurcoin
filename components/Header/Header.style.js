@@ -68,14 +68,13 @@ export const MobileSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 20px;
   text-align: center;
   background-color: #000;
   padding: 40px;
   position: absolute;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
   .section-link {
     text-decoration: none;
     color: #fff;

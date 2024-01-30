@@ -1,23 +1,27 @@
 import styled from "styled-components";
 
 export const AuthContainer = styled.div`
-  background-color: #000;
+  background: linear-gradient(to right, #eedae3, #edf0fa, #edf0fa);
   
   height: 100vh;
   text-align: center;
-  color: #fff;
+  color: #000;
   display:flex ;
   
+  .text{
+    font-size:20px ;
+  font-weight:600 ;
+  }
   .left {
-    width: 50%;
+    /* width: 50%;
     height: 100vh;
     background: url("/images/trading.png");
     background-repeat: no-repeat;
-    /* background-size: cover; */
-    background-position: center center;
+    background-size: cover;
+    background-position: center center; */
   }
   .right {
-    width:50% ;
+    width:100% ;
     padding: 2% 4%;
     display: flex;
     flex-direction: column;
@@ -29,7 +33,7 @@ export const AuthContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 100%;
+    width: 30%;
   }
   .link {
     text-decoration: none;
@@ -43,5 +47,8 @@ export const AuthContainer = styled.div`
     .right{
         width:100% ;
     }
+    .button {
+    width: 100%;
+  }
   }
 `;

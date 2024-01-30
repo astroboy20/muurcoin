@@ -1,11 +1,7 @@
 import React from "react";
-import { HeroContainer, Introduction } from "./Hero.style";
+import { HeroContainer } from "./Hero.style";
+import Link from "next/link"
 import Button from "@/components/Button/Button";
-import { FaMobileAlt } from "react-icons/fa";
-import { CgLivePhoto } from "react-icons/cg";
-import { FiBox } from "react-icons/fi";
-import Image from "next/image";
-import { CryptoCurrencyMarket } from "react-ts-tradingview-widgets";
 
 const HeroSection = () => {
   return (
@@ -17,7 +13,10 @@ const HeroSection = () => {
               Join the Future of Blockchain <br /> Buy & Trade Crypto
             </h1>
 
-          <Button size={"small"}>Get started</Button>
+          <Button size={"small"}>
+          <Link className="section-link" href={"/auth"}>
+                Get started
+              </Link></Button>
         </div>
       </div>
     </HeroContainer>

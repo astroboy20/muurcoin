@@ -5,11 +5,8 @@ import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { useRouter } from "next/router";
-import Button from "../Button/Button";
 import { Input } from "../Input";
 import { CiSearch } from "react-icons/ci";
-import { MdDarkMode } from "react-icons/md";
-import { MdLightMode } from "react-icons/md";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdWallet } from "react-icons/io";
 import { useDarkMode } from "@/Features/DarkMode";
@@ -18,7 +15,6 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBlurred, setIsBlurred] = useState(false);
   const router = useRouter();
-  const { darkMode, handleToggle } = useDarkMode();
   const handleHamburger = () => {
     setIsOpen(!isOpen);
   };
@@ -50,7 +46,7 @@ const Header = () => {
               variant={"search"}
               type={"text"}
               icon={<CiSearch fontSize={"30px"} color="#000" />}
-              placeholder={"Email"}
+              placeholder={"Search"}
             />
           </div>
 
@@ -80,7 +76,7 @@ const Header = () => {
           <div className="icons">
             <IoMdWallet fontSize={"25px"} />
             <FaUserAlt fontSize={"25px"} />
-            <MdDarkMode fontSize={"25px"} />
+            {/* <MdDarkMode fontSize={"25px"} /> */}
             {/* <button onClick={handleToggle}>
               Toggle Dark Mode: {darkMode ? "On" : "Off"}
             </button> */}

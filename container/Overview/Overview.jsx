@@ -10,7 +10,6 @@ const Overview = () => {
       <Header />
       <OverviewContainer>
         <h1> Overview</h1>
-        <h1 className="text-3xl font-bold underline">ggfkdajg</h1>
         <CryptoCurrencyMarket
           colorTheme="dark"
           width="100%"

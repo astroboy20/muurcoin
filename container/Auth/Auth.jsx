@@ -17,12 +17,15 @@ const Auth = () => {
         /> */}
         <div className="right">
           <Image
-            src={"/images/btc.png"}
+            src={"/images/coin.png"}
             width={250}
             height={250}
             alt="auth-image"
           />
+          <div className="text">
           Get Crypto.Trade Stock. Start Gaining
+          </div>
+         
           <div className="button">
             <Button size={"large"}>
               <Link className="link" href={"/register"}>
