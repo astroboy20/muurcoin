@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, InputDiv, InputStyle } from "./Input.style";
+import { Container, InputDiv, InputStyle, SearchDiv } from "./Input.style";
 import { BiSolidShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
 import PropTypes from "prop-types";
@@ -64,7 +64,29 @@ const Input = ({
         </span>
       )}
     </InputDiv>
-  ) : null;
+  ) : variant === "search" ? (
+    <SearchDiv>
+      <Container>
+        {icon}
+        <InputStyle
+          type={inputType}
+          value={value}
+          placeholder={placeholder}
+          onChange={onChange}
+          {...rest}
+          icon={icon}
+        />
+      </Container>
+
+      <div>
+        {error && (
+          <span style={{ color: "red" }} htmlFor={rest.id}>
+            {error}
+          </span>
+        )}
+      </div>
+    </SearchDiv>
+  ): null;
 };
 
 Input.propTypes = {

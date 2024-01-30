@@ -2,7 +2,7 @@ import styled,{keyframes} from "styled-components";
 
 const overlayAnimation = keyframes`
   0%, 100% {
-    opacity: 0.5;
+    opacity: 0.8;
   }
   50% {
     opacity: 1;
@@ -11,16 +11,19 @@ const overlayAnimation = keyframes`
 
 export const MarketContainer = styled.div`
   position:relative ;
+  bottom:0 ;
+  width:100% ;
+  height:auto ;
   background: #131740;
   color: white;
-  padding: 6% 4%;
+  padding: 0% 4%;
   display: flex;
   flex-direction: column;
   .hero-image {
     position: relative;
     margin: auto;
     z-index:1;
-    top: -400px;
+    top: -250px;
 
     &::before {
       content: "";
@@ -37,6 +40,13 @@ export const MarketContainer = styled.div`
       animation: ${overlayAnimation} 5s ease-in-out infinite; /* Add the animation */
      
     }
+  }
+  .crypto{
+    position: relative;
+    margin: auto;
+    z-index:1;
+    top: -150px;
+    width:100% ;
   }
   h1 {
     font-size: 36px;

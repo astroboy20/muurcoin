@@ -42,12 +42,13 @@ const Header = () => {
       <HeaderContainer className={isBlurred && "is-blurred"}>
         <nav>
           <Image src={"/images/logo.png"} width={75} height={75} alt="logo" />
-          <Input
-            variant={"text"}
+          <div className="search">  <Input
+            variant={"search"}
             type={"text"}
             icon={<CiSearch fontSize={"30px"} color="#000" />}
             placeholder={"Email"}
-          />
+          /></div>
+        
           <div className="section">
             <Link
               className={`section-link ${isActiveLink("/") && "active"}`}

@@ -8,6 +8,7 @@ import Image from "next/image";
 const Market = () => {
   return (
     <MarketContainer>
+      
       <div className="hero-image">
         <Image
           src={"/images/hero_crypto_trading.png"}
@@ -16,7 +17,7 @@ const Market = () => {
           height={400}
         />
       </div>
-      <div data-aos="fade-up" data-aos-delay="300">
+      <div className="crypto"  data-aos="fade-up" data-aos-delay="300">
         <CryptoCurrencyMarket
           colorTheme="light"
           width="100%"

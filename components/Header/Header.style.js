@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-  padding: 0% 4%;
+  padding: 2% 4%;
   color: black;
   background: linear-gradient(to right, #eedae3, #edf0fa, #edf0fa);
   position: fixed;
