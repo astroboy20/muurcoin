@@ -40,6 +40,7 @@ export const HeaderContainer = styled.header`
   .icons {
     display: flex;
     gap: 20px;
+    align-items:center ;
   }
   .hamburger {
     display: none;
@@ -55,6 +56,9 @@ export const HeaderContainer = styled.header`
     }
     .hamburger {
       display: block;
+    }
+    .search{
+      display:none ;
     }
   }
 `;

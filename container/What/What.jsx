@@ -17,7 +17,19 @@ const What = () => {
             width={500}
             height={500}
             alt="what-image"
-            objectFit="cover"
+            objectFit="contain"
+            style={{
+              borderRadius: "10px",
+            }}
+          />
+        </div>
+        <div className="responsive-image">
+          <Image
+            src={"/images/crypto_trading_feature.jpg"}
+            width={350}
+            height={350}
+            alt="what-image"
+            objectFit="contain"
             style={{
               borderRadius: "10px",
             }}

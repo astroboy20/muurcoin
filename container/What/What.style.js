@@ -31,6 +31,10 @@ export const WhatContainer = styled.div`
   .image {
     width: 100%;
   }
+  .responsive-image {
+    width: 100%;
+    display:none ;
+  }
   h1 {
     font-size: 32px;
   }
@@ -47,15 +51,22 @@ export const WhatContainer = styled.div`
   } */
 
   @media screen and (max-width: 800px) {
+   
     .what-container {
       flex-direction: column;
       text-align: center;
+      gap:30px;
     }
     flex-direction: column;
     text-align: center;
     .image {
       /* width:500px ; */
       /* padding-right:4%; */
+      display:none ;
+    }
+
+    .responsive-image{
+      display:block ;
     }
     padding: 8% 4%;
     h1 {

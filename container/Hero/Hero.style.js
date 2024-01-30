@@ -36,14 +36,15 @@ export const HeroContainer = styled.header`
 
   @media screen and (max-width: 786px) {
     margin-top: 100px;
-    padding: 10% 4%;
+    padding: 10% 4% 100%;
+    overflow-x: none;
 
     .hero-text {
       width: 100%;
     }
 
     .hero-text h1 {
-      font-size: 60px;
+      font-size: 30px;
     }
 
     .hero-text h3,

@@ -13,8 +13,8 @@ const Market = () => {
         <Image
           src={"/images/hero_crypto_trading.png"}
           alt="hero"
-          width={400}
-          height={400}
+          width={350}
+          height={350}
         />
       </div>
       <div className="crypto"  data-aos="fade-up" data-aos-delay="300">

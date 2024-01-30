@@ -10,19 +10,19 @@ const Footer = () => {
           <h3>Let's talk!</h3>
           <p>+12 345 678 9101</p>
           <p>forntendmart@gmail.com</p>
-          <p> Cecilia Chapman 711-2000 Nulle St. Mankato Mississippi 90022</p>
+          <p>Cecilia Chapman 711-2000 Nulle St. Mankato Mississippi 90022</p>
         </div>
         <div className="center">
           <h3>Links</h3>
           <p>Home</p>
           <p>Overview</p>
-          <p> Spot-trading</p>
+          <p>Spot-trading</p>
         </div>
         <div className="right">
           <h3>NewsLetter</h3>
         </div>
       </div>
-<hr className="hr"/>
+      <hr className="hr" />
       <div className="bottom">
         <p>2023 All Rights Reserved Terms of Service | Privacy Terms</p>
       </div>

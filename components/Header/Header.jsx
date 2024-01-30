@@ -42,13 +42,16 @@ const Header = () => {
       <HeaderContainer className={isBlurred && "is-blurred"}>
         <nav>
           <Image src={"/images/logo.png"} width={75} height={75} alt="logo" />
-          <div className="search">  <Input
-            variant={"search"}
-            type={"text"}
-            icon={<CiSearch fontSize={"30px"} color="#000" />}
-            placeholder={"Email"}
-          /></div>
-        
+          <div className="search">
+            {" "}
+            <Input
+              variant={"search"}
+              type={"text"}
+              icon={<CiSearch fontSize={"30px"} color="#000" />}
+              placeholder={"Email"}
+            />
+          </div>
+
           <div className="section">
             <Link
               className={`section-link ${isActiveLink("/") && "active"}`}
@@ -73,23 +76,22 @@ const Header = () => {
           </div>
 
           <div className="icons">
-            <IoMdWallet fontSize={"30px"} />
-            <FaUserAlt fontSize={"30px"} />
-            <MdDarkMode fontSize={"30px"} />
+            <IoMdWallet fontSize={"25px"} />
+            <FaUserAlt fontSize={"25px"} />
+            <MdDarkMode fontSize={"25px"} />
             {/* <Button size={"large"}>
               {" "}
               <Link className="section-link" href={"/auth"}>
                 Get started
               </Link>
             </Button> */}
-          </div>
-
-          <div className="hamburger" onClick={handleHamburger}>
-            {isOpen ? (
-              <IoMdClose fontSize={"40px"} />
-            ) : (
-              <GiHamburgerMenu fontSize={"40px"} />
-            )}
+            <div className="hamburger" onClick={handleHamburger}>
+              {isOpen ? (
+                <IoMdClose fontSize={"30px"} />
+              ) : (
+                <GiHamburgerMenu fontSize={"30px"} />
+              )}
+            </div>
           </div>
         </nav>
         {isOpen && (
