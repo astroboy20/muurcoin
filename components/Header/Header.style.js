@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
   padding: 2% 4%;
-  color: black;
-  background: linear-gradient(to right, #eedae3, #edf0fa, #edf0fa);
+  color: #fff;
+  background: linear-gradient(to right, #744369, #4A3671, #3B3C8F);
   position: fixed;
   top: 0;
   width: 100%;
@@ -28,7 +28,7 @@ export const HeaderContainer = styled.header`
   .section-link {
     text-decoration: none;
     font-weight: 600;
-    color: #000;
+    color: #fff;
   }
   button {
     /* background: #ea4ba7; */

@@ -5,6 +5,7 @@ import { GlobalStyles, theme } from "@/theme";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { DarkModeProvider } from "@/Features/DarkMode";
+
 // import "@/styles/global.css";
 export default function App({ Component, pageProps }) {
   useEffect(() => {

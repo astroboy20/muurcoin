@@ -3,13 +3,14 @@ import styled from "styled-components";
 export const HowContainer = styled.div`
   background-color: #131740;
   color: #fff;
-  padding:  4%;
+  padding:8% 4%;
 
   h1 {
     font-size: 36px;
     margin-bottom: 40px;
-    text-align:center ;
+    text-align: center;
   }
+
 
   @media screen and (max-width: 800px) {
     padding: 8% 4%;
@@ -17,14 +18,13 @@ export const HowContainer = styled.div`
       font-size: 24px;
     }
   }
-  
 `;
 
 export const Introduction = styled.div`
   /* padding: 5%; */
   display: flex;
   justify-content: space-between;
-  gap:20px;
+  gap: 20px;
   /* background-color: rgba(11, 13, 62, 0.5); */
   .information {
     display: flex;
@@ -35,10 +35,10 @@ export const Introduction = styled.div`
     width: 30%;
   }
   .information h2 {
-    font-size: 18px;
+    font-size: 32px;
   }
   .information p {
-    font-size: 14px;
+    font-size: 20px;
   }
 
   @media screen and (max-width: 786px) {
@@ -50,4 +50,3 @@ export const Introduction = styled.div`
     }
   }
 `;
-

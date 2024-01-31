@@ -20,10 +20,35 @@ export const Container = styled.div`
   border: 1.5px solid #878e9c;
   background: white;
 `;
+
+export const SearchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 12px;
+  padding: 5px 16px 0 16px;
+  border: 1.5px solid #fff;
+  background: none;
+`;
 export const InputStyle = styled.input`
   border-radius: 12px;
   padding: 12px 16px;
   border: none;
   width: 100%;
+  
+`;
+export const SearchInputStyle = styled.input`
+  border-radius: 12px;
+  padding: 12px 16px;
+  border: none;
+  width: 100%;
+  background:none ;
+  color:#fff ;
+  font-weight:bold ;
+  &::placeholder{
+    color: #fff;;
+    /* width:2000% ; */
+  }
   
 `;

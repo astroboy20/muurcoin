@@ -6,9 +6,9 @@ export const HeroContainer = styled.header`
   align-items: center;
   justify-content: center;
   padding: 3% 4% 30%;
-  background: linear-gradient(to right, #eedae3, #edf0fa, #edf0fa);
+  background: linear-gradient(to right, #744369, #4A3671, #3B3C8F);
   clip-path: polygon(50% 0%, 100% 0, 100% 71%, 68% 100%, 0% 75%, 0 0);
-  color: black;
+  color: #fff;
   margin-top: 110px;
   .section-link {
     text-decoration: none;

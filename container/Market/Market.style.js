@@ -14,7 +14,7 @@ export const MarketContainer = styled.div`
   bottom:0 ;
   width:100% ;
   height:auto ;
-  background: #131740;
+  background: #0D102D;
   color: white;
   padding: 0% 4%;
   display: flex;

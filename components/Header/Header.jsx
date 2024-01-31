@@ -45,7 +45,7 @@ const Header = () => {
             <Input
               variant={"search"}
               type={"text"}
-              icon={<CiSearch fontSize={"30px"} color="#000" />}
+              icon={<CiSearch fontSize={"30px"} color="white" fontWeight={500}/>}
               placeholder={"Search"}
             />
           </div>

@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const OverviewContainer = styled.div`
   margin-top: 120px;
   padding: 4%;
-  background-color: #fff;
-  color: #000;
+  background-color: #131740;
+  color: #fff;
   /* height:100dvh ; */
   display: flex;
   flex-direction: column;

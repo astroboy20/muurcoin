@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const SkillContainer = styled.div`
-  background-color: #f5f8fa;
-  color: #000;
+  background-color: #0d102d;
+  color: #fff;
   padding: 4%;
   text-align: center;
 
@@ -43,8 +43,8 @@ export const SkillContainer = styled.div`
     display: flex;
     gap: 10px;
     width: 20%;
-    background-color: #fff;
-    border: 1px solid #000;
+    background-color: #131740;
+    /* border: 1px solid #000; */
     padding: 2%;
     border-radius: 10px;
     margin: 10px;
@@ -65,25 +65,25 @@ export const SkillContainer = styled.div`
       width: 100%;
     }
     .icons {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction:column ;
-    width:100% ;
-  }
-  .icon {
-    gap: 10px;
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid #000;
-    padding: 2%;
-    border-radius: 10px;
-    margin: 10px;
-  }
-  .text {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-  }
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      width: 100%;
+    }
+    .icon {
+      gap: 10px;
+      width: 100%;
+      /* background-color: #fff; */
+      /* border: 1px solid #000; */
+      padding: 5%;
+      border-radius: 10px;
+      margin: 10px;
+    }
+    .text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
 
     padding: 8% 4%;
     h1 {

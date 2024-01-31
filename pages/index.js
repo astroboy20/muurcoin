@@ -6,7 +6,6 @@ import { HeroSection } from "@/container/Hero";
 import { Layout, Steps } from "@/container/Steps/Steps";
 import { Market } from "@/container/Market";
 import { Footer } from "@/components/Footer";
-import { How } from "@/container/HowItWorks";
 import { What } from "@/container/What";
 import { Skills } from "@/container/Skills/Skills";
 import { Stat } from "@/container/Stat";
@@ -27,7 +26,7 @@ export default function Home() {
       <HeroSection />
       {/* <Stat/> */}
       <Market />
-      <How />
+      <Stat />
       <What />
       <Skills />
       <Steps/>

@@ -19,7 +19,7 @@ const Market = () => {
       </div>
       <div className="crypto"  data-aos="fade-up" data-aos-delay="300">
         <CryptoCurrencyMarket
-          colorTheme="light"
+          colorTheme="dark"
           width="100%"
           height={490}
           // autosize

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const StepContainer = styled.div`
-  background-color: #f5f8fa;
-  color: #000;
+  background-color: #101436;
+  color: #fff;
   padding: 4%;
   text-align: center;
 
@@ -43,8 +43,8 @@ export const StepContainer = styled.div`
     text-align: left;
     gap: 10px;
     width: 35%;
-    background-color: #fff;
-    border: 1px solid #000;
+    background-color: #131740;
+    /* border: 1px solid #000; */
     padding: 3%;
     border-radius: 10px;
     margin: 10px;
@@ -56,7 +56,7 @@ export const StepContainer = styled.div`
   }
 
   .percentage {
-    background: linear-gradient(to right, #eedae3, #edf0fa, #edf0fa);
+    background: linear-gradient(to right, #744369, #4A3671, #3B3C8F);
     padding:10% 5%;
     display: flex;
     justify-content: space-between;
@@ -93,8 +93,8 @@ export const StepContainer = styled.div`
     .information {
       gap: 10px;
       width: 100%;
-      background-color: #fff;
-      border: 1px solid #000;
+      /* background-color: #fff; */
+      /* border: 1px solid #000; */
       padding: 10% 3%;
       border-radius: 10px;
       margin: 10px auto;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, InputDiv, InputStyle, SearchDiv } from "./Input.style";
+import { Container, InputDiv, InputStyle, SearchContainer, SearchDiv, SearchInputStyle } from "./Input.style";
 import { BiSolidShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
 import PropTypes from "prop-types";
@@ -66,9 +66,9 @@ const Input = ({
     </InputDiv>
   ) : variant === "search" ? (
     <SearchDiv>
-      <Container>
+      <SearchContainer>
         {icon}
-        <InputStyle
+        <SearchInputStyle
           type={inputType}
           value={value}
           placeholder={placeholder}
@@ -76,7 +76,7 @@ const Input = ({
           {...rest}
           icon={icon}
         />
-      </Container>
+      </SearchContainer>
 
       <div>
         {error && (
