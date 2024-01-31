@@ -22,21 +22,15 @@ const Auth = () => {
             height={250}
             alt="auth-image"
           />
-          <div className="text">
-          Get Crypto.Trade Stock. Start Gaining
-          </div>
-         
+          <div className="text">Get Crypto.Trade Stock. Start Gaining</div>
+
           <div className="button">
-            <Button size={"large"}>
-              <Link className="link" href={"/register"}>
-                Create account
-              </Link>
-            </Button>
-            <Button size={"large"}>
-              <Link className="link" href={"/login"}>
-                Login
-              </Link>
-            </Button>
+            <Link className="link" href={"/register"}>
+              Create account
+            </Link>
+            <Link className="link" href={"/loign"}>
+              Login
+            </Link>
           </div>
         </div>
       </AuthContainer>

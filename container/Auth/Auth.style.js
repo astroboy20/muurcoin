@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const AuthContainer = styled.div`
-  background: linear-gradient(to right, #eedae3, #edf0fa, #edf0fa);
+ background: linear-gradient(to right, #744369, #4A3671, #3B3C8F);
   
   height: 100vh;
   text-align: center;
-  color: #000;
+  color: #fff;
   display:flex ;
   
   .text{
@@ -36,8 +36,18 @@ export const AuthContainer = styled.div`
     width: 30%;
   }
   .link {
-    text-decoration: none;
-    color: #fff;
+    background: #8358ff;
+  border: none;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 999px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
   }
 
   @media screen and (max-width:800px) {
@@ -49,6 +59,11 @@ export const AuthContainer = styled.div`
     }
     .button {
     width: 100%;
+  }
+  .link{
+    width: 100%;
+    /* padding:10px 20px ; */
+    margin: 0 auto;
   }
   }
 `;

@@ -9,7 +9,6 @@ import { Input } from "../Input";
 import { CiSearch } from "react-icons/ci";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdWallet } from "react-icons/io";
-import { useDarkMode } from "@/Features/DarkMode";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
