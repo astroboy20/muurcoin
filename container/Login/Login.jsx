@@ -21,10 +21,12 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
-  const { isSuccess, message, isError, isLoading } = useSelector(
+  const { isSuccess, message, isError, isLoading, user } = useSelector(
     (state) => state.auth
   );
 
+  const token = user? user.token :""
+  console.log(token)
   const onChange = (e) => {
     const { name, value } = e.target;
     setUserDetails((prevvData) => ({
@@ -42,10 +44,10 @@ const Login = () => {
       toast.success(message)
     }
 
-    dispatch(reset())
+    // dispatch(reset())
   
     
-  }, [isSuccess, isError, message, router, dispatch])
+  }, [isSuccess, isError, message, router])
   
   const onSubmit = (e) => {
     e.preventDefault();
