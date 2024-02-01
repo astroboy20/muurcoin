@@ -11,21 +11,52 @@ const initialState = {
 };
 
 //Register user
-
 export const register = createAsyncThunk(
   "auth/register",
   async (user, thunkAPI) => {
     try {
       return await authService.register(user);
-    } catch (error) {
+    } catch (errors) {
       const message =
-        (error.response && error.response.data.message) ||
-        error.message ||
-        error.toString();
-      return thunkAPI.rejectWithValue(BiMessageAltEdit);
+        (errors.response && errors.response.data.message) ||
+        errors.message ||
+        errors.toString() ||
+        message;
+      console.log("message", message);
+      return thunkAPI.rejectWithValue(message);
     }
   }
 );
+
+//login user
+export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
+  try {
+    return await authService.login(user);
+  } catch (error) {
+    const message =
+      (errors.response && errors.response.data.message) ||
+      errors.message ||
+      errors.toString() ||
+      message;
+    console.log("message", message);
+    return thunkAPI.rejectWithValue(message);
+  }
+});
+
+//logout user
+export const logoOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
+  try {
+    return await authService.logout();
+  } catch (error) {
+    const message =
+      (error.response && error.response.data.message.message) ||
+      error.message ||
+      error.toString() ||
+      message;
+
+    return thunkAPI.rejectWithValue(message);
+  }
+});
 export const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -39,6 +70,7 @@ export const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      //register
       .addCase(register.pending, (state) => {
         state.isLoading = true;
       })
@@ -47,13 +79,40 @@ export const authSlice = createSlice({
         state.isSuccess = true;
         state.isError = false;
         state.user = action.payload;
-        state.message = toast.success( action.payload);
+        state.message = action.payload.status;
+        toast.success("Registration Successful");
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
-
         state.user = null;
+        state.message = action.payload;
+        toast.error(action.payload);
+      })
+
+      //login
+      .addCase(login.pending, (state) => {})
+      
+      .addCase(login.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.isError = false;
+        state.user = action.payload;
+        state.message = action.payload.status;
+      })
+      .addCase(login.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.user = null;
+        state.message = action.payload;
+        toast.error(action.payload);
+      })
+
+      //logout
+      .addCase(logoOut.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.message = action.payload.status;
+        toast.success("Registration Successful");
       });
   },
 });

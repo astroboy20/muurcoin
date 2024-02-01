@@ -32,10 +32,10 @@ const Register = () => {
 
   useEffect(() => {
   if(isError){
-    console.log("error")
+    console.log(message)
   }
   if(isSuccess || user){
-    console.log("success")
+    console.log(message)
   }
   dispatch(reset())
   }, [userDetails, isError, message, isSuccess])

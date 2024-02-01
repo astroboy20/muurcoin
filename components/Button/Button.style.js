@@ -15,27 +15,23 @@ export const ButtonStyle = styled.button`
   width:100% ;
   @media screen and (max-width: 800px) {
     width: 100%;
-    /* padding:10px 20px ; */
     margin: 0 auto;
   }
 `;
 export const TransparentButton = styled.button`
   background: none;
-  border: 1px solid #ea4ba7;
+  border: 1px solid  #8358ff;
   color: #fff;
   padding: 15px 20px;
   border-radius: 10px;
   width: 100%;
-  /* text-align:center ; */
 `;
 export const SmallButtonStyle = styled.button`
   background: #8358ff;
   border: none;
   color: #fff;
   padding: 15px 20px;
-  /* border-radius: 10px; */
   width: 35%;
-  /* padding: 3px 8px; */
   border-radius: 999px;
   color: white;
   font-weight: bold;

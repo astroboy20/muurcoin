@@ -1,21 +1,13 @@
 import styled from "styled-components";
 
 export const LoginContainer = styled.div`
-  background-color: #000;
+  background-color: #131740;
   color: #fff;
-  height: 100dvh;
   display: flex;
-  /* flex-direction: column; */
-  gap: 20px;
-  /* padding: 2% 4%; */
-  .btc {
-    width: 50%;
-    height: 100vh;
-    background: url("/images/login.png");
-    background-repeat: no-repeat;
-    /* background-size: cover; */
-    background-position: center center;
-  }
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height:100dvh ;
   .form {
     width: 50%;
     padding: 2% 6%;
