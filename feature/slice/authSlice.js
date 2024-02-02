@@ -32,7 +32,7 @@ export const register = createAsyncThunk(
 export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
   try {
     return await authService.login(user);
-  } catch (error) {
+  } catch (errors) {
     const message =
       (errors.response && errors.response.data.message) ||
       errors.message ||
@@ -44,7 +44,7 @@ export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
 });
 
 //logout user
-export const logoOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
+export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
     return await authService.logout();
   } catch (error) {
@@ -92,7 +92,7 @@ export const authSlice = createSlice({
 
       //login
       .addCase(login.pending, (state) => {})
-      
+
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
@@ -109,10 +109,22 @@ export const authSlice = createSlice({
       })
 
       //logout
-      .addCase(logoOut.fulfilled, (state, action) => {
-        state.user = action.payload;
+      .addCase(logOut.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(logOut.fulfilled, (state, action) => {
+        state.user = null;
+        state.isSuccess = true;
+        state.isLoading = false;
+        state.isError = false;
         state.message = action.payload.status;
-        toast.success("Registration Successful");
+        toast.success(action.payload.status);
+      })
+      .addCase(logOut.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+        toast.error(action.payload.status);
       });
   },
 });

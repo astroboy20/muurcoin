@@ -25,7 +25,8 @@ const Login = () => {
     (state) => state.auth
   );
 
-  const token = user? user.token :""
+  const token = user?.data.token
+  typeof window !== "undefined" && localStorage.setItem("token", token)
   console.log(token)
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -42,6 +43,7 @@ const Login = () => {
 
     if(isSuccess){
       toast.success(message)
+      router.push("/fiat")
     }
 
     // dispatch(reset())
@@ -55,6 +57,10 @@ const Login = () => {
       dispatch(login(userDetails));
     }
   };
+
+  if (isLoading){
+    <MoonLoader color="#fffff" />
+  }
   return (
     <LoginContainer>
       <div className="form">

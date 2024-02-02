@@ -13,7 +13,7 @@ const What = () => {
       <div className="what-container" data-aos="fade-up" data-aos-delay="1000">
         <div className="image">
           <Image
-            src={"/images/crypto_trading_feature.jpg"}
+            src={"/images/hero1.jpg"}
             width={500}
             height={500}
             alt="what-image"
@@ -25,7 +25,7 @@ const What = () => {
         </div>
         <div className="responsive-image">
           <Image
-            src={"/images/crypto_trading_feature.jpg"}
+            src={"/images/hero1.jpg"}
             width={350}
             height={350}
             alt="what-image"

@@ -28,7 +28,7 @@ const Auth = () => {
             <Link className="link" href={"/register"}>
               Create account
             </Link>
-            <Link className="link" href={"/loign"}>
+            <Link className="link" href={"/login"}>
               Login
             </Link>
           </div>
