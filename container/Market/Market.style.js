@@ -23,7 +23,7 @@ export const MarketContainer = styled.div`
     position: relative;
     margin: auto;
     z-index:1;
-    top: -350px;
+    top: -300px;
 
     &::before {
       content: "";
