@@ -40,9 +40,10 @@ const ResetPassword = () => {
   }, [isError,isSuccess,message]);
 
   const onSubmit = (e) => {
-    e.preventDetails();
+    e.preventDefault();
 
-    dispatch(resetPassword(resetDetails));
+    // dispatch(resetPassword(resetDetails));
+    console.log(resetDetails)
   };
   return (
     <>
