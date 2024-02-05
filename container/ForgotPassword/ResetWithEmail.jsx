@@ -18,7 +18,7 @@ const ResetWithEmail = () => {
   useEffect(() => {
     if(isSuccess){
       toast.success(message)
-      router.push("/reset-password")
+      // router.push("/reset-password")
     }
     if(isError){
       toast.error(message)
