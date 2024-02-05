@@ -1,1 +1,1 @@
-export {ForgotPassword} from "./ForgotPassword"
+export {ResetWithEmail} from "./ResetWithEmail"

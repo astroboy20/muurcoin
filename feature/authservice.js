@@ -26,11 +26,24 @@ const logout = async () => {
   });
   return response.data;
 };
+//reset email
+const reset_with_email = async (email) => {
+  const response = await axios.post(`${API_URL}/forgot-password`,email)
+  return response.data;
+};
+
+//reset email
+const reset_Password = async (email) => {
+  const response = await axios.post(`${API_URL}/forgot-password`,email)
+  return response.data;
+};
 
 const authService = {
   register,
   login,
   logout,
+  reset_with_email,
+  reset_Password
 };
 
 export default authService;

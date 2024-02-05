@@ -43,6 +43,25 @@ export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
   }
 });
 
+//forgot password
+
+export const resetEmail = createAsyncThunk(
+  "auth/forgot-password",
+  async (email, thunkAPI) => {
+    try {
+      return await authService.reset_with_email(email);
+    } catch (errors) {
+      const message =
+        (errors.response && errors.response.data.message) ||
+        errors.message ||
+        errors.toString() ||
+        message;
+      // console.log("message", message);
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 //logout user
 export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
@@ -108,7 +127,20 @@ export const authSlice = createSlice({
         state.message = action.payload;
         // toast.error(action.payload);
       })
-
+      .addCase(resetEmail.pending, (state)=>{
+        state.isLoading = true
+      })
+      .addCase(resetEmail.fulfilled,(state,action)=>{
+        state.isSuccess =true
+        state.isError =false
+        state.isLoading = false
+        state.message =action.payload.message
+      })
+      .addCase(resetEmail.rejected,(state,action)=>{
+        state.isError =true
+        state.isLoading = false
+        state.message = action.payload
+      })
       //logout
       .addCase(logOut.pending, (state) => {
         state.isLoading = true;
