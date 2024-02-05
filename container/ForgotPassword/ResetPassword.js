@@ -42,7 +42,7 @@ const ResetPassword = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    // dispatch(resetPassword(resetDetails));
+    dispatch(resetPassword(resetDetails));
     console.log(resetDetails)
   };
   return (
