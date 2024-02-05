@@ -80,7 +80,7 @@ export const authSlice = createSlice({
         state.isError = false;
         state.user = action.payload;
         state.message = action.payload.status;
-        toast.success("Registration Successful");
+        // toast.success(action.payload.status);
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false;
@@ -91,21 +91,22 @@ export const authSlice = createSlice({
       })
 
       //login
-      .addCase(login.pending, (state) => {})
-
+      .addCase(login.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.isError = false;
         state.user = action.payload;
-        state.message = action.payload.status;
+        state.message = action.payload.message;
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.user = null;
         state.message = action.payload;
-        toast.error(action.payload);
+        // toast.error(action.payload);
       })
 
       //logout

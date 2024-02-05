@@ -12,6 +12,7 @@ import { IoLogoCodepen } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { register, reset } from "@/feature/slice/authSlice";
+import {toast} from "react-toastify"
 
 const Register = () => {
   const [userDetails, setUserDetails] = useState({
@@ -34,8 +35,8 @@ const Register = () => {
   if(isError){
     console.log(message)
   }
-  if(isSuccess || user){
-    console.log(message)
+  if(isSuccess && user){
+    toast.success(message)
   }
   dispatch(reset())
   }, [userDetails, isError, message, isSuccess])

@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { login, reset } from "@/feature/slice/authSlice";
 import {toast} from "react-toastify"
+import MoonLoader from 'react-spinners/MoonLoader';
 
 const Login = () => {
   const [userDetails, setUserDetails] = useState({
@@ -43,7 +44,7 @@ const Login = () => {
 
     if(isSuccess){
       toast.success(message)
-      router.push("/fiat")
+      // router.push("/fiat")
     }
 
     // dispatch(reset())
@@ -89,7 +90,7 @@ const Login = () => {
               placeholder={"Password"}
             />
             <div className="link-div">
-              <Link className=" link" href={"/"}>
+              <Link className=" link" href={"/forgot-password"}>
                 Forgot password
               </Link>
             </div>
