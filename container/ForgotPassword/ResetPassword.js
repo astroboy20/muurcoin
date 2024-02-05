@@ -15,6 +15,7 @@ const ResetPassword = () => {
   );
   const token = searchParams.get("token");
   const email = searchParams.get("email");
+  console.log(email,token)
   const [resetDetails, setResetDetails] = useState({
     token: token,
     email: email,
@@ -79,7 +80,7 @@ const ResetPassword = () => {
             value={resetDetails.password_confirmation}
             onChange={onChange}
             icon={<TbPasswordUser fontSize={"40px"} color="#000" />}
-            placeholder={"Comfirm Password"}
+            placeholder={"Confirm Password"}
           />
           <Button size={"large"}> Reset</Button>
         </form>
