@@ -34,7 +34,7 @@ const reset_with_email = async (email) => {
 
 //reset email
 const reset_Password = async (email) => {
-  const response = await axios.post(`${API_URL}/forgot-password`,email)
+  const response = await axios.post(`${API_URL}/reset-password`,email)
   return response.data;
 };
 
