@@ -74,7 +74,7 @@ const ResetPassword = () => {
           <Input
             variant={"password"}
             type={"password"}
-            name="password"
+            name="password_confirmation"
             value={resetDetails.password_confirmation}
             onChange={onChange}
             icon={<TbPasswordUser fontSize={"40px"} color="#000" />}
