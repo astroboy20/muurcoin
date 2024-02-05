@@ -1,8 +1,9 @@
+import ResetPassword from '@/container/ForgotPassword/ResetPassword'
 import React from 'react'
 
 const resetPassword = () => {
   return (
-    <div> </div>
+    <div> <ResetPassword/></div>
   )
 }
 
