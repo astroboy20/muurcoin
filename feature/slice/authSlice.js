@@ -22,7 +22,6 @@ export const register = createAsyncThunk(
         errors.message ||
         errors.toString() ||
         message;
-      console.log("message", message);
       return thunkAPI.rejectWithValue(message);
     }
   }
@@ -38,7 +37,6 @@ export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
       errors.message ||
       errors.toString() ||
       message;
-    console.log("message", message);
     return thunkAPI.rejectWithValue(message);
   }
 });
@@ -56,12 +54,28 @@ export const resetEmail = createAsyncThunk(
         errors.message ||
         errors.toString() ||
         message;
-      // console.log("message", message);
       return thunkAPI.rejectWithValue(message);
     }
   }
 );
 
+//reset password
+export const resetPassword = createAsyncThunk(
+  "auth/reset-password",
+  async (resetDetails, thunkAPI) => {
+    try {
+      return await authService.reset_Password(resetDetails);
+    } catch (errors) {
+      const message =
+        (errors.response && errors.response.data.message) ||
+        errors.message ||
+        errors.toString() ||
+        message;
+
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
 //logout user
 export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
@@ -127,20 +141,39 @@ export const authSlice = createSlice({
         state.message = action.payload;
         // toast.error(action.payload);
       })
-      .addCase(resetEmail.pending, (state)=>{
-        state.isLoading = true
+
+      //reset_email
+      .addCase(resetEmail.pending, (state) => {
+        state.isLoading = true;
       })
-      .addCase(resetEmail.fulfilled,(state,action)=>{
-        state.isSuccess =true
-        state.isError =false
-        state.isLoading = false
-        state.message =action.payload.message
+      .addCase(resetEmail.fulfilled, (state, action) => {
+        state.isSuccess = true;
+        state.isError = false;
+        state.isLoading = false;
+        state.message = action.payload.message;
       })
-      .addCase(resetEmail.rejected,(state,action)=>{
-        state.isError =true
-        state.isLoading = false
-        state.message = action.payload
+      .addCase(resetEmail.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
+        state.message = action.payload;
       })
+      
+      //reset_password
+      .addCase(resetPassword.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(resetPassword.fulfilled, (state, action) => {
+        state.isSuccess = true;
+        state.isError = false;
+        state.isLoading = false;
+        state.message = action.payload.message;
+      })
+      .addCase(resetPassword.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
+        state.message = action.payload;
+      })
+
       //logout
       .addCase(logOut.pending, (state) => {
         state.isLoading = true;
