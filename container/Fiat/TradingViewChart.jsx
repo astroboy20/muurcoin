@@ -8,7 +8,7 @@ const TradingViewChart = () => {
     script.async = true;
     script.onload = () => {
       new TradingView.widget({
-        "width": 980,
+        "width": "100%",
         "height": 500,
         "symbol": "USDTBTC",
         "interval": "D",

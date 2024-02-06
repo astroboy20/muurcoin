@@ -44,7 +44,7 @@ const Login = () => {
 
     if(isSuccess){
       toast.success(message)
-      // router.push("/fiat")
+      router.push("/fiat")
     }
 
     // dispatch(reset())
