@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const FiatContainer = styled.div`
   margin-top: 120px;
-  padding: 4%;
+  /* padding: 4%; */
   background-color: #131740;
   color: #fff;
   /* height:100dvh ; */
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  padding-top:4% ;
   gap: 30px;
   h1 {
     font-size: 42px;
