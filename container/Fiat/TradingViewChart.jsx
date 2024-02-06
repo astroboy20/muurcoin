@@ -9,7 +9,7 @@ const TradingViewChart = () => {
     script.onload = () => {
       new TradingView.widget({
         "width": 980,
-        "height": 300,
+        "height": 500,
         "symbol": "USDTBTC",
         "interval": "D",
         "timezone": "Etc/UTC",

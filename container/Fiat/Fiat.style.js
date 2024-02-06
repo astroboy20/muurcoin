@@ -8,7 +8,7 @@ export const FiatContainer = styled.div`
   /* height:100dvh ; */
   display: flex;
   /* flex-direction: column; */
-  padding-top:4% ;
+  padding:4% 0;
   gap: 30px;
   h1 {
     font-size: 42px;
