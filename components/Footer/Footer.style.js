@@ -27,7 +27,12 @@ export const FooterContainer = styled.div`
     text-align: center;
     padding: 1% 0;
   }
-
+  h3{
+    font-size:16px ;
+  }
+  p{
+    font-size:12px ;
+  }
   .hr {
     background-color: #fff;
     width: 100%;

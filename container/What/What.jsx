@@ -14,7 +14,7 @@ const What = () => {
         <div className="image">
           <Image
             src={"/images/hero1.jpg"}
-            width={500}
+            width={600}
             height={500}
             alt="what-image"
             objectFit="contain"

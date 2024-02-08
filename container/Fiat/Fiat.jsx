@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FiatContainer } from "./Fiat.style";
 import Button from "@/components/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,11 +7,33 @@ import { useRouter } from "next/router";
 import TradingViewChart from "./TradingViewChart";
 import { Input } from "@/components/Input";
 import { CiSearch } from "react-icons/ci";
+import axios from "axios"
+
 const Fiat = () => {
+  const [UserCoins, setUserCoins] = useState("")
+
   const dispatch = useDispatch();
   const { isError, isSuccess, isLoading, user } = useSelector(
     (state) => state.auth
   );
+  const token = user?.data.token;
+  useEffect(() => {
+    if (token) {
+      axios
+        .get("http://162.254.35.120/api/user", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          console.log(response.data.data[0].balance);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [token]);
+
   const router = useRouter();
   const handleLogout = async () => {
     await dispatch(logOut());
@@ -37,12 +59,12 @@ const Fiat = () => {
         <div className="header">
           <h2>BTCUSDT</h2>
           <div>
-            <Button size={"small"}>Deposit</Button>
+           
           </div>
         </div>
         <div className="coin-chart">
           <div className="chart">
-            <TradingViewChart />
+            {/* <TradingViewChart /> */}
             <div className="buy-sell">
               <div className="buy">
                 <span>Avbl</span>

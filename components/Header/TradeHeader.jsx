@@ -9,8 +9,9 @@ import { Input } from "../Input";
 import { CiSearch } from "react-icons/ci";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdWallet } from "react-icons/io";
+import Button from "../Button/Button";
 
-const Header = () => {
+const TraderHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBlurred, setIsBlurred] = useState(false);
   const router = useRouter();
@@ -39,17 +40,15 @@ const Header = () => {
       <HeaderContainer className={isBlurred && "is-blurred"}>
         <nav>
           <Image src={"/images/logo.png"} width={75} height={75} alt="logo" />
-          <div className="search">
+          {/* <div className="search">
             {" "}
             <Input
               variant={"search"}
               type={"text"}
-              icon={
-                <CiSearch fontSize={"30px"} color="white" fontWeight={500} />
-              }
+              icon={<CiSearch fontSize={"30px"} color="white" fontWeight={500}/>}
               placeholder={"Search"}
             />
-          </div>
+          </div> */}
 
           <div className="section">
             <Link
@@ -76,13 +75,8 @@ const Header = () => {
 
           <div className="icons">
             <IoMdWallet fontSize={"25px"} />
-            <Link
-              className={`section-link ${isActiveLink("/auth") && "active"}`}
-              href={"/auth"}
-            >
-              <FaUserAlt fontSize={"25px"} />
-            </Link>
-
+            <FaUserAlt fontSize={"25px"} />
+            <Button size={"large"}>Deposit</Button>
             <div className="hamburger" onClick={handleHamburger}>
               {isOpen ? (
                 <IoMdClose fontSize={"30px"} />
@@ -115,4 +109,4 @@ const Header = () => {
   );
 };
 
-export { Header };
+export { TraderHeader };

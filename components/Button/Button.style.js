@@ -13,6 +13,7 @@ export const ButtonStyle = styled.button`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   width:100% ;
+  text-align:center ;
   @media screen and (max-width: 800px) {
     width: 100%;
     margin: 0 auto;

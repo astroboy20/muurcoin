@@ -24,8 +24,11 @@ export const MarketContainer = styled.div`
     margin: auto;
     z-index:1;
     top: -300px;
+    width:100% ;
+    height:400px ;
+    max-width:500px ;
 
-    &::before {
+    /* &::before {
       content: "";
       position: absolute;
       top: 50px;
@@ -37,9 +40,9 @@ export const MarketContainer = styled.div`
       background: linear-gradient(to right, #4158D0, #C850C0, #FFCC70);
       border-radius: 10px;
       opacity: 0;
-      animation: ${overlayAnimation} 5s ease-in-out infinite; /* Add the animation */
+      animation: ${overlayAnimation} 5s ease-in-out infinite;\
      
-    }
+    } */
   }
   .crypto{
     position: relative;
@@ -68,7 +71,7 @@ export const MarketContainer = styled.div`
     left:0px ;
     overflow:none ;
 
-    &::before {
+    /* &::before {
       content: "";
       position: absolute;
       top: 50px;
@@ -81,9 +84,9 @@ export const MarketContainer = styled.div`
       background: linear-gradient(to right, #4158D0, #C850C0, #FFCC70);
       border-radius: 10px;
       opacity: 0;
-      animation: ${overlayAnimation} 5s ease-in-out infinite; /* Add the animation */
+      animation: ${overlayAnimation} 5s ease-in-out infinite; 
      
-    }
+    } */
   }
   }
 `;

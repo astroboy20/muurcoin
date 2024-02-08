@@ -20,7 +20,6 @@ export const FiatContainer = styled.div`
   .coin-chart {
     display: flex;
     width: 100%;
-    /* background-color:#000 ; */
     border-top: 1px solid #fff;
   }
   .chart {
@@ -36,7 +35,6 @@ export const FiatContainer = styled.div`
     padding: 3% 2%;
     background-color: #000;
     display: flex;
-    /* justify-content: space-between; */
     gap: 20px;
     background-color: #131722;
   }
@@ -53,6 +51,7 @@ export const FiatContainer = styled.div`
     border-radius: 10px;
     border: 1px solid #fff;
     background-color: transparent;
+    color:#fff;
   }
   button {
     width: 100%;
@@ -70,17 +69,15 @@ export const FiatContainer = styled.div`
   }
   .logs .text{
     display:flex ;
+    overflow-y:scroll ;
     gap:20px;
   }
   @media screen and (max-width: 800px) {
     margin-top: 100px;
-    /* padding: 8% 4%; */
     .header {
-      height: 40px;
+      padding:5% 2% ;
     }
-    .coin-chart {
-      padding: 2%;
-    }
+   
     .chart {
       width: 100%;
     }
@@ -90,5 +87,13 @@ export const FiatContainer = styled.div`
     h1 {
       font-size: 30px;
     }
+    .log{
+      overflow-y:scroll ;
+      width:120% ;
+    }
+    .buy-sell{
+      padding:7% 3% 20% 3% ;
+    }
+    
   }
 `;

@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { Header } from "@/components/Header";
+import { Header, TraderHeader } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Fiat } from "@/container/Fiat";
 const fiat = () => {
@@ -12,7 +12,7 @@ const fiat = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/logo.png" />
       </Head>
-      <Header />
+      <TraderHeader />
       <Fiat />
       <Footer />
     </>

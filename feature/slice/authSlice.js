@@ -113,7 +113,7 @@ export const authSlice = createSlice({
         state.isError = false;
         state.user = action.payload;
         state.message = action.payload.status;
-        // toast.success(action.payload.status);
+        toast.success(action.payload.status);
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false;
@@ -133,13 +133,14 @@ export const authSlice = createSlice({
         state.isError = false;
         state.user = action.payload;
         state.message = action.payload.message;
+        toast.success(action.payload?.message)
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.user = null;
         state.message = action.payload;
-        // toast.error(action.payload);
+        toast.error(action.payload);
       })
 
       //reset_email

@@ -9,8 +9,9 @@ import Button from "@/components/Button/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { login, reset } from "@/feature/slice/authSlice";
-import {toast} from "react-toastify"
-import MoonLoader from 'react-spinners/MoonLoader';
+import { toast } from "react-toastify";
+import MoonLoader from "react-spinners/MoonLoader";
+import { Spinner } from "@/components/Spinner/Spinner";
 
 const Login = () => {
   const [userDetails, setUserDetails] = useState({
@@ -26,9 +27,9 @@ const Login = () => {
     (state) => state.auth
   );
 
-  const token = user?.data.token
-  typeof window !== "undefined" && localStorage.setItem("token", token)
-  console.log(token)
+  const token = user?.data.token;
+  typeof window !== "undefined" && localStorage.setItem("token", token);
+  console.log(token);
   const onChange = (e) => {
     const { name, value } = e.target;
     setUserDetails((prevvData) => ({
@@ -38,20 +39,14 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if(isError){
-      toast.error(message)
-    }
-
-    if(isSuccess){
-      toast.success(message)
+    if (isSuccess) {
+      // toast.success(message)
       router.push("/fiat")
     }
 
     // dispatch(reset())
-  
-    
-  }, [isSuccess, isError, message, router])
-  
+  }, [isSuccess, isError, message, router]);
+
   const onSubmit = (e) => {
     e.preventDefault();
     if (userDetails.email && userDetails.password) {
@@ -59,8 +54,8 @@ const Login = () => {
     }
   };
 
-  if (isLoading){
-    <MoonLoader color="#fffff" />
+  if (isLoading) {
+    <MoonLoader color="#fffff" />;
   }
   return (
     <LoginContainer>
@@ -94,7 +89,23 @@ const Login = () => {
                 Forgot password
               </Link>
             </div>
-            <Button size={"large"}> Login</Button>
+            <Button size={"large"}>
+              {" "}
+              {isLoading ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Spinner />
+                </div>
+              ) : (
+                "Login"
+              )}{" "}
+            </Button>
           </form>
         </div>
 
