@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ButtonStyle = styled.button`
-  background: #8358ff;
+  background: #8011D3;
   border: none;
   color: #fff;
   padding: 15px 20px;
@@ -21,14 +21,14 @@ export const ButtonStyle = styled.button`
 `;
 export const TransparentButton = styled.button`
   background: none;
-  border: 1px solid  #8358ff;
+  border: 1px solid  #8011D3;
   color: #fff;
   padding: 15px 20px;
   border-radius: 10px;
   width: 100%;
 `;
 export const SmallButtonStyle = styled.button`
-  background: #8358ff;
+  background: #8011D3;
   border: none;
   color: #fff;
   padding: 15px 20px;

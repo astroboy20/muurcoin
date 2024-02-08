@@ -38,7 +38,7 @@ const Header = () => {
     <>
       <HeaderContainer className={isBlurred && "is-blurred"}>
         <nav>
-          <Image src={"/images/logo.png"} width={75} height={75} alt="logo" />
+          <Image src={"/images/logo.jpg"} width={75} height={75} alt="logo" />
           <div className="search">
             {" "}
             <Input

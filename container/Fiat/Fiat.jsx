@@ -64,7 +64,7 @@ const Fiat = () => {
         </div>
         <div className="coin-chart">
           <div className="chart">
-            {/* <TradingViewChart /> */}
+            <TradingViewChart />
             <div className="buy-sell">
               <div className="buy">
                 <span>Avbl</span>
