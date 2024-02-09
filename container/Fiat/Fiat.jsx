@@ -15,7 +15,7 @@ const Fiat = () => {
   const [heading, setHeading] = useState("USDTBTC");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
 
@@ -112,20 +112,15 @@ const Fiat = () => {
             <TradingViewChart symbol={selectedCoin} />
             <div className="buy-sell">
               <div className="buy">
-                <span>Avbl:  {heading}</span>
-                <input type="text" />
-                <input type="text" />
-                <span>Max Buy</span>
-                <button style={{ background: "green" }}>Buy</button>
+                <span>Exchange Coin</span>
+                <input type="text" placeholder="From"/>
+                <input type="text"  placeholder="To"/>
+                <button style={{ background: "green" }}>Exchange</button>
               </div>
-              <div className="sell">
-                <span>Avbl</span>
-                <input type="text" />
-                <input type="text" />
-                <span>Max Sell</span>
-                <button style={{ background: "red" }}>Sell</button>
-              </div>
+             
+              
             </div>
+            {/* <button style={{ background: "red" }}>Sell</button> */}
           </div>
           <div className="coins">
             <Input

@@ -37,14 +37,16 @@ export const FiatContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: 650px;
+    height: 600px;
     overflow-y: scroll;
-    padding:2% ;
+    padding: 2%;
+    cursor: pointer;
   }
   .buy-sell {
     padding: 3% 2%;
     background-color: #000;
     display: flex;
+    justify-content: center;
     gap: 20px;
     background-color: #131722;
   }
@@ -56,7 +58,7 @@ export const FiatContainer = styled.div`
     width: 50%;
   }
   input {
-    width: 100%;
+    /* width: 100%; */
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #fff;
@@ -65,7 +67,8 @@ export const FiatContainer = styled.div`
   }
   button {
     width: 100%;
-    padding: 10px;
+    margin: 0 auto;
+    padding: 16px 20px;
     border: none;
     border-radius: 10px;
     color: #fff;
@@ -106,6 +109,12 @@ export const FiatContainer = styled.div`
     }
     .buy-sell {
       padding: 7% 3% 20% 3%;
+      width: 100%;
+    }
+    .buy,
+    .sell {
+     
+      width: 100%;
     }
     .small-coins {
       display: inline-block;
@@ -119,6 +128,7 @@ export const FiatContainer = styled.div`
     ul {
       height: 300px;
       overflow-y: scroll;
+      cursor: pointer;
     }
   }
 `;

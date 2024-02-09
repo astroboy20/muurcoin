@@ -1,4 +1,4 @@
-import { headers } from "@/next.config";
+
 import axios from "axios";
 
 const API_URL = "http://162.254.35.120/api/auth";
@@ -16,6 +16,7 @@ const login = async (userData) => {
   const response = await axios.post(`${API_URL}/login`, userData,{
     headers:{
       "Content-Type":"application/vnd.api+json",
+      Accept:"application/vnd.api+json"
       
     }
   });
