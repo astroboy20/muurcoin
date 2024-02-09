@@ -44,7 +44,7 @@ const Login = () => {
       router.push("/fiat")
     }
 
-    // dispatch(reset())
+    dispatch(reset())
   }, [isSuccess, isError, message, router]);
 
   const onSubmit = (e) => {
