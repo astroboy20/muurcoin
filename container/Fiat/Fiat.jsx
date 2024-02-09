@@ -11,13 +11,34 @@ import axios from "axios";
 
 const Fiat = () => {
   const [UserCoins, setUserCoins] = useState(null);
+  const [selectedCoin, setSelectedCoin] = useState("USDTBTC");
+  const [heading, setHeading] = useState("USDTBTC");
+  const [searchQuery, setSearchQuery] = useState("");
 
+  const handleSearch = () => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filteredCoins = UserCoins
+  ? Object.entries(UserCoins).filter(([currency]) =>
+      currency.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  : [];
+
+  const handleSelected = (symbol) => {
+    setSelectedCoin(symbol);
+  };
   const dispatch = useDispatch();
   const { isError, isSuccess, isLoading, user } = useSelector(
     (state) => state.auth
   );
   const token = user?.data.token;
   useEffect(() => {
+    const defaultSymbol = "BTCUSDT";
+
+    const pairSymbol = selectedCoin ? `${selectedCoin}` : defaultSymbol;
+
+    setHeading(pairSymbol);
     if (token) {
       axios
         .get("http://162.254.35.120/api/crypto", {
@@ -27,13 +48,13 @@ const Fiat = () => {
         })
         .then((response) => {
           setUserCoins(response.data.data.currencies);
-          console.log(response.data.data.currencies);
+          console.log(response.data.data);
         })
         .catch((error) => {
           console.log(error);
         });
     }
-  }, [token]);
+  }, [selectedCoin, token]);
   console.log(UserCoins);
   const router = useRouter();
   const handleLogout = async () => {
@@ -46,8 +67,9 @@ const Fiat = () => {
     }
     if (isSuccess) {
       console.log("sucess");
-      // router.push("/login");
     }
+
+   
   }, []);
 
   return (
@@ -57,7 +79,7 @@ const Fiat = () => {
           Logout
         </Button> */}
         <div className="header">
-          <h2>BTCUSDT</h2>
+          <h2>{heading}</h2>
           <div></div>
         </div>
         <div className="small-coins">
@@ -65,29 +87,32 @@ const Fiat = () => {
             variant={"text"}
             type={"text"}
             placeholder={"Search Coins"}
+            value={searchQuery}
+            onChange={handleSearch}
             icon={<CiSearch fontSize={"30px"} color="black" fontWeight={500} />}
           />
           <div className="coin">
-            {UserCoins && (
+            {filteredCoins.length > 0 && (
               <ul className="coin">
-                {Object.entries(UserCoins).map(([currency, value]) => (
-                  <li key={currency}>
+                {filteredCoins.map(([currency, value]) => (
+                  <li key={currency} onClick={() => handleSelected(currency)}>
                     <div className="coin">
-                      {" "}
+                      {' '}
                       {currency}: {value}
                     </div>
                   </li>
                 ))}
               </ul>
             )}
+            {filteredCoins.length === 0 && <p>No coins found</p>}
           </div>
         </div>
         <div className="coin-chart">
           <div className="chart">
-            <TradingViewChart />
+            <TradingViewChart symbol={selectedCoin} />
             <div className="buy-sell">
               <div className="buy">
-                <span>Avbl</span>
+                <span>Avbl:  {heading}</span>
                 <input type="text" />
                 <input type="text" />
                 <span>Max Buy</span>
@@ -117,7 +142,7 @@ const Fiat = () => {
               {UserCoins && (
                 <ul className="coin">
                   {Object.entries(UserCoins).map(([currency, value]) => (
-                    <li key={currency}>
+                    <li key={currency} onClick={() => handleSelected(currency)}>
                       <div className="coin">
                         {" "}
                         {currency}: {value}

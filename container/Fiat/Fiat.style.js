@@ -37,7 +37,7 @@ export const FiatContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: 700px;
+    height: 650px;
     overflow-y: scroll;
     padding:2% ;
   }

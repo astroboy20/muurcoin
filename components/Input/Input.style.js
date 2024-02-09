@@ -18,6 +18,7 @@ export const Container = styled.div`
   border-radius: 12px;
   padding: 5px 16px 0 16px;
   border: 1.5px solid #878e9c;
+  /* color:black ; */
   background: white;
 `;
 
@@ -36,6 +37,7 @@ export const InputStyle = styled.input`
   padding: 12px 16px;
   border: none;
   width: 100%;
+  /* color: black; */
   
 `;
 export const SearchInputStyle = styled.input`
