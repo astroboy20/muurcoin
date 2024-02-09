@@ -13,7 +13,12 @@ const register = async (userData) => {
 
 //login user
 const login = async (userData) => {
-  const response = await axios.post(`${API_URL}/login`, userData);
+  const response = await axios.post(`${API_URL}/login`, userData,{
+    headers:{
+      "Content-Type":"application/vnd.api+json",
+      
+    }
+  });
   return response.data;
 };
 

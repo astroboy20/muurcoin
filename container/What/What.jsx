@@ -13,25 +13,25 @@ const What = () => {
       <div className="what-container" data-aos="fade-up" data-aos-delay="1000">
         <div className="image">
           <Image
-            src={"/images/hero1.jpg"}
+            src={"/images/hero.jpg"}
             width={600}
             height={500}
             alt="what-image"
             objectFit="contain"
             style={{
-              borderRadius: "10px",
+              borderRadius: "20px",
             }}
           />
         </div>
         <div className="responsive-image">
           <Image
-            src={"/images/hero1.jpg"}
+            src={"/images/hero.jpg"}
             width={350}
             height={350}
             alt="what-image"
             objectFit="contain"
             style={{
-              borderRadius: "10px",
+              borderRadius: "20px",
             }}
           />
         </div>

@@ -17,10 +17,11 @@ const Auth = () => {
         /> */}
         <div className="right">
           <Image
-            src={"/images/coin.png"}
-            width={250}
-            height={250}
+            src={"/images/hero.jpg"}
+            width={350}
+            height={350}
             alt="auth-image"
+            style={{borderRadius:"20px"}}
           />
           <div className="text">Get Crypto.Trade Stock. Start Gaining</div>
 
