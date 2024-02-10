@@ -41,7 +41,7 @@ const Fiat = () => {
     setHeading(pairSymbol);
     if (token) {
       axios
-        .get("http://162.254.35.120/api/crypto", {
+        .get("https://162.254.35.120/api/crypto", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
