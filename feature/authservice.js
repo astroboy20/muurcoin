@@ -1,7 +1,7 @@
 
 import axios from "axios";
 
-const API_URL = "http://162.254.35.120/api/auth";
+const API_URL = "https://162.254.35.120/api/auth";
 const token =typeof window !=="undefined" && localStorage.getItem("token")
 
 
