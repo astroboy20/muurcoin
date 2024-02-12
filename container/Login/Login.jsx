@@ -41,7 +41,7 @@ const Login = () => {
   useEffect(() => {
     if (isSuccess) {
       // toast.success(message)
-      router.push("/fiat")
+      router.push("/dashboard")
     }
 
     dispatch(reset())
