@@ -4,41 +4,19 @@ import Button from "@/components/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "@/feature/slice/authSlice";
 import { useRouter } from "next/router";
-import TradingViewChart from "./TradingViewChart";
-import { Input } from "@/components/Input";
-import { CiSearch } from "react-icons/ci";
 import axios from "axios";
+import { CryptoCurrencyMarket } from "react-ts-tradingview-widgets";
 
 const Dashboard = () => {
   const [UserCoins, setUserCoins] = useState(null);
-  const [selectedCoin, setSelectedCoin] = useState("USDTBTC");
-  const [heading, setHeading] = useState("USDTBTC");
-  const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  const filteredCoins = UserCoins
-  ? Object.entries(UserCoins).filter(([currency]) =>
-      currency.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-  : [];
-
-  const handleSelected = (symbol) => {
-    setSelectedCoin(symbol);
-  };
   const dispatch = useDispatch();
   const { isError, isSuccess, isLoading, user } = useSelector(
     (state) => state.auth
   );
   const token = user?.data.token;
+
   useEffect(() => {
-    const defaultSymbol = "BTCUSDT";
-
-    const pairSymbol = selectedCoin ? `${selectedCoin}` : defaultSymbol;
-
-    setHeading(pairSymbol);
     if (token) {
       axios
         .get("https://162.254.35.120/api/crypto", {
@@ -54,7 +32,25 @@ const Dashboard = () => {
           console.log(error);
         });
     }
-  }, [selectedCoin, token]);
+  }, [ token]);
+
+  useEffect(() => {
+    if (token) {
+      axios
+        .get("https://162.254.35.120/api/coins", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          // setUserCoins(response.data.data.currencies);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [token]);
   console.log(UserCoins);
   const router = useRouter();
   const handleLogout = async () => {
@@ -68,8 +64,6 @@ const Dashboard = () => {
     if (isSuccess) {
       console.log("sucess");
     }
-
-   
   }, []);
 
   return (
@@ -78,66 +72,43 @@ const Dashboard = () => {
         {/* <Button size="large" OnClick={handleLogout}>
           Logout
         </Button> */}
-        <div className="header">
-          <h2>{heading}</h2>
-          <div></div>
-        </div>
+
         <div className="small-coins">
-          <Input
-            variant={"text"}
-            type={"text"}
-            placeholder={"Search Coins"}
-            value={searchQuery}
-            onChange={handleSearch}
-            icon={<CiSearch fontSize={"30px"} color="black" fontWeight={500} />}
-          />
           <div className="coin">
-            {filteredCoins.length > 0 && (
-              <ul className="coin">
-                {filteredCoins.map(([currency, value]) => (
-                  <li key={currency} onClick={() => handleSelected(currency)}>
-                    <div className="coin">
-                      {' '}
-                      {currency}: {value}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
-            {filteredCoins.length === 0 && <p>No coins found</p>}
+            <ul className="coin">
+            <h2>User Coins:</h2>
+              {UserCoins && (
+                <ul className="coin">
+                  {Object.entries(UserCoins).map(([currency, value]) => (
+                    <li key={currency}>
+                      <div className="coin">
+                        {" "}
+                        {currency}: {value}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </ul>
           </div>
         </div>
         <div className="coin-chart">
           <div className="chart">
-            <TradingViewChart symbol={selectedCoin} />
-            <div className="buy-sell">
-              <div className="buy">
-                <span>Exchange Coin</span>
-                <input type="text" placeholder="From"/>
-                <input type="text"  placeholder="To"/>
-                <button style={{ background: "green" }}>Exchange</button>
-              </div>
-             
-              
-            </div>
-            {/* <button style={{ background: "red" }}>Sell</button> */}
+            <CryptoCurrencyMarket
+              colorTheme="dark"
+              width="100%"
+              // height={490}
+              autosize
+              displayCurrency="USD"
+            ></CryptoCurrencyMarket>
           </div>
           <div className="coins">
-            <Input
-              variant={"text"}
-              type={"text"}
-              placeholder={"Search Coins"}
-              icon={
-                <CiSearch fontSize={"30px"} color="black" fontWeight={500} />
-              }
-            />
-
             <div className="coin">
               <h2>User Coins:</h2>
               {UserCoins && (
                 <ul className="coin">
                   {Object.entries(UserCoins).map(([currency, value]) => (
-                    <li key={currency} onClick={() => handleSelected(currency)}>
+                    <li key={currency}>
                       <div className="coin">
                         {" "}
                         {currency}: {value}
@@ -147,11 +118,6 @@ const Dashboard = () => {
                 </ul>
               )}
             </div>
-          </div>
-        </div>
-        <div className="logs">
-          <div className="text">
-            <p>Trade History</p>
           </div>
         </div>
       </DashboardContainer>

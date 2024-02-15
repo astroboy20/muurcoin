@@ -42,6 +42,9 @@ export const DashboardContainer = styled.div`
     padding: 2%;
     cursor: pointer;
   }
+  ul::-webkit-scrollbar {
+  display: none;
+}
   .buy-sell {
     padding: 3% 2%;
     background-color: #000;
