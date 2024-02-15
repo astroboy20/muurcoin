@@ -61,7 +61,7 @@ const Fiat = () => {
           console.log(error);
         });
     }
-  }, [ transactions]);
+  }, [ token]);
 
   useEffect(() => {
     if (token) {
@@ -72,13 +72,17 @@ const Fiat = () => {
           },
         })
         .then((response) => {
-          setTransaction(response.data.data);
+          const spotTransactions = response.data.data.filter(
+            (transaction) => transaction.trx_type === "Spot"
+          );
+          setTransaction(spotTransactions);
+          // setTransaction(response.data.data);
         })
         .catch((error) => {
           console.log(error);
         });
     }
-  }, [transactions]);
+  }, [token]);
   const handleLogout = async () => {
     await dispatch(logOut());
   };
@@ -244,7 +248,7 @@ const Fiat = () => {
             <table class="table table-dark table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
+                  {/* <th>#</th> */}
                   <th>Reference ID</th>
                   <th>Amount</th>
                   <th>Wallet</th>
@@ -255,7 +259,7 @@ const Fiat = () => {
               <tbody>
                 {transactions.map((transaction) => (
                   <tr key={transaction.id}>
-                    <td>{transaction.id}</td>
+                    {/* <td>{transaction.id}</td> */}
                     <td>{transaction.reference_id}</td>
                     <td>{transaction.amount}</td>
                     <td>{transaction.wallet}</td>
