@@ -9,6 +9,7 @@ import { persistor, store } from "@/feature/store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { PersistGate } from "redux-persist/integration/react";
+import 'bootstrap/dist/css/bootstrap.css';
 
 // import "@/styles/global.css";
 export default function App({ Component, pageProps }) {

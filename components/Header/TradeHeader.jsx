@@ -71,6 +71,12 @@ const TraderHeader = () => {
             >
               Fiat
             </Link>
+            <Link
+              className={`section-link ${isActiveLink("/dashboard") && "active"}`}
+              href={"/dashboard"}
+            >
+              Dashboard
+            </Link>
           </div>
 
           <div className="icons">
@@ -97,6 +103,9 @@ const TraderHeader = () => {
               </Link>
               <Link className="section-link" href={"/fiat"}>
                 Fiat
+              </Link>
+              <Link className="section-link" href={"/dashboard"}>
+                Dashboard
               </Link>
               <Link className="section-link" href={"/auth"}>
                 Get started

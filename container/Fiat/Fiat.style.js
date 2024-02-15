@@ -39,8 +39,11 @@ export const FiatContainer = styled.div`
     gap: 20px;
     height: 600px;
     overflow-y: scroll;
-    padding: 2%;
+    padding: 3% 2%;
     cursor: pointer;
+  }
+  ul::-webkit-scrollbar {
+    display: none;
   }
   .buy-sell {
     padding: 3% 2%;
@@ -57,32 +60,64 @@ export const FiatContainer = styled.div`
     gap: 25px;
     width: 50%;
   }
-  input {
-    /* width: 100%; */
+  .from,
+  .to {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  /* input {
+    width: 100%;
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #fff;
     background-color: transparent;
     color: #fff;
+  } */
+  .currency-select {
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 100%;
   }
-  button {
+  .amount-input {
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100px;
+    margin-right: 10px;
+    width: 100%;
+  }
+  .exchange-button {
+    padding: 10px 16px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .exchange-button:hover {
+    background-color: darkgreen;
+  }
+  /* button {
     width: 100%;
     margin: 0 auto;
     padding: 16px 20px;
     border: none;
     border-radius: 10px;
     color: #fff;
-  }
+  } */
   .logs {
     width: 100%;
     background-color: #000;
-    height: 400px;
     border-top: 1px solid #fff;
     padding: 2%;
   }
   .logs .text {
     display: flex;
-    overflow-y: scroll;
+    flex-direction:column ;
     gap: 20px;
   }
   .small-coins {
@@ -103,9 +138,13 @@ export const FiatContainer = styled.div`
     h1 {
       font-size: 30px;
     }
-    .log {
-      overflow-x: scroll;
-      width: 120%;
+    .logs {
+      padding: 2%;
+      overflow-x: auto; /* Enable horizontal scroll on smaller screens */
+    }
+
+    .table {
+      width: 100%; /* Ensure the table occupies the full width */
     }
     .buy-sell {
       padding: 7% 3% 20% 3%;
@@ -113,7 +152,6 @@ export const FiatContainer = styled.div`
     }
     .buy,
     .sell {
-     
       width: 100%;
     }
     .small-coins {

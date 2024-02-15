@@ -9,6 +9,7 @@ import { CryptoCurrencyMarket } from "react-ts-tradingview-widgets";
 
 const Dashboard = () => {
   const [UserCoins, setUserCoins] = useState(null);
+  const [transactions, setTransaction] = useState([]);
 
   const dispatch = useDispatch();
   const { isError, isSuccess, isLoading, user } = useSelector(
@@ -51,7 +52,25 @@ const Dashboard = () => {
         });
     }
   }, [token]);
-  console.log(UserCoins);
+
+  useEffect(() => {
+    if (token) {
+      axios
+        .get("https://162.254.35.120/api/transactions", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          console.log(response.data.data);
+          setTransaction(response.data.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [token]);
+
   const router = useRouter();
   const handleLogout = async () => {
     await dispatch(logOut());
@@ -118,6 +137,35 @@ const Dashboard = () => {
                 </ul>
               )}
             </div>
+          </div>
+        </div>
+        <div className="logs">
+          <div className="text">
+            <p>Transactions</p>
+            <table class="table table-dark table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Reference ID</th>
+                  <th>Amount</th>
+                  <th>Wallet</th>
+                  <th>Type</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {transactions.map((transaction) => (
+                  <tr key={transaction.id}>
+                    <td>{transaction.id}</td>
+                    <td>{transaction.reference_id}</td>
+                    <td>{transaction.amount}</td>
+                    <td>{transaction.wallet}</td>
+                    <td>{transaction.trx_type}</td>
+                    <td>{transaction.status}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </DashboardContainer>

@@ -79,13 +79,12 @@ export const DashboardContainer = styled.div`
   .logs {
     width: 100%;
     background-color: #000;
-    height: 400px;
     border-top: 1px solid #fff;
     padding: 2%;
   }
   .logs .text {
     display: flex;
-    overflow-y: scroll;
+    flex-direction:column ;
     gap: 20px;
   }
   .small-coins {
@@ -106,9 +105,14 @@ export const DashboardContainer = styled.div`
     h1 {
       font-size: 30px;
     }
-    .log {
-      overflow-x: scroll;
-      width: 120%;
+    .logs {
+      margin-top:50px ;
+      padding: 2%;
+      overflow-x: auto; /* Enable horizontal scroll on smaller screens */
+    }
+
+    .table {
+      width: 100%; /* Ensure the table occupies the full width */
     }
     .buy-sell {
       padding: 7% 3% 20% 3%;

@@ -16,7 +16,7 @@ const TradingViewChart = ({ symbol }) => {
       script.onload = () => {
         widgetRef.current = new TradingView.widget({
           width: "100%",
-          height: 500,
+          height: 490,
           symbol: `${pairSymbol}`,
           interval: "D",
           timezone: "Etc/UTC",
@@ -41,10 +41,13 @@ const TradingViewChart = ({ symbol }) => {
 
     return () => {
       // Clean up script when component unmounts
-      if (widgetRef.current) {
-        widgetRef.current.remove();
-        widgetRef.current = null;
-      }
+      return () => {
+        // Clean up script when component unmounts
+        if (widgetRef.current && widgetRef.current.parentNode) {
+          widgetRef.current.remove();
+          widgetRef.current = null;
+        }
+      };
     };
   }, [symbol]);
 
