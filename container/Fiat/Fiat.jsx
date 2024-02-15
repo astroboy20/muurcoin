@@ -61,7 +61,7 @@ const Fiat = () => {
           console.log(error);
         });
     }
-  }, [selectedCoin, token]);
+  }, [ transactions]);
 
   useEffect(() => {
     if (token) {
@@ -78,7 +78,7 @@ const Fiat = () => {
           console.log(error);
         });
     }
-  }, [token]);
+  }, [transactions]);
   const handleLogout = async () => {
     await dispatch(logOut());
   };

@@ -108,11 +108,11 @@ export const DashboardContainer = styled.div`
     .logs {
       margin-top:50px ;
       padding: 2%;
-      overflow-x: auto; /* Enable horizontal scroll on smaller screens */
+      overflow-x: auto;
     }
 
     .table {
-      width: 100%; /* Ensure the table occupies the full width */
+      width: 100%; 
     }
     .buy-sell {
       padding: 7% 3% 20% 3%;
