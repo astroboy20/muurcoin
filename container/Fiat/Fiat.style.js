@@ -33,13 +33,18 @@ export const FiatContainer = styled.div`
     padding: 2%;
     border-left: 1px solid #fff;
   }
+  .coin-icon{
+    display:flex ;
+    gap:15px;
+    align-items:center ;
+  }
   ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
     height: 600px;
     overflow-y: scroll;
-    padding: 3% 2%;
+    padding: 6% 2% 2% 2%;
     cursor: pointer;
   }
   ul::-webkit-scrollbar {
@@ -169,4 +174,12 @@ export const FiatContainer = styled.div`
       cursor: pointer;
     }
   }
+`;
+
+
+export const OptionItem = styled.div`
+  padding: 13px;
+  cursor: pointer;
+  text-decoration: ${(props) => (props.selected ? "underline" : "none")};
+  color: ${(props) => (props.selected ? "white" : "#1d1465")};
 `;

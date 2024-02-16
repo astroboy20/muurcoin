@@ -36,7 +36,8 @@ const Register = () => {
     console.log(message)
   }
   if(isSuccess && user){
-    toast.success(message)
+    // toast.success(message)
+    router.push("/login")
   }
   dispatch(reset())
   }, [userDetails, isError, message, isSuccess])
