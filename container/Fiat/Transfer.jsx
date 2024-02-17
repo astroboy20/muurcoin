@@ -16,7 +16,7 @@ const Transfer = ({ UserCoins, token }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://162.254.35.120//api/transfer",
+        "https://162.254.35.120/api/transfer/achieve",
         {
           wallet,
           username,
@@ -25,6 +25,8 @@ const Transfer = ({ UserCoins, token }) => {
         {
           headers: {
             Authorization: `Bearer ${token}`,
+            "Content-Type": "application/vnd.api+json",
+            Accept: "application/vnd.api+json",
           },
         }
       );
@@ -34,9 +36,9 @@ const Transfer = ({ UserCoins, token }) => {
       setLoading(false);
       toast.error(error.response?.data.message);
     }
-    setUsername("")
-    setWallet("")
-    setAmount("")
+    setUsername("");
+    setWallet("");
+    setAmount("");
   };
   return (
     <>

@@ -168,7 +168,8 @@ export const PageContainer = styled.div`
   @media screen and (max-width: 800px) {
     padding: 0;
     .exchange-button {
-    width: 60%;
+      padding: 10px 16px;
+    width: 100%;
   }
   }
 
