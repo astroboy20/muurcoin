@@ -7,7 +7,7 @@ import TradingViewChart from "./TradingViewChart";
 import axios from "axios";
 import Image from "next/image";
 import { useOptionContext } from "@/feature/context/option-context";
-import { OptionItems } from "./data";
+import { OptionItems, optionItems } from "./data";
 import Option from "./Option";
 import { Exchange } from "./Exchange";
 import { Transfer } from "./Transfer";
@@ -24,8 +24,6 @@ const Fiat = () => {
   const handleOption = (option) => {
     switchOption(option);
   };
-
-  
 
   const filteredCoins = UserCoins
     ? Object.entries(UserCoins).filter(([currency]) =>
@@ -200,28 +198,31 @@ const Fiat = () => {
         <div className="coin-chart">
           <div className="chart">
             <TradingViewChart symbol={selectedCoin} />
-            <div className="buy-sell">
-              <div className="buy">
-                {OptionItems.map((OptionItem) => {
+
+            <div className="exchange-transfer">
+              <div className="actions">
+                {optionItems.map((OptionItem) => {
                   return (
                     <Option
                       key={OptionItem.value}
                       value={OptionItem.value}
                       label={OptionItem.label}
-                      setValue={()=>handleOption(option)}
+                      setValue={handleOption}
                       selected={option === OptionItem.value}
                     />
                   );
                 })}
+              </div>
+              <div className="pages">
                 {option === "Exchange" && (
                   <>
-                    <Exchange UserCoins={UserCoins} />
+                    <Exchange UserCoins={UserCoins} token={token}/>
                   </>
                 )}
 
                 {option === "Transfer" && (
                   <>
-                    <Transfer UserCoins={UserCoins} />
+                    <Transfer UserCoins={UserCoins} token={token}/>
                   </>
                 )}
               </div>

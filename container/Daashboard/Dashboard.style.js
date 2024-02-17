@@ -33,6 +33,11 @@ export const DashboardContainer = styled.div`
     padding: 2%;
     border-left: 1px solid #fff;
   }
+  .coin-icon {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
   ul {
     display: flex;
     flex-direction: column;

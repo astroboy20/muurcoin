@@ -2,14 +2,9 @@ import styled from "styled-components";
 
 export const FiatContainer = styled.div`
   margin-top: 130px;
-  /* padding: 4%; */
   background-color: #131740;
   color: #fff;
   width: 100%;
-  /* height:100dvh ; */
-
-  /* flex-direction: column; */
-  /* padding:4% 0; */
   gap: 30px;
   .header {
     width: 100%;
@@ -33,16 +28,16 @@ export const FiatContainer = styled.div`
     padding: 2%;
     border-left: 1px solid #fff;
   }
-  .coin-icon{
-    display:flex ;
-    gap:15px;
-    align-items:center ;
+  .coin-icon {
+    display: flex;
+    gap: 15px;
+    align-items: center;
   }
   ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: 600px;
+    height: 800px;
     overflow-y: scroll;
     padding: 6% 2% 2% 2%;
     cursor: pointer;
@@ -50,70 +45,19 @@ export const FiatContainer = styled.div`
   ul::-webkit-scrollbar {
     display: none;
   }
-  .buy-sell {
-    padding: 3% 2%;
+  .exchange-transfer {
+    padding: 3% 6%;
     background-color: #000;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: 20px;
     background-color: #131722;
   }
-  .buy,
-  .sell {
+  .actions {
     display: flex;
-    flex-direction: column;
     gap: 25px;
-    width: 50%;
   }
-  .from,
-  .to {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  /* input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #fff;
-    background-color: transparent;
-    color: #fff;
-  } */
-  .currency-select {
-    padding: 10px 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-    width: 100%;
-  }
-  .amount-input {
-    padding: 10px 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100px;
-    margin-right: 10px;
-    width: 100%;
-  }
-  .exchange-button {
-    padding: 10px 16px;
-    background-color: green;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .exchange-button:hover {
-    background-color: darkgreen;
-  }
-  /* button {
-    width: 100%;
-    margin: 0 auto;
-    padding: 16px 20px;
-    border: none;
-    border-radius: 10px;
-    color: #fff;
-  } */
+  
   .logs {
     width: 100%;
     background-color: #000;
@@ -122,7 +66,7 @@ export const FiatContainer = styled.div`
   }
   .logs .text {
     display: flex;
-    flex-direction:column ;
+    flex-direction: column;
     gap: 20px;
   }
   .small-coins {
@@ -145,19 +89,19 @@ export const FiatContainer = styled.div`
     }
     .logs {
       padding: 2%;
-      overflow-x: auto; /* Enable horizontal scroll on smaller screens */
+      overflow-x: auto;
     }
 
     .table {
-      width: 100%; /* Ensure the table occupies the full width */
+      width: 100%;
     }
     .buy-sell {
       padding: 7% 3% 20% 3%;
       width: 100%;
     }
-    .buy,
-    .sell {
+    .actions {
       width: 100%;
+      display: flex;
     }
     .small-coins {
       display: inline-block;
@@ -173,13 +117,66 @@ export const FiatContainer = styled.div`
       overflow-y: scroll;
       cursor: pointer;
     }
+    .exchange-transfer {
+    padding: 6%;
+    
+  }
   }
 `;
 
+export const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 0% 6% 0 0;
+  .currency-select {
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 100%;
+  }
+  .amount-input {
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100px;
+    margin-right: 10px;
+    width: 100%;
+  }
+  .exchange-button {
+    padding: 10px 16px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 30%;
+    margin: 0 auto;
+  }
+
+  .exchange-button:hover {
+    background-color: darkgreen;
+  }
+
+  .to {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 0;
+    .exchange-button {
+    width: 60%;
+  }
+  }
+
+`;
 
 export const OptionItem = styled.div`
-  padding: 13px;
+  display: flex;
   cursor: pointer;
   text-decoration: ${(props) => (props.selected ? "underline" : "none")};
-  color: ${(props) => (props.selected ? "white" : "#1d1465")};
+  color: ${(props) => (props.selected ? "white" : "white")};
 `;

@@ -1,10 +1,11 @@
-import {useState} from "react";
-import { FiatContainer } from "./Fiat.style";
+import { useState } from "react";
+import { PageContainer } from "./Fiat.style";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useOptionContext } from "@/feature/context/option-context";
+import { Spinner } from "@/components/Spinner/Spinner";
 
-const Exchange = ({UserCoins}) => {
+const Exchange = ({ UserCoins, token }) => {
   const [from, setFromCurrency] = useState("");
   const [to, setToCurrency] = useState("");
   const [amount, setAmount] = useState("");
@@ -32,85 +33,84 @@ const Exchange = ({UserCoins}) => {
       toast.success(response.data.message);
     } catch (error) {
       setLoading(false);
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data.message);
     }
+    setAmount("")
+    setFromCurrency("")
+    setToCurrency("")
   };
   return (
     <>
-    {option === "Exchange" && (
-         <FiatContainer>
-         <>
-           <span>Exchange Coin</span>
-           <div className="from">
-             <label>From:</label>
-             <select
-               id="fromCurrency"
-               className="currency-select"
-               value={from}
-               onChange={(e) => setFromCurrency(e.target.value)}
-             >
-               <option value="" disabled hidden>
-                 Select Currency
-               </option>
-               {UserCoins &&
-                 Object.entries(UserCoins).map(([currency, value]) => (
-                   <option key={currency} value={currency}>
-                     {currency}
-                   </option>
-                 ))}
-             </select>
-           </div>
-           <div className="to">
-             <label>To:</label>
-             <select
-               id="toCurrency"
-               className="currency-select"
-               value={to}
-               onChange={(e) => setToCurrency(e.target.value)}
-             >
-               <option value="" disabled hidden>
-                 Select Currency
-               </option>
-               {UserCoins &&
-                 Object.entries(UserCoins).map(([currency, value]) => (
-                   <option key={currency} value={currency}>
-                     {currency}
-                   </option>
-                 ))}
-             </select>
-           </div>
-           <div className="to">
-             <label>Amount:</label>
-             <input
-               type="text"
-               value={amount}
-               onChange={(e) => setAmount(e.target.value)}
-               placeholder="Amount"
-               className="amount-input"
-             />
-           </div>
-   
-           <button onClick={handleExchange} className="exchange-button">
-             {Loading ? (
-               <div
-                 style={{
-                   textAlign: "center",
-                   display: "flex",
-                   alignItems: "center",
-                   justifyContent: "center",
-                 }}
-               >
-                 <Spinner />
-               </div>
-             ) : (
-               "Exchange"
-             )}
-           </button>
-         </>
-       </FiatContainer>
-    )}
+      {option === "Exchange" && (
+        <PageContainer>
+          <div className="from">
+            <label>From:</label>
+            <select
+              id="fromCurrency"
+              className="currency-select"
+              value={from}
+              onChange={(e) => setFromCurrency(e.target.value)}
+            >
+              <option value="" disabled hidden>
+                Select Currency
+              </option>
+              {UserCoins &&
+                Object.entries(UserCoins).map(([currency, value]) => (
+                  <option key={currency} value={currency}>
+                    {currency}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <div className="to">
+            <label>To:</label>
+            <select
+              id="toCurrency"
+              className="currency-select"
+              value={to}
+              onChange={(e) => setToCurrency(e.target.value)}
+            >
+              <option value="" disabled hidden>
+                Select Currency
+              </option>
+              {UserCoins &&
+                Object.entries(UserCoins).map(([currency, value]) => (
+                  <option key={currency} value={currency}>
+                    {currency}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <div className="to">
+            <label>Amount:</label>
+            <input
+              type="text"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              placeholder="Amount"
+              className="amount-input"
+            />
+          </div>
+
+          <button onClick={handleExchange} className="exchange-button">
+            {Loading ? (
+              <div
+                style={{
+                  textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Spinner />
+              </div>
+            ) : (
+              "Exchange"
+            )}
+          </button>
+        </PageContainer>
+      )}
     </>
-   
   );
 };
 

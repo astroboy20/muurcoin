@@ -1,7 +1,7 @@
 import React from "react";
 import { OptionItem } from "./Fiat.style";
 
-const Option = ({ value, label, selected, setValue, icon }) => {
+const Option = ({ value, label, selected, setValue }) => {
   const handleClick = () => {
     setValue(value);
   };
@@ -13,5 +13,6 @@ const Option = ({ value, label, selected, setValue, icon }) => {
     </>
   );
 };
+
 
 export default Option;

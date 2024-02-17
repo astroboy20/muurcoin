@@ -9,7 +9,8 @@ import { persistor, store } from "@/feature/store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { PersistGate } from "redux-persist/integration/react";
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
+import { OptionProvider } from "@/feature/context/option-context";
 
 // import "@/styles/global.css";
 export default function App({ Component, pageProps }) {
@@ -22,11 +23,13 @@ export default function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <ToastContainer />
-        <ThemeProvider theme={theme}>
-          <GlobalStyles />
-          <Component {...pageProps} />
-        </ThemeProvider>
+        <OptionProvider>
+          <ToastContainer />
+          <ThemeProvider theme={theme}>
+            <GlobalStyles />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </OptionProvider>
       </PersistGate>
     </Provider>
   );

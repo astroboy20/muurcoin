@@ -1,12 +1,13 @@
-export const OptionItems = [
-  {
-    id: 1,
-    label: "Exchange",
-    value: "Exchange",
-  },
-  {
-    id: 2,
-    label: "Transfer",
-    value: "Transfer",
-  },
-];
+export const optionItems = [
+    {
+        id:1,
+        label:"Exchange Coin",
+        value:"Exchange",
+    },
+    {
+        id:2,
+        label:"Transfer Coin",
+        value:"Transfer",
+    },
+    
+]
