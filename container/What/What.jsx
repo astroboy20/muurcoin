@@ -6,6 +6,7 @@ import Button from "@/components/Button/Button";
 import { RiBriefcase3Fill } from "react-icons/ri";
 import { FaUserPlus } from "react-icons/fa6";
 import { MdInsertChart } from "react-icons/md";
+import Link from "next/link"
 
 const What = () => {
   return (
@@ -79,7 +80,10 @@ const What = () => {
               </p>
             </div>
           </div>
+          <Link href={"/auth"} className="link">
           <Button size={"small"}>Explore more</Button>
+
+          </Link>
         </div>
         <div className="text"></div>
       </div>

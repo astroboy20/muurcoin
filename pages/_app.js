@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import "@/styles/globals.css";
+import { useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles, theme } from "@/theme";
 import AOS from "aos";
@@ -12,7 +12,6 @@ import { PersistGate } from "redux-persist/integration/react";
 import "bootstrap/dist/css/bootstrap.css";
 import { OptionProvider } from "@/feature/context/option-context";
 
-// import "@/styles/global.css";
 export default function App({ Component, pageProps }) {
   useEffect(() => {
     // here you can add your aos options

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { SkillContainer } from "./Skills.style";
 import Button from "@/components/Button/Button";
+import Link from "next/link"
 
 const Skills = () => {
   return (
@@ -209,8 +210,9 @@ const Skills = () => {
             </div>
           </div>
         </div>
-
-        <Button size={"small"}>Start Trading</Button>
+        <Link href="/auth" className="link">
+          <Button size={"large"}>Start Trading</Button>
+        </Link>
       </div>
     </SkillContainer>
   );

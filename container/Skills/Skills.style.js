@@ -54,7 +54,9 @@ export const SkillContainer = styled.div`
     flex-direction: column;
     text-align: left;
   }
-
+  .link {
+    text-decoration: none;
+  }
   @media screen and (max-width: 800px) {
     .skill-container {
       /* flex-direction: column-reverse; */

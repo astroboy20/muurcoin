@@ -7,6 +7,7 @@ ${reset}
 
 body{
   transition: all 1s linear;
+  background: #0D102D;
 }
 /* @media (min-width: 768px) and (max-width: 1024px) {
   body { 

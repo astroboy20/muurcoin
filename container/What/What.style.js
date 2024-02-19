@@ -14,7 +14,9 @@ export const WhatContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 35px;
-    /* width:100% ; */
+  }
+  .image {
+    width: 100%;
   }
   .header {
     display: flex;
@@ -33,7 +35,7 @@ export const WhatContainer = styled.div`
   }
   .responsive-image {
     width: 100%;
-    display:none ;
+    display: none;
   }
   h1 {
     font-size: 32px;
@@ -42,7 +44,9 @@ export const WhatContainer = styled.div`
     font-size: 24px;
     margin-bottom: 10px;
   }
-
+  .link {
+    text-decoration: none;
+  }
   /* .icon {
     border-radius: 9999px; 
     padding:5%;
@@ -51,22 +55,21 @@ export const WhatContainer = styled.div`
   } */
 
   @media screen and (max-width: 800px) {
-   
     .what-container {
       flex-direction: column;
       text-align: center;
-      gap:30px;
+      gap: 30px;
     }
     flex-direction: column;
     text-align: center;
     .image {
       /* width:500px ; */
       /* padding-right:4%; */
-      display:none ;
+      display: none;
     }
 
-    .responsive-image{
-      display:block ;
+    .responsive-image {
+      display: block;
     }
     padding: 8% 4%;
     h1 {

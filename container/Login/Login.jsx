@@ -109,10 +109,10 @@ const Login = () => {
           </form>
         </div>
 
-        <div className="or">or</div>
+        {/* <div className="or">or</div> */}
 
         <div className="login-with-google">
-          <Button
+          {/* <Button
             // onClick={handleGoogleLogin}
             type={"button"}
             size={"transparent"}
@@ -121,7 +121,7 @@ const Login = () => {
               <Image src="/images/google.svg" width={25} height={25} alt={""} />{" "}
               Continue with Google
             </div>
-          </Button>
+          </Button> */}
           <div className="signup-div">
             Don`t have an account?{" "}
             <Link className="signup" href={"/register"}>
