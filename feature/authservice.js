@@ -24,14 +24,21 @@ const login = async (userData) => {
 };
 
 //logout
-const logout = async () => {
-  const response = await axios.post(`${API_URL}/logout`,{
-    headers:{
-        Authorization: `Bearer ${token}`
-    }
-  });
-  return response.data;
+const logout = async (token) => {
+  try {
+    const response = await axios.post(`${API_URL}/logout`, {}, {
+      headers: {
+        Authorization: "34|nU8ccbEU5dqVoWX9WOPMKlBQv15Xbx2HsEFU9Izyab14a3ad"
+      }
+    });
+    return response.data;
+  } catch (error) {
+    // Handle errors here
+    console.error('Logout failed:', error);
+    throw error;
+  }
 };
+
 //reset email
 const reset_with_email = async (email) => {
   const response = await axios.post(`${API_URL}/forgot-password`,email)

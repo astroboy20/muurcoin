@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { PersistGate } from "redux-persist/integration/react";
 import "bootstrap/dist/css/bootstrap.css";
 import { OptionProvider } from "@/feature/context/option-context";
+import TokenExpirationHandler from "@/container/ProtectedRoute/TokenExpirationHandler";
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -22,6 +23,7 @@ export default function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
+        <TokenExpirationHandler/>
         <OptionProvider>
           <ToastContainer />
           <ThemeProvider theme={theme}>

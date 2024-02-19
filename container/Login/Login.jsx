@@ -28,8 +28,7 @@ const Login = () => {
   );
 
   const token = user?.data.token;
-  typeof window !== "undefined" && localStorage.setItem("token", token);
-  console.log(token);
+
   const onChange = (e) => {
     const { name, value } = e.target;
     setUserDetails((prevvData) => ({

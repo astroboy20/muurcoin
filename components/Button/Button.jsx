@@ -5,15 +5,15 @@ import {
   TransparentButton,
 } from "./Button.style";
 
-const Button = ({ size, children, OnClick }) => {
+const Button = ({ size, children, onClick }) => {
   return size === "small" ? (
-    <SmallButtonStyle size={size} onClick={OnClick}>
+    <SmallButtonStyle size={size} onClick={onClick}>
       {children}
     </SmallButtonStyle>
   ) : size === "large" ? (
     <>
       {" "}
-      <ButtonStyle size={size} onClick={OnClick}>
+      <ButtonStyle size={size} onClick={onClick}>
         {children}
       </ButtonStyle>
     </>

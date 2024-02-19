@@ -12,7 +12,8 @@ import { IoLogoCodepen } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { register, reset } from "@/feature/slice/authSlice";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
+import { Spinner } from "@/components/Spinner/Spinner";
 
 const Register = () => {
   const [userDetails, setUserDetails] = useState({
@@ -32,15 +33,15 @@ const Register = () => {
   );
 
   useEffect(() => {
-  if(isError){
-    console.log(message)
-  }
-  if(isSuccess && user){
-    // toast.success(message)
-    router.push("/login")
-  }
-  dispatch(reset())
-  }, [userDetails, isError, message, isSuccess])
+    if (isError) {
+      console.log(message);
+    }
+    if (isSuccess && user) {
+      // toast.success(message)
+      router.push("/login");
+    }
+    dispatch(reset());
+  }, [userDetails, isError, message, isSuccess]);
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -52,10 +53,10 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if(userDetails.password !== userDetails.password_confirmation){
-      console.log("no match")
-    }else{
-      dispatch(register(userDetails))
+    if (userDetails.password !== userDetails.password_confirmation) {
+      console.log("no match");
+    } else {
+      dispatch(register(userDetails));
     }
   };
   return (
@@ -136,7 +137,23 @@ const Register = () => {
               name="password_confirmation"
             />
 
-            <Button size={"large"}>Register</Button>
+            <Button size={"large"}>
+              {" "}
+              {isLoading ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Spinner />
+                </div>
+              ) : (
+                "Register"
+              )}{" "}
+            </Button>
           </form>
         </div>
 

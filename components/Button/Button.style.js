@@ -20,9 +20,9 @@ export const ButtonStyle = styled.button`
   }
 `;
 export const TransparentButton = styled.button`
-  background: none;
-  border: 1px solid  #8011D3;
-  color: #fff;
+  /* background: transparent; */
+  border:2px solid green ;
+  color: #000;
   padding: 15px 20px;
   border-radius: 10px;
   width: 100%;

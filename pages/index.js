@@ -28,7 +28,7 @@ export default function Home() {
       <Market />
       <Stat />
       <What />
-      <Skills />
+      {/* <Skills /> */}
       <Steps/>
       <Footer />
       {/* </Layout> */}

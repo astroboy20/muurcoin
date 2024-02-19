@@ -10,11 +10,17 @@ import { CiSearch } from "react-icons/ci";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdWallet } from "react-icons/io";
 import Button from "../Button/Button";
+import { useSelector, useDispatch } from "react-redux";
+import { clearUser, logOut } from "@/feature/slice/authSlice";
+import {toast} from "react-toastify"
 
 const TraderHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBlurred, setIsBlurred] = useState(false);
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.auth);
   const handleHamburger = () => {
     setIsOpen(!isOpen);
   };
@@ -35,6 +41,11 @@ const TraderHeader = () => {
       window.removeEventListener("scroll", handleHamburger);
     };
   }, []);
+
+  const handleLogout = async () => {
+    await dispatch(clearUser());
+    toast.success("Request Succesful")
+  };
   return (
     <>
       <HeaderContainer className={isBlurred && "is-blurred"}>
@@ -72,7 +83,9 @@ const TraderHeader = () => {
               Fiat
             </Link>
             <Link
-              className={`section-link ${isActiveLink("/dashboard") && "active"}`}
+              className={`section-link ${
+                isActiveLink("/dashboard") && "active"
+              }`}
               href={"/dashboard"}
             >
               Dashboard
@@ -80,8 +93,10 @@ const TraderHeader = () => {
           </div>
 
           <div className="icons">
-            <IoMdWallet fontSize={"25px"} />
-            <FaUserAlt fontSize={"25px"} />
+            {/* Logout */}
+            {/* <IoMdWallet fontSize={"25px"} /> */}
+            {/* <FaUserAlt fontSize={"25px"} /> */}
+            <Button size={"transparent"} onClick={handleLogout}>Logout</Button>
             <Button size={"large"}>Deposit</Button>
             <div className="hamburger" onClick={handleHamburger}>
               {isOpen ? (
@@ -107,9 +122,15 @@ const TraderHeader = () => {
               <Link className="section-link" href={"/dashboard"}>
                 Dashboard
               </Link>
-              <Link className="section-link" href={"/auth"}>
-                Get started
-              </Link>
+              {user ? (
+                <span className="section-link" onClick={handleLogout}>
+                  Logout
+                </span>
+              ) : (
+                <Link className="section-link" href={"/auth"}>
+                  Get started
+                </Link>
+              )}
             </MobileSection>
           </>
         )}
