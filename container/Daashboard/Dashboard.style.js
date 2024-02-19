@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const DashboardContainer = styled.div`
-  margin-top: 130px;
+  margin-top: 100px;
   /* padding: 4%; */
   background-color: #131740;
   color: #fff;
@@ -11,6 +11,10 @@ export const DashboardContainer = styled.div`
   /* flex-direction: column; */
   /* padding:4% 0; */
   gap: 30px;
+  .link{
+    color:white ;
+    font-weight:500 ;
+  }
   .header {
     width: 100%;
     background-color: #000;

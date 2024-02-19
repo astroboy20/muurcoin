@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const OverviewContainer = styled.div`
-  margin-top: 120px;
+  margin-top: 100px;
   padding: 4%;
   background-color: #131740;
   color: #fff;

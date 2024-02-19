@@ -17,9 +17,9 @@ const Auth = () => {
         /> */}
         <div className="right">
           <Image
-            src={"/images/logo1.jpg"}
-            width={350}
-            height={350}
+            src={"/images/logo1.png"}
+            width={300}
+            height={200}
             alt="auth-image"
             style={{borderRadius:"20px"}}
           />

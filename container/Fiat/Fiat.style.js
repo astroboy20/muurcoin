@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FiatContainer = styled.div`
-  margin-top: 130px;
+  margin-top: 100px;
   background-color: #131740;
   color: #fff;
   width: 100%;
@@ -71,6 +71,10 @@ export const FiatContainer = styled.div`
   }
   .small-coins {
     display: none;
+  }
+  .link{
+    color:white ;
+    font-weight:500 ;
   }
   @media screen and (max-width: 800px) {
     margin-top: 100px;
@@ -146,7 +150,7 @@ export const PageContainer = styled.div`
   }
   .exchange-button {
     padding: 10px 16px;
-    background-color: green;
+    background-color: #8011D3;
     color: white;
     border: none;
     border-radius: 4px;
@@ -156,7 +160,7 @@ export const PageContainer = styled.div`
   }
 
   .exchange-button:hover {
-    background-color: darkgreen;
+    background-color: purple;
   }
 
   .to {

@@ -11,6 +11,7 @@ import { OptionItems, optionItems } from "./data";
 import Option from "./Option";
 import { Exchange } from "./Exchange";
 import { Transfer } from "./Transfer";
+import Link from "next/link"
 
 const Fiat = () => {
   const [UserCoins, setUserCoins] = useState(null);
@@ -192,7 +193,14 @@ const Fiat = () => {
                 ))}
               </ul>
             )}
-            {filteredCoins.length === 0 && <p>No coins found</p>}
+            {filteredCoins.length === 0 && (
+              <p>
+                No coins found, please{" "}
+                <Link href={"/login"} className="link">
+                  Login
+                </Link>
+              </p>
+            )}
           </div>
         </div>
         <div className="coin-chart">
@@ -216,13 +224,13 @@ const Fiat = () => {
               <div className="pages">
                 {option === "Exchange" && (
                   <>
-                    <Exchange UserCoins={UserCoins} token={token}/>
+                    <Exchange UserCoins={UserCoins} token={token} />
                   </>
                 )}
 
                 {option === "Transfer" && (
                   <>
-                    <Transfer UserCoins={UserCoins} token={token}/>
+                    <Transfer UserCoins={UserCoins} token={token} />
                   </>
                 )}
               </div>
@@ -250,7 +258,12 @@ const Fiat = () => {
                   ))}
                 </ul>
               )}
-              {filteredCoins.length === 0 && <p>No coins found</p>}
+              <p>
+                No coins found, please{" "}
+                <Link href={"/login"} className="link">
+                  Login
+                </Link>
+              </p>
             </div>
           </div>
         </div>

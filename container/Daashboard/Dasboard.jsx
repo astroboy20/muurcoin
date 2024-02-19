@@ -7,10 +7,12 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { CryptoCurrencyMarket } from "react-ts-tradingview-widgets";
 import Image from "next/image"
+import Link from "next/link"
 
 const Dashboard = () => {
   const [UserCoins, setUserCoins] = useState(null);
   const [transactions, setTransaction] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const dispatch = useDispatch();
   const { isError, isSuccess, isLoading, user } = useSelector(
@@ -71,6 +73,12 @@ const Dashboard = () => {
         });
     }
   }, [token]);
+
+  const filteredCoins = UserCoins
+  ? Object.entries(UserCoins).filter(([currency]) =>
+      currency.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  : [];
 
   const currencyIcons = {
     BTC: <Image src={"/images/btc.png"} width={20} height={20} alt="BTC" />,
@@ -181,6 +189,14 @@ const Dashboard = () => {
                 ))}
               </ul>
             )}
+            {filteredCoins.length === 0 && (
+              <p>
+                No coins found, please{" "}
+                <Link href={"/login"} className="link">
+                  Login
+                </Link>
+              </p>
+            )}
             </ul>
           </div>
         </div>
@@ -215,6 +231,14 @@ const Dashboard = () => {
                   </li>
                 ))}
               </ul>
+            )}
+             {filteredCoins.length === 0 && (
+              <p>
+                No coins found, please{" "}
+                <Link href={"/login"} className="link">
+                  Login
+                </Link>
+              </p>
             )}
             </div>
           </div>
