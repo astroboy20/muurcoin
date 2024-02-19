@@ -3,8 +3,6 @@ import Image from "next/image";
 import { SkillContainer } from "./Skills.style";
 import Button from "@/components/Button/Button";
 import Link from "next/link"
-import CryptoWidget from "../CrypoWidget";
-// import CryptoWidget from "../CrypoWidget";
 
 const Skills = () => {
   return (
