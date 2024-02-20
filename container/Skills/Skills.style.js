@@ -9,7 +9,7 @@ export const SkillContainer = styled.div`
   .skill-container {
     display: flex;
     justify-content: center;
-    align-items: CENTER;
+    align-items: center;
     flex-direction: column;
     gap: 30px;
   }
@@ -34,17 +34,19 @@ export const SkillContainer = styled.div`
     margin-bottom: 10px;
   }
   .icons {
+    overflow-x: auto; /* Enable horizontal scrolling */
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Align icons to the start */
+    padding: 5px 0; /* Add padding to separate from edges */
+  }
+  .icons::-webkit-scrollbar {
+    display: none;
   }
   .icon {
     display: flex;
     gap: 10px;
-    width: 20%;
     background-color: #131740;
-    /* border: 1px solid #000; */
     padding: 2%;
     border-radius: 10px;
     margin: 10px;
@@ -59,7 +61,6 @@ export const SkillContainer = styled.div`
   }
   @media screen and (max-width: 800px) {
     .skill-container {
-      /* flex-direction: column-reverse; */
       text-align: center;
     }
 
@@ -69,14 +70,11 @@ export const SkillContainer = styled.div`
     .icons {
       display: flex;
       flex-wrap: nowrap;
-      flex-direction: column;
+      flex-direction: row; /* Change direction to row for small screens */
       width: 100%;
     }
     .icon {
       gap: 10px;
-      width: 100%;
-      /* background-color: #fff; */
-      /* border: 1px solid #000; */
       padding: 5%;
       border-radius: 10px;
       margin: 10px;

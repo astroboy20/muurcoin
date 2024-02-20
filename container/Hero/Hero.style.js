@@ -9,7 +9,7 @@ export const HeroContainer = styled.header`
   background: linear-gradient(to right, #744369, #4A3671, #3B3C8F);
   clip-path: polygon(50% 0%, 100% 0, 100% 71%, 68% 100%, 0% 75%, 0 0);
   color: #fff;
-  margin-top: 110px;
+  margin-top: 100px;
   .section-link {
     text-decoration: none;
     color: #fff;
