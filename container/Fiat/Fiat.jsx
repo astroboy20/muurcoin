@@ -258,12 +258,14 @@ const Fiat = () => {
                   ))}
                 </ul>
               )}
+             {filteredCoins.length === 0 && (
               <p>
                 No coins found, please{" "}
                 <Link href={"/login"} className="link">
                   Login
                 </Link>
               </p>
+            )}
             </div>
           </div>
         </div>

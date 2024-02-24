@@ -169,7 +169,7 @@ const Dashboard = () => {
         <div className="small-coins">
           <div className="coin">
             <ul className="coin">
-            <h2>User Coins:</h2>
+            
             {UserCoins && (
               <ul className="coin">
                 {Object.entries(UserCoins).map(([currency, value]) => (
@@ -212,7 +212,7 @@ const Dashboard = () => {
           </div>
           <div className="coins">
             <div className="coin">
-              <h2>User Coins:</h2>
+              {/* <h2>User Coins:</h2> */}
               {UserCoins && (
               <ul className="coin">
                 {Object.entries(UserCoins).map(([currency, value]) => (
