@@ -14,9 +14,9 @@ const What = () => {
       <div className="what-container" data-aos="fade-up" data-aos-delay="1000">
         <div className="image">
           <Image
-            src={"/images/hero.jpg"}
+            src={"/images/fiat.jpg"}
             width={600}
-            height={500}
+            height={700}
             alt="what-image"
             objectFit="contain"
             style={{

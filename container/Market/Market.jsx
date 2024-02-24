@@ -10,7 +10,7 @@ const Market = () => {
     <MarketContainer>
       <div className="hero-image">
         <Image
-          src={"/images/hero_crypto_trading.jpg"}
+          src={"/images/hero_crypto.jpg"}
           alt="hero"
           style={{ borderRadius: "20px" }}
           layout="fill"

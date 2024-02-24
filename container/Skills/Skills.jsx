@@ -14,7 +14,7 @@ const Skills = () => {
       if (!isUnmounted && iconScrollRef.current) {
         const { scrollWidth, clientWidth } = iconScrollRef.current;
         if (scrollWidth > clientWidth) {
-          const scrollStep = 1;
+          const scrollStep = 0.5;
           const scrollIntervalTime = 50;
 
           const scrollInterval = setInterval(() => {
@@ -53,10 +53,10 @@ const Skills = () => {
             <Image
               width={30}
               height={30}
-              src={"/images/ETH.png"}
+              src={"/images/btc.png"}
               alt="icon"
             />
-            <span>ETH</span>
+            <span>BTC</span>
           </div>
         <div className="icon">
             <Image
@@ -71,100 +71,228 @@ const Skills = () => {
             <Image
               width={30}
               height={30}
-              src={"/images/ETH.png"}
+              src={"/images/doge.png"}
               alt="icon"
             />
-            <span>ETH</span>
+            <span>Doge</span>
           </div>
         <div className="icon">
             <Image
               width={30}
               height={30}
-              src={"/images/ETH.png"}
+              src={"/images/bch.png"}
               alt="icon"
             />
-            <span>ETH</span>
+            <span>BCH</span>
           </div>
         <div className="icon">
             <Image
               width={30}
               height={30}
-              src={"/images/ETH.png"}
+              src={"/images/fdusd.jpeg"}
               alt="icon"
             />
-            <span>ETH</span>
+            <span>FDUSD</span>
           </div>
         <div className="icon">
             <Image
               width={30}
               height={30}
-              src={"/images/ETH.png"}
+              src={"/images/dot.png"}
               alt="icon"
             />
-            <span>ETH</span>
+            <span>DOT</span>
           </div>
         <div className="icon">
             <Image
               width={30}
               height={30}
-              src={"/images/ETH.png"}
+              src={"/images/etc.png"}
               alt="icon"
             />
-            <span>ETH</span>
+            <span>ETC</span>
           </div>
         <div className="icon">
             <Image
               width={30}
               height={30}
-              src={"/images/ETH.png"}
+              src={"/images/icp.jpeg"}
               alt="icon"
             />
-            <span>ETH</span>
+            <span>ICP</span>
           </div>
         <div className="icon">
             <Image
               width={30}
               height={30}
-              src={"/images/ETH.png"}
+              src={"/images/matic.png"}
               alt="icon"
             />
-            <span>ETH</span>
+            <span>MATIC</span>
           </div>
         <div className="icon">
             <Image
               width={30}
               height={30}
-              src={"/images/ETH.png"}
+              src={"/images/hbar.png"}
               alt="icon"
             />
-            <span>ETH</span>
+            <span>HBAR</span>
           </div>
         <div className="icon">
             <Image
               width={30}
               height={30}
-              src={"/images/ETH.png"}
+              src={"/images/link.png"}
               alt="icon"
             />
-            <span>ETH</span>
+            <span>LINK</span>
           </div>
         <div className="icon">
             <Image
               width={30}
               height={30}
-              src={"/images/ETH.png"}
+              src={"/images/ltc.png"}
               alt="icon"
             />
-            <span>ETH</span>
+            <span>LTC</span>
           </div>
         <div className="icon">
             <Image
               width={30}
               height={30}
-              src={"/images/ETH.png"}
+              src={"/images/mkr.jpeg"}
               alt="icon"
             />
-            <span>ETH</span>
+            <span>MKR</span>
+          </div>
+        </div>
+        <div className="icons" ref={iconScrollRef}>
+        <div className="icon">
+            <Image
+              width={30}
+              height={30}
+              src={"/images/inj.png"}
+              alt="icon"
+            />
+            <span>INJ</span>
+          </div>
+        <div className="icon">
+            <Image
+              width={30}
+              height={30}
+              src={"/images/ldo.jpeg"}
+              alt="icon"
+            />
+            <span>LDO</span>
+          </div>
+        <div className="icon">
+            <Image
+              width={30}
+              height={30}
+              src={"/images/grt.png"}
+              alt="icon"
+            />
+            <span>GRT</span>
+          </div>
+        <div className="icon">
+            <Image
+              width={30}
+              height={30}
+              src={"/images/bnb.png"}
+              alt="icon"
+            />
+            <span>BNB</span>
+          </div>
+        <div className="icon">
+            <Image
+              width={30}
+              height={30}
+              src={"/images/fil.png"}
+              alt="icon"
+            />
+            <span>FIL</span>
+          </div>
+        <div className="icon">
+            <Image
+              width={30}
+              height={30}
+              src={"/images/etc.png"}
+              alt="icon"
+            />
+            <span>ETC</span>
+          </div>
+        <div className="icon">
+            <Image
+              width={30}
+              height={30}
+              src={"/images/imx.png"}
+              alt="icon"
+            />
+            <span>IMX</span>
+          </div>
+        <div className="icon">
+            <Image
+              width={30}
+              height={30}
+              src={"/images/edid.jpeg"}
+              alt="icon"
+            />
+            <span>EDID</span>
+          </div>
+        <div className="icon">
+            <Image
+              width={30}
+              height={30}
+              src={"/images/dai.png"}
+              alt="icon"
+            />
+            <span>DAI</span>
+          </div>
+        <div className="icon">
+            <Image
+              width={30}
+              height={30}
+              src={"/images/hbar.png"}
+              alt="icon"
+            />
+            <span>HBAR</span>
+          </div>
+        <div className="icon">
+            <Image
+              width={30}
+              height={30}
+              src={"/images/link.png"}
+              alt="icon"
+            />
+            <span>LINK</span>
+          </div>
+        <div className="icon">
+            <Image
+              width={30}
+              height={30}
+              src={"/images/arb.png"}
+              alt="icon"
+            />
+            <span>ARB</span>
+          </div>
+        <div className="icon">
+            <Image
+              width={30}
+              height={30}
+              src={"/images/atom.png"}
+              alt="icon"
+            />
+            <span>ATOM</span>
+          </div>
+        <div className="icon">
+            <Image
+              width={30}
+              height={30}
+              src={"/images/avax.png"}
+              alt="icon"
+            />
+            <span>AVAX</span>
           </div>
         </div>
 
