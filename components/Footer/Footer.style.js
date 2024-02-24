@@ -17,9 +17,13 @@ export const FooterContainer = styled.div`
 
   .left,
   .center,
-  .right {
+  .right,.social-media {
     display: flex;
     flex-direction: column;
+    gap: 20px;
+  }
+  .social-media .icons{
+    display: flex;
     gap: 20px;
   }
 
@@ -41,8 +45,10 @@ export const FooterContainer = styled.div`
 
   @media screen and (max-width: 800px) {
     padding:7% 4% ;
+   
     .top {
       flex-direction: column;
+      gap:20px;
     }
   }
 `;

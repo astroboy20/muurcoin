@@ -1,6 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { FooterContainer } from "./Footer.style";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaWhatsappSquare } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -16,10 +20,32 @@ const Footer = () => {
           <h3>Links</h3>
           <p>Home</p>
           <p>Overview</p>
-          <p>Spot-trading</p>
+          <p>Fiat</p>
+
         </div>
+
         <div className="right">
-          <h3>NewsLetter</h3>
+          <h3>Exchange</h3>
+          <p>BTC to USDT</p>
+          <p>ETH to DOGE</p>
+          <p>BTC to ETH</p>
+        </div>
+
+        <div className="right">
+          <h3>Features</h3>
+          <p>Transfer</p>
+          <p>Exchange</p>
+        </div>
+
+        <div className="social-media">
+          <h3>Social Media</h3>
+          <div className="icons">
+            {" "}
+            <FaXTwitter />
+            <FaInstagramSquare />
+            <FaWhatsappSquare />
+            <FaFacebookF />
+          </div>
         </div>
       </div>
       <hr className="hr" />

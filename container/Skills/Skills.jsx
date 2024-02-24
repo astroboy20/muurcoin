@@ -14,15 +14,13 @@ const Skills = () => {
       if (!isUnmounted && iconScrollRef.current) {
         const { scrollWidth, clientWidth } = iconScrollRef.current;
         if (scrollWidth > clientWidth) {
-          const scrollStep = 0.5;
-          const scrollIntervalTime = 50;
+          const scrollStep = 1; // Adjust scroll step as needed
+          const scrollIntervalTime = 50; // Adjust interval time as needed
 
           const scrollInterval = setInterval(() => {
-            iconScrollRef.current.scrollLeft += scrollStep;
-
-            if (iconScrollRef.current.scrollLeft >= scrollWidth) {
-              console.log("S",iconScrollRef.current.scrollLeft)
-              iconScrollRef.current.scrollLeft = 0; // Reset to beginning
+            if (iconScrollRef.current) { // Ensure ref is still valid
+              const { scrollLeft } = iconScrollRef.current;
+              iconScrollRef.current.scrollLeft = (scrollLeft + scrollStep) >= scrollWidth ? 0 : (scrollLeft + scrollStep);
             }
           }, scrollIntervalTime);
 
@@ -39,6 +37,7 @@ const Skills = () => {
       isUnmounted = true;
     };
   }, []);
+  
 
   return (
     <SkillContainer>
