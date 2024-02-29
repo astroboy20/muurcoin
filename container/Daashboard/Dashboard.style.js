@@ -11,6 +11,13 @@ export const DashboardContainer = styled.div`
   /* flex-direction: column; */
   /* padding:4% 0; */
   gap: 30px;
+  #chart{
+    background-color:white ;
+    width:50% ;
+    margin:10% 25% ;
+    padding:3% ;
+    color:white ;
+  }
   .link{
     color:white ;
     font-weight:500 ;

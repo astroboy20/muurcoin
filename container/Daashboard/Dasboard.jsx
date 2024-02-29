@@ -6,8 +6,9 @@ import { logOut } from "@/feature/slice/authSlice";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { CryptoCurrencyMarket } from "react-ts-tradingview-widgets";
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
+import { PieChart,pieArcLabelClasses  } from "@mui/x-charts/PieChart";
 
 const Dashboard = () => {
   const [UserCoins, setUserCoins] = useState(null);
@@ -36,7 +37,32 @@ const Dashboard = () => {
           console.log(error);
         });
     }
-  }, [ token]);
+  }, [token]);
+
+  const series = [
+    UserCoins?.BTC,
+    UserCoins?.ETH,
+    UserCoins?.USDT,
+    UserCoins?.BNB,
+  ];
+  const options = {
+    chart: {
+      type: "donut",
+    },
+    responsive: [
+      {
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 200,
+          },
+          legend: {
+            position: "bottom",
+          },
+        },
+      },
+    ],
+  };
 
   useEffect(() => {
     if (token) {
@@ -75,10 +101,10 @@ const Dashboard = () => {
   }, [token]);
 
   const filteredCoins = UserCoins
-  ? Object.entries(UserCoins).filter(([currency]) =>
-      currency.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-  : [];
+    ? Object.entries(UserCoins).filter(([currency]) =>
+        currency.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : [];
 
   const currencyIcons = {
     BTC: <Image src={"/images/btc.png"} width={20} height={20} alt="BTC" />,
@@ -159,6 +185,13 @@ const Dashboard = () => {
     }
   }, []);
 
+  const sizing = {
+    margin: { right: 5 },
+    width: 200,
+    height: 200,
+    legend: { hidden: true },
+  };
+
   return (
     <>
       <DashboardContainer>
@@ -169,77 +202,95 @@ const Dashboard = () => {
         <div className="small-coins">
           <div className="coin">
             <ul className="coin">
-            
-            {UserCoins && (
-              <ul className="coin">
-                {Object.entries(UserCoins).map(([currency, value]) => (
-                  <li key={currency} onClick={() => handleSelected(currency)}>
-                    <div className="coin-icon">
-                      {" "}
-                      {currencyIcons[currency] && (
-                        <span className="coin-icon">
-                          {currencyIcons[currency]}
+              {UserCoins && (
+                <ul className="coin">
+                  {Object.entries(UserCoins).map(([currency, value]) => (
+                    <li key={currency} onClick={() => handleSelected(currency)}>
+                      <div className="coin-icon">
+                        {" "}
+                        {currencyIcons[currency] && (
+                          <span className="coin-icon">
+                            {currencyIcons[currency]}
+                          </span>
+                        )}
+                        <span className="coin-name">
+                          {currency}: {value}
                         </span>
-                      )}
-                      <span className="coin-name">
-                        {currency}: {value}
-                      </span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
-            {filteredCoins.length === 0 && (
-              <p>
-                No coins found, please{" "}
-                <Link href={"/login"} className="link">
-                  Login
-                </Link>
-              </p>
-            )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {filteredCoins.length === 0 && (
+                <p>
+                  No coins found, please{" "}
+                  <Link href={"/login"} className="link">
+                    Login
+                  </Link>
+                </p>
+              )}
             </ul>
           </div>
         </div>
         <div className="coin-chart">
           <div className="chart">
-            <CryptoCurrencyMarket
+            {/* <CryptoCurrencyMarket
               colorTheme="dark"
               width="100%"
               // height={490}
               autosize
               displayCurrency="USD"
-            ></CryptoCurrencyMarket>
+            ></CryptoCurrencyMarket> */}
+            <div id="chart" >
+              <PieChart
+                series={[
+                  {
+                    data: [
+                      { id: 0, value: UserCoins?.BTC, label: "BTC" },
+                      { id: 1, value: UserCoins?.ETH, label: "ETH" },
+                      { id: 2, value: UserCoins?.USDT, label: "USDT" },
+                      { id: 3, value: UserCoins?.BNB, label: "BNB" },
+                    ],
+                  },
+                
+                ]}
+               
+            
+                width={400}
+                height={200}
+              />
+            </div>
           </div>
           <div className="coins">
             <div className="coin">
               {/* <h2>User Coins:</h2> */}
               {UserCoins && (
-              <ul className="coin">
-                {Object.entries(UserCoins).map(([currency, value]) => (
-                  <li key={currency} onClick={() => handleSelected(currency)}>
-                    <div className="coin-icon">
-                      {" "}
-                      {currencyIcons[currency] && (
-                        <span className="coin-icon">
-                          {currencyIcons[currency]}
+                <ul className="coin">
+                  {Object.entries(UserCoins).map(([currency, value]) => (
+                    <li key={currency} onClick={() => handleSelected(currency)}>
+                      <div className="coin-icon">
+                        {" "}
+                        {currencyIcons[currency] && (
+                          <span className="coin-icon">
+                            {currencyIcons[currency]}
+                          </span>
+                        )}
+                        <span className="coin-name">
+                          {currency}: {value}
                         </span>
-                      )}
-                      <span className="coin-name">
-                        {currency}: {value}
-                      </span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
-             {filteredCoins.length === 0 && (
-              <p>
-                No coins found, please{" "}
-                <Link href={"/login"} className="link">
-                  Login
-                </Link>
-              </p>
-            )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {filteredCoins.length === 0 && (
+                <p>
+                  No coins found, please{" "}
+                  <Link href={"/login"} className="link">
+                    Login
+                  </Link>
+                </p>
+              )}
             </div>
           </div>
         </div>

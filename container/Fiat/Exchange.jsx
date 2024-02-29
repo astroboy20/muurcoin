@@ -48,8 +48,9 @@ const Exchange = ({ UserCoins, token }) => {
             <select
               id="fromCurrency"
               className="currency-select"
-              value={from}
+              value={from }
               onChange={(e) => setFromCurrency(e.target.value)}
+              
             >
               <option value="" disabled hidden>
                 Select Currency
