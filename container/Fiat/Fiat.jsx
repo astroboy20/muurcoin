@@ -83,7 +83,7 @@ const Fiat = () => {
         const simplifiedData = result.data.map((item) => ({
           name: item.name,
           symbol: item.symbol,
-          price:  item.quote.USD.price,
+          price: Math.round( item.quote.USD.price *100)/100,
           percentChange:Math.round( item.quote.USD.percent_change_24h *100)/100,
         }));
         setData(simplifiedData);
