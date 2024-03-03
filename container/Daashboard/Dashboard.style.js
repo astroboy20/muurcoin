@@ -11,16 +11,40 @@ export const DashboardContainer = styled.div`
   /* flex-direction: column; */
   /* padding:4% 0; */
   gap: 30px;
-  #chart{
-    background-color:white ;
-    width:50% ;
-    margin:10% 25% ;
-    padding:3% ;
-    color:white ;
+
+  .transaction-chart {
+    display: flex;
+    /* justify-content:space-evenly ; */
+    padding: 4%;
+    gap: 20px;
   }
-  .link{
-    color:white ;
-    font-weight:500 ;
+  .spot {
+    background: rgba(255, 255, 255, 0.26);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.1px);
+    -webkit-backdrop-filter: blur(13.1px);
+    border-radius: 10px;
+    padding: 2% 5% 2% 2%;
+    width: 30%;
+  }
+  
+  #chart {
+    background: rgba(255, 255, 255, 0.26);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.1px);
+    -webkit-backdrop-filter: blur(13.1px);
+    border-radius:0 0 10px 10px;
+    width: 100%;
+    height:300px ;
+    margin: auto auto;
+    align-items:center ;
+    display:flex ;
+    justify-content:space-between ;
+    color: white;
+  }
+  .link {
+    color: white;
+    font-weight: 500;
   }
   .header {
     width: 100%;
@@ -34,8 +58,29 @@ export const DashboardContainer = styled.div`
     width: 100%;
     border-top: 1px solid #fff;
   }
+  .line{
+    display:flex ;
+    flex-wrap:wrap ;
+    gap:20px;
+    justify-content:center ;
+    padding:2% 0 ;
+    font-size:20px ;
+    
+  }
+  .line-chart{
+    background: rgba(255, 255, 255, 0.26);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.1px);
+    -webkit-backdrop-filter: blur(13.1px);
+    border-radius:10px ;
+    padding:2% 0 ;
+  }
   .chart {
     width: 80%;
+    display:flex ;
+    flex-direction:column ;
+    text-align:center ;
+
   }
   .coins {
     background-color: #000;
@@ -59,8 +104,8 @@ export const DashboardContainer = styled.div`
     cursor: pointer;
   }
   ul::-webkit-scrollbar {
-  display: none;
-}
+    display: none;
+  }
   .buy-sell {
     padding: 3% 2%;
     background-color: #000;
@@ -100,7 +145,7 @@ export const DashboardContainer = styled.div`
   }
   .logs .text {
     display: flex;
-    flex-direction:column ;
+    flex-direction: column;
     gap: 20px;
   }
   .small-coins {
@@ -122,13 +167,13 @@ export const DashboardContainer = styled.div`
       font-size: 30px;
     }
     .logs {
-      margin-top:50px ;
+      margin-top: 50px;
       padding: 2%;
       overflow-x: auto;
     }
 
     .table {
-      width: 100%; 
+      width: 100%;
     }
     .buy-sell {
       padding: 7% 3% 20% 3%;
@@ -136,7 +181,6 @@ export const DashboardContainer = styled.div`
     }
     .buy,
     .sell {
-     
       width: 100%;
     }
     .small-coins {
@@ -153,5 +197,20 @@ export const DashboardContainer = styled.div`
       overflow-y: scroll;
       cursor: pointer;
     }
+    .transaction-chart {
+   flex-direction:column ;
+    /* justify-content:space-evenly ; */
+    padding: 4%;
+    gap: 20px;
+  }
+  .spot {
+    background: rgba(255, 255, 255, 0.26);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.1px);
+    -webkit-backdrop-filter: blur(13.1px);
+    border-radius: 10px;
+    padding: 5% ;
+    width: 100%;
+  }
   }
 `;

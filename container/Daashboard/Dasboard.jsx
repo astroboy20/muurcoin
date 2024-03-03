@@ -8,11 +8,20 @@ import axios from "axios";
 import { CryptoCurrencyMarket } from "react-ts-tradingview-widgets";
 import Image from "next/image";
 import Link from "next/link";
-import { PieChart,pieArcLabelClasses  } from "@mui/x-charts/PieChart";
+import { PieChart } from "@mui/x-charts/PieChart";
+import { LineChart } from "@mui/x-charts/LineChart";
 
 const Dashboard = () => {
   const [UserCoins, setUserCoins] = useState(null);
   const [transactions, setTransaction] = useState([]);
+  const [spotData, setSpotData] = useState([]);
+  const [transferData, setTransferData] = useState([]);
+  const [depositData, setdepositData] = useState([]);
+  const [withdrawData, setWithdrawData] = useState([]);
+  const [spot, setSpot] = useState("");
+  const [deposit, setDeposit] = useState("");
+  const [transfer, setTransfer] = useState("");
+  const [withdrawal, setWithdrwal] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
   const dispatch = useDispatch();
@@ -38,31 +47,6 @@ const Dashboard = () => {
         });
     }
   }, [token]);
-
-  const series = [
-    UserCoins?.BTC,
-    UserCoins?.ETH,
-    UserCoins?.USDT,
-    UserCoins?.BNB,
-  ];
-  const options = {
-    chart: {
-      type: "donut",
-    },
-    responsive: [
-      {
-        breakpoint: 480,
-        options: {
-          chart: {
-            width: 200,
-          },
-          legend: {
-            position: "bottom",
-          },
-        },
-      },
-    ],
-  };
 
   useEffect(() => {
     if (token) {
@@ -91,7 +75,58 @@ const Dashboard = () => {
           },
         })
         .then((response) => {
-          console.log(response.data.data);
+          // console.log(response.data.data);
+          const spotTransactions = response.data.data.filter(
+            (transaction) => transaction.trx_type === "Spot"
+          );
+          const transferTransactions = response.data.data.filter(
+            (transaction) => transaction.trx_type === "Transfer"
+          );
+          const depositTransactions = response.data.data.filter(
+            (transaction) => transaction.trx_type === "Deposit"
+          );
+          const withdrawTransactions = response.data.data.filter(
+            (transaction) => transaction.trx_type === "Withdrawal"
+          );
+
+          setSpotData(spotTransactions)
+          setTransferData(transferTransactions)
+          setdepositData(depositTransactions)
+          setWithdrawData(withdrawTransactions)
+          
+
+          const totalSpotTransaction = spotTransactions.reduce(
+            (total, transaction) => {
+              return total + transaction.amount;
+            },
+            0
+          );
+
+          const totalTransferTransaction = transferTransactions.reduce(
+            (total, transaction) => {
+              return total + transaction.amount;
+            },
+            0
+          );
+
+          const totalDepositTransaction = depositTransactions.reduce(
+            (total, transaction) => {
+              return total + transaction.amount;
+            },
+            0
+          );
+
+          const totalWithdrawTransaction = withdrawTransactions.reduce(
+            (total, transaction) => {
+              return total + transaction.amount;
+            },
+            0
+          );
+
+          setSpot(totalSpotTransaction);
+          setTransfer(totalTransferTransaction);
+          setDeposit(totalDepositTransaction);
+          setWithdrwal(totalWithdrawTransaction);
           setTransaction(response.data.data);
         })
         .catch((error) => {
@@ -192,6 +227,20 @@ const Dashboard = () => {
     legend: { hidden: true },
   };
 
+  const spotID = spotData.map((spot)=>(
+    spot.id
+  ))
+  const transferID = transferData.map((transfer)=>(
+    transfer.id
+  ))
+  const depositID = depositData.map((deposit)=>(
+    deposit.id
+  ))
+  const withdrawID = withdrawData.map((withdraw)=>(
+    withdraw.id
+  ))
+  console.log(spotID)
+
   return (
     <>
       <DashboardContainer>
@@ -232,16 +281,27 @@ const Dashboard = () => {
             </ul>
           </div>
         </div>
+        <div className="transaction-chart">
+          <div className="spot">
+            <p>Exchange</p>
+            <p>{`$ ${spot}`}</p>
+          </div>
+          <div className="spot">
+            <p>Transfer</p>
+            <p>{`$ ${transfer}`}</p>
+          </div>
+          <div className="spot">
+            <p>Deposit</p>
+            <p>{`$ ${deposit}`}</p>
+          </div>
+          <div className="spot">
+            <p>Withdrwal</p>
+            <p>{`$ ${withdrawal}`}</p>
+          </div>
+        </div>
         <div className="coin-chart">
           <div className="chart">
-            {/* <CryptoCurrencyMarket
-              colorTheme="dark"
-              width="100%"
-              // height={490}
-              autosize
-              displayCurrency="USD"
-            ></CryptoCurrencyMarket> */}
-            <div id="chart" >
+            <div id="chart">
               <PieChart
                 series={[
                   {
@@ -249,17 +309,69 @@ const Dashboard = () => {
                       { id: 0, value: UserCoins?.BTC, label: "BTC" },
                       { id: 1, value: UserCoins?.ETH, label: "ETH" },
                       { id: 2, value: UserCoins?.USDT, label: "USDT" },
-                      { id: 3, value: UserCoins?.BNB, label: "BNB" },
+                      { id: 3, value: UserCoins?.MUURCOIN, label: "MRCN" },
                     ],
                   },
-                
                 ]}
-               
-            
                 width={400}
                 height={200}
               />
             </div>
+            <div className="line">
+            <div className="line-chart">
+            <p>Exchange</p>
+              <LineChart
+                xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                series={[
+                  {
+                    data:spotID.slice(0, 6),
+                  },
+                ]}
+                width={400}
+                height={300}
+              />
+            </div>
+            <div className="line-chart">
+            <p>Transfer</p>
+              <LineChart
+                xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                series={[
+                  {
+                    data:transferID.slice(0, 6),
+                  },
+                ]}
+                width={400}
+                height={300}
+              />
+            </div>
+            <div className="line-chart">
+              <p>Withdrawal</p>
+              <LineChart
+                xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                series={[
+                  {
+                    data: withdrawID.slice(0,6),
+                  },
+                ]}
+                width={400}
+                height={300}
+              />
+            </div>
+            <div className="line-chart">
+            <p>Deposit</p>
+              <LineChart
+                xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                series={[
+                  {
+                    data: depositID.slice(0,6),
+                  },
+                ]}
+                width={400}
+                height={300}
+              />
+            </div>
+            </div>
+           
           </div>
           <div className="coins">
             <div className="coin">
