@@ -11,16 +11,18 @@ import { OptionItems, optionItems } from "./data";
 import Option from "./Option";
 import { Exchange } from "./Exchange";
 import { Transfer } from "./Transfer";
-import Link from "next/link"
+import Link from "next/link";
+import api from "./api";
 
 const Fiat = () => {
   const [UserCoins, setUserCoins] = useState(null);
   const [selectedCoin, setSelectedCoin] = useState("USDTBTC");
   const [heading, setHeading] = useState("USDTBTC");
   const [searchQuery, setSearchQuery] = useState("");
-
   const [transactions, setTransaction] = useState([]);
   const { option, switchOption } = useOptionContext();
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
 
   const handleOption = (option) => {
     switchOption(option);
@@ -32,8 +34,9 @@ const Fiat = () => {
       )
     : [];
 
-  const handleSelected = (symbol) => {
+  const handleSelected = (symbol, name) => {
     setSelectedCoin(symbol);
+    setHeading(name)
   };
   const dispatch = useDispatch();
   const { isError, isSuccess, isLoading, user } = useSelector(
@@ -41,28 +44,7 @@ const Fiat = () => {
   );
   const token = user?.data.token;
 
-  useEffect(() => {
-    const defaultSymbol = "BTCUSDT";
-
-    const pairSymbol = selectedCoin ? `${selectedCoin}` : defaultSymbol;
-
-    setHeading(pairSymbol);
-    if (token) {
-      axios
-        .get("https://162.254.35.120/api/crypto", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => {
-          setUserCoins(response.data.data.currencies);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  }, [token]);
-
+ 
   useEffect(() => {
     if (token) {
       axios
@@ -83,18 +65,39 @@ const Fiat = () => {
         });
     }
   }, [token]);
-  const handleLogout = async () => {
-    await dispatch(logOut());
-  };
+ 
+
+
+ 
 
   useEffect(() => {
-    if (isError) {
-      console.log("Error");
-    }
-    if (isSuccess) {
-      console.log("sucess");
-    }
+   
+    const fetchData = async () => {
+      try {
+        const response = await api.get(
+          "cryptocurrency/listings/latest?start=1&limit=21&convert=USD"
+        );
+        const result = response.data;
+        // Assuming result contains an array under the key "data"
+        const data = result.data;
+        const simplifiedData = result.data.map((item) => ({
+          name: item.name,
+          symbol: item.symbol,
+          price:  item.quote.USD.price,
+          percentChange:Math.round( item.quote.USD.percent_change_24h *100)/100,
+        }));
+        setData(simplifiedData);
+      } catch (error) {
+        setError(error);
+      }
+    };
+
+    fetchData();
   }, []);
+
+  if (error) {
+    return <div>Error fetching data</div>;
+  }
 
   const currencyIcons = {
     BTC: <Image src={"/images/btc.png"} width={20} height={20} alt="BTC" />,
@@ -164,43 +167,41 @@ const Fiat = () => {
   return (
     <>
       <FiatContainer>
-        {/* <Button size="large" OnClick={handleLogout}>
-          Logout
-        </Button> */}
+      
         <div className="header">
           <h2>{heading}</h2>
           <div></div>
         </div>
         <div className="small-coins">
           <div className="coin">
-            <h2>User Coins:</h2>
-            {UserCoins && (
-              <ul className="coin">
-                {Object.entries(UserCoins).map(([currency, value]) => (
-                  <li key={currency} onClick={() => handleSelected(currency)}>
-                    <div className="coin-icon">
-                      {" "}
-                      {currencyIcons[currency] && (
-                        <span className="coin-icon">
-                          {currencyIcons[currency]}
-                        </span>
-                      )}
-                      <span className="coin-name">
-                        {currency}: {value}
-                      </span>
-                    </div>
-                  </li>
+          
+            <table className="table table-dark table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Price (USD)</th>
+                  <th>24h Change (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((item,index) => (
+                  <tr key={item.id} onClick={() => handleSelected(item.symbol,item.name)}>
+                    <td>{index +1 }</td>
+                    <td>{item.name}</td>
+                    <td>${item.price}</td>
+                    <td
+                      style={{
+                        color:
+                          parseFloat(item.percentChange) >= 0 ? "green" : "red",
+                      }}
+                    >
+                      {item.percentChange}%
+                    </td>
+                  </tr>
                 ))}
-              </ul>
-            )}
-            {filteredCoins.length === 0 && (
-              <p>
-                No coins found, please{" "}
-                <Link href={"/login"} className="link">
-                  Login
-                </Link>
-              </p>
-            )}
+              </tbody>
+            </table>
           </div>
         </div>
         <div className="coin-chart">
@@ -238,34 +239,36 @@ const Fiat = () => {
           </div>
           <div className="coins">
             <div className="coin">
-              <h2>User Coins:</h2>
-              {UserCoins && (
-                <ul className="coin">
-                  {Object.entries(UserCoins).map(([currency, value]) => (
-                    <li key={currency} onClick={() => handleSelected(currency)}>
-                      <div className="coin-icon">
-                        {" "}
-                        {currencyIcons[currency] && (
-                          <span className="coin-icon">
-                            {currencyIcons[currency]}
-                          </span>
-                        )}
-                        <span className="coin-name">
-                          {currency}: {value}
-                        </span>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              )}
-             {filteredCoins.length === 0 && (
-              <p>
-                No coins found, please{" "}
-                <Link href={"/login"} className="link">
-                  Login
-                </Link>
-              </p>
-            )}
+             
+            
+              <table className="table table-dark table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Price (USD)</th>
+                  <th>24h Change (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((item,index) => (
+                  <tr key={item.id} onClick={() => handleSelected(item.symbol, item.name)}>
+                    <td>{index +1 }</td>
+                    <td>{item.name}</td>
+                    <td>${item.price.toFixed(2)}</td>
+                    <td
+                      style={{
+                        color:
+                          item.percentChange>= 0 ? "green" : "red",
+                      }}
+                    >
+                      {item.percentChange}%
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          
             </div>
           </div>
         </div>

@@ -19,14 +19,16 @@ export const FiatContainer = styled.div`
     border-top: 1px solid #fff;
   }
   .chart {
-    width: 80%;
+    width: 60%;
   }
   .coins {
     background-color: #000;
     color: white;
     width: 30%;
-    padding: 2%;
+    /* padding: 2%; */
     border-left: 1px solid #fff;
+    width:40% ;
+    
   }
   .coin-icon {
     display: flex;
@@ -115,10 +117,15 @@ export const FiatContainer = styled.div`
       padding: 2%;
       height: auto;
       border-top: 1px solid #fff;
+      overflow-x: scroll;
+    }
+    .coin-chart{
+      width:auto ;
     }
     ul {
       height: 300px;
       overflow-y: scroll;
+     
       cursor: pointer;
     }
     .exchange-transfer {
