@@ -17,6 +17,8 @@ export const DashboardContainer = styled.div`
     /* justify-content:space-evenly ; */
     padding: 4%;
     gap: 20px;
+    background-image:url("images/dashboard-bg.jpg") ;
+    background-size:cover ;
   }
   .spot {
     background: rgba(255, 255, 255, 0.26);

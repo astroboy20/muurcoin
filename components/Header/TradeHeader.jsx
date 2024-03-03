@@ -44,7 +44,8 @@ const TraderHeader = () => {
 
   const handleLogout = async () => {
     await dispatch(clearUser());
-    toast.success("Request Succesful")
+    toast.success("Request Successful")
+    router.push("/login")
   };
   return (
     <>

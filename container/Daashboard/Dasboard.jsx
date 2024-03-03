@@ -344,7 +344,7 @@ const Dashboard = () => {
                 height={300}
               />
             </div>
-            <div className="line-chart">
+            {/* <div className="line-chart">
               <p>Withdrawal</p>
               <LineChart
                 xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
@@ -356,8 +356,8 @@ const Dashboard = () => {
                 width={400}
                 height={300}
               />
-            </div>
-            <div className="line-chart">
+            </div> */}
+            {/* <div className="line-chart">
             <p>Deposit</p>
               <LineChart
                 xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
@@ -369,7 +369,7 @@ const Dashboard = () => {
                 width={400}
                 height={300}
               />
-            </div>
+            </div> */}
             </div>
            
           </div>
