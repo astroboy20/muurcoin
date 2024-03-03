@@ -104,7 +104,7 @@ const Dashboard = () => {
 
           const totalTransferTransaction = transferTransactions.reduce(
             (total, transaction) => {
-              return total + transaction.amount;
+              return Math.abs(total + transaction.amount);
             },
             0
           );
@@ -118,15 +118,15 @@ const Dashboard = () => {
 
           const totalWithdrawTransaction = withdrawTransactions.reduce(
             (total, transaction) => {
-              return total + transaction.amount;
+              return  total + transaction.amount;
             },
             0
           );
 
-          setSpot(totalSpotTransaction);
-          setTransfer(totalTransferTransaction);
-          setDeposit(totalDepositTransaction);
-          setWithdrwal(totalWithdrawTransaction);
+          setSpot(totalSpotTransaction.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+          setTransfer(totalTransferTransaction.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+          setDeposit(totalDepositTransaction.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+          setWithdrwal(totalWithdrawTransaction.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
           setTransaction(response.data.data);
         })
         .catch((error) => {
