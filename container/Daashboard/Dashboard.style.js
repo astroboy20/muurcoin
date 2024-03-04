@@ -26,17 +26,18 @@ export const DashboardContainer = styled.div`
     backdrop-filter: blur(13.1px);
     -webkit-backdrop-filter: blur(13.1px);
     border-radius: 10px;
-    padding: 2% 5% 2% 2%;
+    padding: 15px 20px ;
     width: 30%;
+    font-size:24px ;
   }
   
   #chart {
-    background: rgba(255, 255, 255, 0.26);
+    /* background: rgba(255, 255, 255, 0.26);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(13.1px);
     -webkit-backdrop-filter: blur(13.1px);
-    border-radius:0 0 10px 10px;
-    width: 100%;
+    border-radius:0 0 10px 10px; */
+    /* width: 100%; */
     height:300px ;
     margin: auto auto;
     align-items:center ;
@@ -70,10 +71,7 @@ export const DashboardContainer = styled.div`
     
   }
   .line-chart{
-    background: rgba(255, 255, 255, 0.26);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(13.1px);
-    -webkit-backdrop-filter: blur(13.1px);
+    
     border-radius:10px ;
     padding:2% 0 ;
   }

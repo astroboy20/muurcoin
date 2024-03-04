@@ -10,6 +10,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { PieChart } from "@mui/x-charts/PieChart";
 import { LineChart } from "@mui/x-charts/LineChart";
+import { MdCurrencyExchange } from "react-icons/md";
+
+import { FaMoneyBillTransfer } from "react-icons/fa6";
+
+import { RiLuggageDepositFill } from "react-icons/ri";
+
+import { BiMoneyWithdraw } from "react-icons/bi";
+import dynamic from "next/dynamic";
+const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const Dashboard = () => {
   const [UserCoins, setUserCoins] = useState(null);
@@ -89,11 +98,10 @@ const Dashboard = () => {
             (transaction) => transaction.trx_type === "Withdrawal"
           );
 
-          setSpotData(spotTransactions)
-          setTransferData(transferTransactions)
-          setdepositData(depositTransactions)
-          setWithdrawData(withdrawTransactions)
-          
+          setSpotData(spotTransactions);
+          setTransferData(transferTransactions);
+          setdepositData(depositTransactions);
+          setWithdrawData(withdrawTransactions);
 
           const totalSpotTransaction = spotTransactions.reduce(
             (total, transaction) => {
@@ -118,15 +126,31 @@ const Dashboard = () => {
 
           const totalWithdrawTransaction = withdrawTransactions.reduce(
             (total, transaction) => {
-              return  total + transaction.amount;
+              return total + transaction.amount;
             },
             0
           );
 
-          setSpot(totalSpotTransaction.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-          setTransfer(totalTransferTransaction.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-          setDeposit(totalDepositTransaction.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-          setWithdrwal(totalWithdrawTransaction.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+          setSpot(
+            totalSpotTransaction
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+          );
+          setTransfer(
+            totalTransferTransaction
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+          );
+          setDeposit(
+            totalDepositTransaction
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+          );
+          setWithdrwal(
+            totalWithdrawTransaction
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+          );
           setTransaction(response.data.data);
         })
         .catch((error) => {
@@ -227,19 +251,77 @@ const Dashboard = () => {
     legend: { hidden: true },
   };
 
-  const spotID = spotData.map((spot)=>(
-    spot.id
-  ))
-  const transferID = transferData.map((transfer)=>(
-    transfer.id
-  ))
-  const depositID = depositData.map((deposit)=>(
-    deposit.id
-  ))
-  const withdrawID = withdrawData.map((withdraw)=>(
-    withdraw.id
-  ))
-  console.log(spotID)
+  const spotID = spotData.map((spot) => spot.id);
+  const transferID = transferData.map((transfer) => transfer.id);
+  const depositID = depositData.map((deposit) => deposit.id);
+  const withdrawID = withdrawData.map((withdraw) => withdraw.id);
+  console.log(spotID);
+
+  const spotCount = spotData.length;
+  const transferCount = transferData.length;
+  const depositCount = depositData.length;
+  const withdrawalCount = withdrawData.length;
+
+  const option = {
+    chart: {
+      id: "apexchart-example",
+    },
+    xaxis: {
+      categories: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    },
+  };
+
+  const seriesSpot = [
+    {
+      name: "series-1",
+      data: spotID,
+    },
+  ];
+  const seriesTransfer = [
+    {
+      name: "series-1",
+      data: transferID,
+    },
+  ];
+  const depositSpot = [
+    {
+      name: "series-1",
+      data: depositID,
+    },
+  ];
+
+  const totalValue = UserCoins
+    ? UserCoins.BTC + UserCoins.ETH + UserCoins.USDT + UserCoins.MUURCOIN
+    : 0;
+
+  const percentageData = [
+    {
+      currency: "BTC",
+      percentage: UserCoins?.BTC ? (UserCoins?.BTC / totalValue) * 100 : 0,
+    },
+    {
+      currency: "ETH",
+      percentage: UserCoins?.ETH ? (UserCoins?.ETH / totalValue) * 100 : 0,
+    },
+    {
+      currency: "USDT",
+      percentage: UserCoins?.USDT ? (UserCoins?.USDT / totalValue) * 100 : 0,
+    },
+    {
+      currency: "MRCN",
+      percentage: UserCoins?.MUURCOIN
+        ? (UserCoins?.MUURCOIN / totalValue) * 100
+        : 0,
+    },
+  ];
+
+  const percentageValues = percentageData.map((item) => item.percentage);
+
+  const Pieseries = percentageValues;
+
+  const chartOptions = {
+    labels: ["BTC", "ETH", "USDT", "MRCN"],
+  };
 
   return (
     <>
@@ -283,81 +365,100 @@ const Dashboard = () => {
         </div>
         <div className="transaction-chart">
           <div className="spot">
-            <p>Exchange</p>
-            <p>{`$ ${spot}`}</p>
+            <p
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              Exchange <MdCurrencyExchange />
+            </p>
+            <p>{` ${spotCount}`}</p>
           </div>
           <div className="spot">
-            <p>Transfer</p>
-            <p>{`$ ${transfer}`}</p>
+            <p
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                fontSize: "24px",
+              }}
+            >
+              Transfer <FaMoneyBillTransfer />
+            </p>
+            <p>{` ${transferCount}`}</p>
           </div>
           <div className="spot">
-            <p>Deposit</p>
-            <p>{`$ ${deposit}`}</p>
+            <p
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                fontSize: "24px",
+              }}
+            >
+              Deposit <RiLuggageDepositFill />
+            </p>
+            <p>{` ${depositCount}`}</p>
           </div>
           <div className="spot">
-            <p>Withdrwal</p>
-            <p>{`$ ${withdrawal}`}</p>
+            <p
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                fontSize: "24px",
+              }}
+            >
+              Withdrwal <BiMoneyWithdraw />
+            </p>
+            <p>{` ${withdrawalCount}`}</p>
           </div>
         </div>
         <div className="coin-chart">
           <div className="chart">
             <div id="chart">
-              <PieChart
-                series={[
-                  {
-                    data: [
-                      { id: 0, value: UserCoins?.BTC, label: "BTC" },
-                      { id: 1, value: UserCoins?.ETH, label: "ETH" },
-                      { id: 2, value: UserCoins?.USDT, label: "USDT" },
-                      { id: 3, value: UserCoins?.MUURCOIN, label: "MRCN" },
-                    ],
-                  },
-                ]}
-                width={400}
+              <ApexChart
+                type="donut"
+                options={chartOptions}
+                series={Pieseries}
                 height={200}
+                width={500}
               />
             </div>
             <div className="line">
-            <div className="line-chart">
-            <p>Exchange</p>
-              <LineChart
-                xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                series={[
-                  {
-                    data:spotID.slice(0, 6),
-                  },
-                ]}
-                width={400}
-                height={300}
-              />
-            </div>
-            <div className="line-chart">
-            <p>Transfer</p>
-              <LineChart
-                xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                series={[
-                  {
-                    data:transferID.slice(0, 6),
-                  },
-                ]}
-                width={400}
-                height={300}
-              />
-            </div>
-            {/* <div className="line-chart">
-              <p>Withdrawal</p>
-              <LineChart
-                xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                series={[
-                  {
-                    data: withdrawID.slice(0,6),
-                  },
-                ]}
-                width={400}
-                height={300}
-              />
-            </div> */}
-            {/* <div className="line-chart">
+              <div className="line-chart">
+                <p>Exchange</p>
+                <ApexChart
+                  type="line"
+                  options={option}
+                  series={seriesSpot}
+                  height={200}
+                  width={500}
+                />
+              </div>
+              <div className="line-chart">
+                <p>Transfer</p>
+                <ApexChart
+                  type="line"
+                  options={option}
+                  series={seriesTransfer}
+                  height={"100%"}
+                  width={500}
+                />
+              </div>
+              {/* <div className="line-chart">
+                <p>Withdrawal</p>
+                <ApexChart
+                  type="line"
+                  options={option}
+                  series={series}
+                  height={200}
+                  width={500}
+                />
+              </div> */}
+              {/* <div className="line-chart">
             <p>Deposit</p>
               <LineChart
                 xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
@@ -371,7 +472,6 @@ const Dashboard = () => {
               />
             </div> */}
             </div>
-           
           </div>
           <div className="coins">
             <div className="coin">
