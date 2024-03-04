@@ -424,7 +424,7 @@ const Dashboard = () => {
                 options={chartOptions}
                 series={Pieseries}
                 height={200}
-                width={500}
+                width={300}
               />
             </div>
             <div className="line">
@@ -435,7 +435,7 @@ const Dashboard = () => {
                   options={option}
                   series={seriesSpot}
                   height={200}
-                  width={500}
+                  width={300}
                 />
               </div>
               <div className="line-chart">
@@ -445,7 +445,7 @@ const Dashboard = () => {
                   options={option}
                   series={seriesTransfer}
                   height={"100%"}
-                  width={500}
+                  width={300}
                 />
               </div>
               {/* <div className="line-chart">
