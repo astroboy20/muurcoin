@@ -274,13 +274,13 @@ const Dashboard = () => {
   const seriesSpot = [
     {
       name: "series-1",
-      data: spotID,
+      data: spotID.slice(0,6),
     },
   ];
   const seriesTransfer = [
     {
       name: "series-1",
-      data: transferID,
+      data: transferID.slice(0,6),
     },
   ];
   const depositSpot = [
@@ -444,7 +444,7 @@ const Dashboard = () => {
                   type="line"
                   options={option}
                   series={seriesTransfer}
-                  height={"100%"}
+                  height={200}
                   width={300}
                 />
               </div>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const DashboardContainer = styled.div`
   margin-top: 100px;
   /* padding: 4%; */
-  background-color: #131740;
+  /* background-color: #131740; */
   color: #fff;
   width: 100%;
   /* height:100dvh ; */
@@ -17,8 +17,7 @@ export const DashboardContainer = styled.div`
     /* justify-content:space-evenly ; */
     padding: 4%;
     gap: 20px;
-    background-image:url("images/dashboard-bg.jpg") ;
-    background-size:cover ;
+   
   }
   .spot {
     background: rgba(255, 255, 255, 0.26);
@@ -29,6 +28,8 @@ export const DashboardContainer = styled.div`
     padding: 15px 20px ;
     width: 30%;
     font-size:24px ;
+    background-image:url("images/dashboard-bg.jpg") ;
+    background-size:cover ;
   }
   
   #chart {
