@@ -75,7 +75,7 @@ const Fiat = () => {
     const fetchData = async () => {
       try {
         const response = await api.get(
-          "cryptocurrency/listings/latest?start=1&limit=21&convert=USD"
+          '/api/coinmarketcap'
         );
         const result = response.data;
         // Assuming result contains an array under the key "data"
