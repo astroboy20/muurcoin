@@ -22,7 +22,6 @@ const Fiat = () => {
   const [transactions, setTransaction] = useState([]);
   const { option, switchOption } = useOptionContext();
   const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
 
   const handleOption = (option) => {
     switchOption(option);
@@ -36,7 +35,7 @@ const Fiat = () => {
 
   const handleSelected = (symbol, name) => {
     setSelectedCoin(symbol);
-    setHeading(name)
+    setHeading(name);
   };
   const dispatch = useDispatch();
   const { isError, isSuccess, isLoading, user } = useSelector(
@@ -44,7 +43,6 @@ const Fiat = () => {
   );
   const token = user?.data.token;
 
- 
   useEffect(() => {
     if (token) {
       axios
@@ -65,116 +63,37 @@ const Fiat = () => {
         });
     }
   }, [token]);
- 
-
-
- 
 
   useEffect(() => {
-   
     const fetchData = async () => {
       try {
-        const response = await api.get(
-          "cryptocurrency/listings/latest?start=1&limit=21&convert=USD"
+        const response = await axios.get(
+          "https://162.254.35.120/api/crypto/coinmarketcap",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         );
-        const result = response.data;
-        // Assuming result contains an array under the key "data"
-        const data = result.data;
-        const simplifiedData = result.data.map((item) => ({
-          name: item.name,
-          symbol: item.symbol,
-          price: Math.round( item.quote.USD.price *100)/100,
-          percentChange:Math.round( item.quote.USD.percent_change_24h *100)/100,
-        }));
-        setData(simplifiedData);
+        const result = response.data.data.data;
+        setData(result);
       } catch (error) {
-        setError(error);
+        console.log(error);
       }
     };
 
     fetchData();
   }, []);
 
-  if (error) {
-    return <div>Error fetching data</div>;
-  }
-
-  const currencyIcons = {
-    BTC: <Image src={"/images/btc.png"} width={20} height={20} alt="BTC" />,
-    ETH: <Image src={"/images/eth.png"} width={20} height={20} alt="ETH" />,
-    USDT: <Image src={"/images/usdt.png"} width={20} height={20} alt="USDT" />,
-    BNB: <Image src={"/images/bnb.png"} width={20} height={20} alt="BNB" />,
-    SOL: <Image src={"/images/sol.png"} width={20} height={20} alt="SOL" />,
-    XRP: <Image src={"/images/xrp.png"} width={20} height={20} alt="XRP" />,
-    USDC: <Image src={"/images/usdc.png"} width={20} height={20} alt="USDC" />,
-    ADA: <Image src={"/images/ada.png"} width={20} height={20} alt="ADA" />,
-    AVAX: <Image src={"/images/avax.png"} width={20} height={20} alt="AVAX" />,
-    DOGE: <Image src={"/images/doge.png"} width={20} height={20} alt="DOGE" />,
-    TRX: <Image src={"/images/trx.png"} width={20} height={20} alt="TRX" />,
-    DOT: <Image src={"/images/dot.png"} width={20} height={20} alt="DOT" />,
-    MATIC: (
-      <Image src={"/images/matic.png"} width={20} height={20} alt="MATIC" />
-    ),
-    LINK: <Image src={"/images/link.png"} width={20} height={20} alt="LINK" />,
-    WBTC: <Image src={"/images/wbtc.png"} width={20} height={20} alt="WBTC" />,
-    ICP: <Image src={"/images/icp.jpeg"} width={20} height={20} alt="ICP" />,
-    SHIB: <Image src={"/images/shib.png"} width={20} height={20} alt="SHIB" />,
-    DAI: <Image src={"/images/dai.png"} width={20} height={20} alt="DAI" />,
-    LTC: <Image src={"/images/ltc.png"} width={20} height={20} alt="LTC" />,
-    BCH: <Image src={"/images/bch.png"} width={20} height={20} alt="BCH" />,
-    ETC: <Image src={"/images/etc.png"} width={20} height={20} alt="ETC" />,
-    UNI: <Image src={"/images/uni.png"} width={20} height={20} alt="UNI" />,
-    ATOM: <Image src={"/images/atom.png"} width={20} height={20} alt="ATOM" />,
-    OP: <Image src={"/images/op.png"} width={20} height={20} alt="OP" />,
-    NEAR: <Image src={"/images/near.png"} width={20} height={20} alt="NEAR" />,
-    XLM: <Image src={"/images/xlm.png"} width={20} height={20} alt="XLM" />,
-    INJ: <Image src={"/images/inj.png"} width={20} height={20} alt="INJ" />,
-    APT: <Image src={"/images/apt.png"} width={20} height={20} alt="APT" />,
-    LDO: <Image src={"/images/ldo.jpeg"} width={20} height={20} alt="LDO" />,
-    FIL: <Image src={"/images/fil.png"} width={20} height={20} alt="FIL" />,
-    TIA: <Image src={"/images/tia.jpeg"} width={20} height={20} alt="TIA" />,
-    XMR: <Image src={"/images/xmr.png"} width={20} height={20} alt="XMR" />,
-    IMX: <Image src={"/images/imx.png"} width={20} height={20} alt="IMX" />,
-    ARB: <Image src={"/images/arb.png"} width={20} height={20} alt="ARB" />,
-    HBAR: <Image src={"/images/hbar.png"} width={20} height={20} alt="HBAR" />,
-    STX: <Image src={"/images/stx.png"} width={20} height={20} alt="STX" />,
-    VET: <Image src={"/images/vet.jpeg"} width={20} height={20} alt="VET" />,
-    WBET: <Image src={"/images/wbet.jpeg"} width={20} height={20} alt="WEBT" />,
-    TUSD: <Image src={"/images/tusd.png"} width={20} height={20} alt="TUSD" />,
-    FDUSD: (
-      <Image src={"/images/fdusd.jpeg"} width={20} height={20} alt="FSUSD" />
-    ),
-    MKR: <Image src={"/images/mkr.jpeg"} width={20} height={20} alt="MKR" />,
-    SEI: <Image src={"/images/sei.png"} width={20} height={20} alt="SEI" />,
-    ORDI: <Image src={"/images/ordi.png"} width={20} height={20} alt="ORDI" />,
-    GRT: <Image src={"/images/grt.png"} width={20} height={20} alt="GRT" />,
-    AAVE: <Image src={"/images/aave.jpeg"} width={20} height={20} alt="AAVE" />,
-    ALGO: <Image src={"/images/algo.png"} width={20} height={20} alt="ALGO" />,
-    RUNE: <Image src={"/images/rune.png"} width={20} height={20} alt="RUNE" />,
-    QNT: <Image src={"/images/qnt.png"} width={20} height={20} alt="QNT" />,
-    SUI: <Image src={"/images/sui.png"} width={20} height={20} alt="SUI" />,
-    EGLD: <Image src={"/images/edld.jpeg"} width={20} height={20} alt="EGLD" />,
-    MUURCOIN: (
-      <Image
-        src={"/images/muurcoin.jpg"}
-        width={20}
-        height={20}
-        alt="MUURCOIN"
-      />
-    ),
-  };
-
   return (
     <>
       <FiatContainer>
-      
         <div className="header">
           <h2>{heading}</h2>
           <div></div>
         </div>
         <div className="small-coins">
           <div className="coin">
-          
             <table className="table table-dark table-hover">
               <thead>
                 <tr>
@@ -185,21 +104,32 @@ const Fiat = () => {
                 </tr>
               </thead>
               <tbody>
-                {data.map((item,index) => (
-                  <tr key={item.id} onClick={() => handleSelected(item.symbol,item.name)}>
-                    <td>{index +1 }</td>
-                    <td>{item.name}</td>
-                    <td>${item.price}</td>
-                    <td
-                      style={{
-                        color:
-                          parseFloat(item.percentChange) >= 0 ? "green" : "red",
-                      }}
+                {data.map((item, index) => {
+                 
+
+                  return (
+                    <tr
+                      key={item.id}
+                      onClick={() => handleSelected(item.symbol, item.name)}
                     >
-                      {item.percentChange}%
-                    </td>
-                  </tr>
-                ))}
+                      <td>{index + 1}</td>
+                      <td>{item.name}</td>
+                      <td>${Math.floor(item.quote?.USD?.price * 100) / 100}</td>
+                      <td
+                        style={{
+                          color:
+                            parseFloat(item.quote?.USD?.percent_change_24h) >= 0
+                              ? "green"
+                              : "red",
+                        }}
+                      >
+                        {Math.floor(item.quote?.USD?.percent_change_24h * 100) /
+                          100}
+                        %
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -239,36 +169,47 @@ const Fiat = () => {
           </div>
           <div className="coins">
             <div className="coin">
-             
-            
               <table className="table table-dark table-hover">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Price (USD)</th>
-                  <th>24h Change (%)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((item,index) => (
-                  <tr key={item.id} onClick={() => handleSelected(item.symbol, item.name)}>
-                    <td>{index +1 }</td>
-                    <td>{item.name}</td>
-                    <td>${item.price.toFixed(2)}</td>
-                    <td
-                      style={{
-                        color:
-                          item.percentChange>= 0 ? "green" : "red",
-                      }}
-                    >
-                      {item.percentChange}%
-                    </td>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Price (USD)</th>
+                    <th>24h Change (%)</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          
+                </thead>
+                <tbody>
+                  {data.map((item, index) => {
+                   
+                    return (
+                      <tr
+                        key={item.id}
+                        onClick={() => handleSelected(item.symbol, item.name)}
+                      >
+                        <td>{index + 1}</td>
+                        <td>{item.name}</td>
+                        <td>
+                          ${Math.floor(item.quote?.USD?.price * 100) / 100}
+                        </td>
+                        <td
+                          style={{
+                            color:
+                              parseFloat(item.quote?.USD?.percent_change_24h) >=
+                              0
+                                ? "green"
+                                : "red",
+                          }}
+                        >
+                          {Math.floor(
+                            item.quote?.USD?.percent_change_24h * 100
+                          ) / 100}
+                          %
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

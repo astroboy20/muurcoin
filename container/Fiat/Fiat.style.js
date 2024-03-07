@@ -28,7 +28,11 @@ export const FiatContainer = styled.div`
     /* padding: 2%; */
     border-left: 1px solid #fff;
     width:40% ;
+    height: auto;
     
+  }
+  tabel{
+    height:fit-content ;
   }
   .coin-icon {
     display: flex;
@@ -114,8 +118,9 @@ export const FiatContainer = styled.div`
       background-color: #000;
       color: white;
       width: 100%;
-      padding: 2%;
-      height: auto;
+      /* padding: 2%; */
+      height:500px ;
+      ;overflow-y:scroll;
       border-top: 1px solid #fff;
       overflow-x: scroll;
     }
