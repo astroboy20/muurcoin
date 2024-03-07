@@ -10,6 +10,7 @@ import { CiSearch } from "react-icons/ci";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdWallet } from "react-icons/io";
 
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBlurred, setIsBlurred] = useState(false);

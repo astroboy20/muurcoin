@@ -57,23 +57,7 @@ const Dashboard = () => {
     }
   }, [token]);
 
-  useEffect(() => {
-    if (token) {
-      axios
-        .get("https://162.254.35.120/api/coins", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => {
-          // setUserCoins(response.data.data.currencies);
-          console.log(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  }, [token]);
+ 
 
   useEffect(() => {
     if (token) {
@@ -131,26 +115,7 @@ const Dashboard = () => {
             0
           );
 
-          setSpot(
-            totalSpotTransaction
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-          );
-          setTransfer(
-            totalTransferTransaction
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-          );
-          setDeposit(
-            totalDepositTransaction
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-          );
-          setWithdrwal(
-            totalWithdrawTransaction
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-          );
+        
           setTransaction(response.data.data);
         })
         .catch((error) => {
@@ -273,8 +238,12 @@ const Dashboard = () => {
 
   const seriesSpot = [
     {
-      name: "series-1",
+      name: "Exchange",
       data: spotID.slice(0,6),
+    },
+    {
+      name: "Transfer",
+      data: transferID.slice(0,6),
     },
   ];
   const seriesTransfer = [
@@ -282,6 +251,9 @@ const Dashboard = () => {
       name: "series-1",
       data: transferID.slice(0,6),
     },
+    {
+
+    }
   ];
   const depositSpot = [
     {
@@ -423,22 +395,20 @@ const Dashboard = () => {
                 type="donut"
                 options={chartOptions}
                 series={Pieseries}
-                height={200}
-                width={300}
+               
               />
             </div>
             <div className="line">
               <div className="line-chart">
-                <p>Exchange</p>
+                {/* <p>Exchange</p> */}
                 <ApexChart
                   type="line"
                   options={option}
                   series={seriesSpot}
-                  height={200}
-                  width={300}
+                  
                 />
               </div>
-              <div className="line-chart">
+              {/* <div className="line-chart">
                 <p>Transfer</p>
                 <ApexChart
                   type="line"
@@ -447,7 +417,7 @@ const Dashboard = () => {
                   height={200}
                   width={300}
                 />
-              </div>
+              </div> */}
               {/* <div className="line-chart">
                 <p>Withdrawal</p>
                 <ApexChart

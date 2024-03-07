@@ -36,15 +36,16 @@ export const DashboardContainer = styled.div`
     /* background: rgba(255, 255, 255, 0.26);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(13.1px);
-    -webkit-backdrop-filter: blur(13.1px);
-    border-radius:0 0 10px 10px; */
-    /* width: 100%; */
+    -webkit-backdrop-filter: blur(13.1px); */
+    /* border-radius:0 0 10px 10px; */
+    width: 50%;
     height:300px ;
     margin: auto auto;
     align-items:center ;
     display:flex ;
-    justify-content:space-between ;
+    justify-content:center ;
     color: white;
+    text-align:center ;
   }
   .link {
     color: white;
@@ -63,12 +64,11 @@ export const DashboardContainer = styled.div`
     border-top: 1px solid #fff;
   }
   .line{
-    display:flex ;
-    flex-wrap:wrap ;
     gap:20px;
     justify-content:center ;
     padding:2% 0 ;
     font-size:20px ;
+    width:100% ;
     
   }
   .line-chart{
@@ -160,6 +160,9 @@ export const DashboardContainer = styled.div`
 
     .chart {
       width: 100%;
+    }
+    #chart{
+      width:100% ;
     }
     .coins {
       display: none;
