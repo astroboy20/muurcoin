@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const LoginContainer = styled.div`
-  background-color: #131740;
+ background: linear-gradient(to right, #744369, #4A3671, #3B3C8F);
   color: #fff;
   display: flex;
   justify-content: center;

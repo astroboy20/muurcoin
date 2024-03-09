@@ -1,3 +1,4 @@
+import { Footer } from "@/components/Footer";
 import { TraderHeader } from "@/components/Header";
 import { Dashboard } from "@/container/Daashboard";
 import ProtectedRoute from "@/container/ProtectedRoute/ProtectedRoute";
@@ -9,6 +10,7 @@ const dashboard = () => {
       <TraderHeader />
       <ProtectedRoute>
         <Dashboard />
+        <Footer/>
       </ProtectedRoute>
     </>
   );

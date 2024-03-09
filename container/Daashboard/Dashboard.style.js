@@ -20,6 +20,10 @@ export const DashboardContainer = styled.div`
    
   }
   .spot {
+    background:url("images/dash.jpg") ;
+    background-size:contain ;
+    
+    border-radius: 10px;
     box-shadow: 2px 4px 4px 0px #0000001F;
 
     border-radius: 10px;
@@ -29,6 +33,7 @@ export const DashboardContainer = styled.div`
     /* background-image:url("images/dashboard-bg.jpg") ; */
     background-size:cover ;
     color:black ;
+    
   }
   
   #chart {
@@ -155,9 +160,10 @@ export const DashboardContainer = styled.div`
   }
   .logs {
     width: 100%;
-    color:black ;
-    padding:0 4%;
+    color:white ;
+    padding: 4%;
     box-shadow: 2px 4px 4px 0px #0000001F;
+    background: linear-gradient(to right, #744369, #4A3671, #3B3C8F);
   }
   .logs .text {
     display: flex;
@@ -171,6 +177,11 @@ export const DashboardContainer = styled.div`
   .small-coins {
     display: none;
   }
+  .table,
+.table th,
+.table tbody td {
+  color: #3B3C8F !important;
+}
   @media screen and (max-width: 800px) {
     margin-top: 100px;
     .header {
@@ -196,11 +207,15 @@ export const DashboardContainer = styled.div`
       margin-top: 50px;
       padding: 2%;
       overflow-x: auto;
+      box-shadow: 2px 4px 4px 0px #0000001F;
+    background: linear-gradient(to right, #744369, #4A3671, #3B3C8F);
+    padding:4% ;
     }
 
     .table {
       width: 100%;
     }
+   
     .buy-sell {
       padding: 7% 3% 20% 3%;
       width: 100%;
@@ -230,6 +245,7 @@ export const DashboardContainer = styled.div`
     gap: 20px;
   }
   .spot {
+    background:url("images/dash.jpg") ;
     background-size:cover ;
     border-radius: 10px;
     padding: 5% ;
