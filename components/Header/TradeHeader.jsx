@@ -13,6 +13,7 @@ import Button from "../Button/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { clearUser, logOut } from "@/feature/slice/authSlice";
 import {toast} from "react-toastify"
+import { TradeContainer } from "./TradeHeader.style";
 
 const TraderHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +50,7 @@ const TraderHeader = () => {
   };
   return (
     <>
-      <HeaderContainer className={isBlurred && "is-blurred"}>
+      <TradeContainer className={isBlurred && "is-blurred"}>
         <nav>
           <Image src={"/images/logo.png"} width={75} height={75} alt="logo" />
           {/* <div className="search">
@@ -135,7 +136,7 @@ const TraderHeader = () => {
             </MobileSection>
           </>
         )}
-      </HeaderContainer>
+      </TradeContainer>
     </>
   );
 };

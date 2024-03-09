@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HeaderContainer = styled.header`
+export const TradeContainer = styled.header`
   padding: 1% 4%;
   color: #fff;
   background: linear-gradient(to right, #744369, #4A3671, #3B3C8F);
@@ -9,7 +9,7 @@ export const HeaderContainer = styled.header`
   width: 100%;
   z-index: 100;
 
-  &.is-blurred {
+  /* &.is-blurred {
     background: rgba(255, 255, 255, 0.26);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(13.1px);
@@ -17,7 +17,7 @@ export const HeaderContainer = styled.header`
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: blue !important ;
     
-  }
+  } */
   nav {
     display: flex;
     justify-content: space-between;

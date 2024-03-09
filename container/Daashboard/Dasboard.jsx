@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 import { DashboardContainer } from "./Dashboard.style";
-import Button from "@/components/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "@/feature/slice/authSlice";
 import { useRouter } from "next/router";
 import axios from "axios";
-import { CryptoCurrencyMarket } from "react-ts-tradingview-widgets";
 import Image from "next/image";
 import Link from "next/link";
-import { PieChart } from "@mui/x-charts/PieChart";
-import { LineChart } from "@mui/x-charts/LineChart";
 import { MdCurrencyExchange } from "react-icons/md";
 
 import { FaMoneyBillTransfer } from "react-icons/fa6";
@@ -32,6 +28,7 @@ const Dashboard = () => {
   const [transfer, setTransfer] = useState("");
   const [withdrawal, setWithdrwal] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  
 
   const dispatch = useDispatch();
   const { isError, isSuccess, isLoading, user } = useSelector(
@@ -117,6 +114,7 @@ const Dashboard = () => {
 
         
           setTransaction(response.data.data);
+          console.log("data",response.data.data)
         })
         .catch((error) => {
           console.log(error);
@@ -290,7 +288,11 @@ const Dashboard = () => {
   const percentageValues = percentageData.map((item) => item.percentage);
 
   const Pieseries = percentageValues;
+  const CountSeries = [spotCount, depositCount, withdrawalCount, transferCount]
 
+  const Countptions = {
+    labels: ["EX", "DE", "WD", "TR"],
+  };
   const chartOptions = {
     labels: ["BTC", "ETH", "USDT", "MRCN"],
   };
@@ -305,10 +307,11 @@ const Dashboard = () => {
         <div className="small-coins">
           <div className="coin">
             <ul className="coin">
+            <h2>User Coins</h2>
               {UserCoins && (
                 <ul className="coin">
                   {Object.entries(UserCoins).map(([currency, value]) => (
-                    <li key={currency} onClick={() => handleSelected(currency)}>
+                    <li key={currency} >
                       <div className="coin-icon">
                         {" "}
                         {currencyIcons[currency] && (
@@ -383,7 +386,7 @@ const Dashboard = () => {
                 fontSize: "24px",
               }}
             >
-              Withdrwal <BiMoneyWithdraw />
+              Withdrawal <BiMoneyWithdraw />
             </p>
             <p>{` ${withdrawalCount}`}</p>
           </div>
@@ -395,6 +398,13 @@ const Dashboard = () => {
                 type="donut"
                 options={chartOptions}
                 series={Pieseries}
+               width={300}
+              />
+              <ApexChart
+                type="donut"
+                options={Countptions}
+                series={CountSeries}
+                width={300}
                
               />
             </div>
@@ -405,7 +415,7 @@ const Dashboard = () => {
                   type="line"
                   options={option}
                   series={seriesSpot}
-                  
+                  height={400}
                 />
               </div>
               {/* <div className="line-chart">
@@ -445,11 +455,11 @@ const Dashboard = () => {
           </div>
           <div className="coins">
             <div className="coin">
-              {/* <h2>User Coins:</h2> */}
+              <h2>User Coins</h2>
               {UserCoins && (
                 <ul className="coin">
                   {Object.entries(UserCoins).map(([currency, value]) => (
-                    <li key={currency} onClick={() => handleSelected(currency)}>
+                    <li key={currency} >
                       <div className="coin-icon">
                         {" "}
                         {currencyIcons[currency] && (
@@ -479,7 +489,7 @@ const Dashboard = () => {
         <div className="logs">
           <div className="text">
             <p>Transactions</p>
-            <table class="table table-dark table-striped">
+            <table class="table  table-striped">
               <thead>
                 <tr>
                   <th>Reference ID</th>
@@ -492,7 +502,7 @@ const Dashboard = () => {
               <tbody>
                 {transactions.map((transaction) => (
                   <tr key={transaction.id}>
-                    <td>{transaction.reference_id}</td>
+                    <td>{transaction.id}</td>
                     <td>{transaction.amount}</td>
                     <td>{transaction.wallet}</td>
                     <td>{transaction.trx_type}</td>

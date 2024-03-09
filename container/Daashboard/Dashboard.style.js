@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const DashboardContainer = styled.div`
   margin-top: 100px;
   /* padding: 4%; */
-  /* background-color: #131740; */
+  background-color: rgb(250, 249, 246);
   color: #fff;
   width: 100%;
   /* height:100dvh ; */
@@ -20,16 +20,15 @@ export const DashboardContainer = styled.div`
    
   }
   .spot {
-    background: rgba(255, 255, 255, 0.26);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(13.1px);
-    -webkit-backdrop-filter: blur(13.1px);
+    box-shadow: 2px 4px 4px 0px #0000001F;
+
     border-radius: 10px;
     padding: 15px 20px ;
     width: 30%;
     font-size:24px ;
-    background-image:url("images/dashboard-bg.jpg") ;
+    /* background-image:url("images/dashboard-bg.jpg") ; */
     background-size:cover ;
+    color:black ;
   }
   
   #chart {
@@ -38,14 +37,19 @@ export const DashboardContainer = styled.div`
     backdrop-filter: blur(13.1px);
     -webkit-backdrop-filter: blur(13.1px); */
     /* border-radius:0 0 10px 10px; */
-    width: 50%;
+    box-shadow: 2px 4px 4px 0px #0000001F;
+    border-radius: 10px;
+    width: 100%;
     height:300px ;
-    margin: auto auto;
+    display:flex ;
+    justify-content:space-between ;
+    align-items:center ;
+    /* margin: auto auto;
     align-items:center ;
     display:flex ;
     justify-content:center ;
     color: white;
-    text-align:center ;
+    text-align:center ; */
   }
   .link {
     color: white;
@@ -60,8 +64,11 @@ export const DashboardContainer = styled.div`
   }
   .coin-chart {
     display: flex;
+    justify-content:space-between ;
     width: 100%;
-    border-top: 1px solid #fff;
+    padding: 4%;
+    height: 1000px;
+    /* border-top: 1px solid #fff; */
   }
   .line{
     gap:20px;
@@ -69,12 +76,14 @@ export const DashboardContainer = styled.div`
     padding:2% 0 ;
     font-size:20px ;
     width:100% ;
+   
     
   }
   .line-chart{
-    
+    height:500px ;
     border-radius:10px ;
     padding:2% 0 ;
+    box-shadow: 2px 4px 4px 0px #0000001F;
   }
   .chart {
     width: 80%;
@@ -84,16 +93,22 @@ export const DashboardContainer = styled.div`
 
   }
   .coins {
-    background-color: #000;
-    color: white;
-    width: 30%;
+    box-shadow: 2px 4px 4px 0px #0000001F;
+    color: black;
+    width: 50%;
     padding: 2%;
-    border-left: 1px solid #fff;
+    margin:0 5% ;
+    height: fit-content;
+    border-radius:10px ;
+    /* border-left: 1px solid #fff; */
   }
   .coin-icon {
     display: flex;
     gap: 15px;
     align-items: center;
+  }
+  .coin h2{
+    margin-bottom:20px ;
   }
   ul {
     display: flex;
@@ -126,7 +141,7 @@ export const DashboardContainer = styled.div`
     /* width: 100%; */
     padding: 10px;
     border-radius: 10px;
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
     background-color: transparent;
     color: #fff;
   }
@@ -140,14 +155,18 @@ export const DashboardContainer = styled.div`
   }
   .logs {
     width: 100%;
-    background-color: #000;
-    border-top: 1px solid #fff;
-    padding: 2%;
+    color:black ;
+    padding:0 4%;
+    box-shadow: 2px 4px 4px 0px #0000001F;
   }
   .logs .text {
     display: flex;
     flex-direction: column;
     gap: 20px;
+   
+  }
+  .logs p{
+    font-size: 30px;
   }
   .small-coins {
     display: none;
@@ -163,6 +182,9 @@ export const DashboardContainer = styled.div`
     }
     #chart{
       width:100% ;
+      flex-direction:column ;
+      height:1000px ;
+      padding:5% ;
     }
     .coins {
       display: none;
@@ -189,12 +211,12 @@ export const DashboardContainer = styled.div`
     }
     .small-coins {
       display: inline-block;
-      background-color: #000;
-      color: white;
+      background-color: rgb(250, 249, 246);
+      color: black;
       width: 100%;
       padding: 2%;
       height: auto;
-      border-top: 1px solid #fff;
+      /* border-top: 1px solid #fff; */
     }
     ul {
       height: 300px;
@@ -208,11 +230,16 @@ export const DashboardContainer = styled.div`
     gap: 20px;
   }
   .spot {
-    background-image:url("images/dashboard-bg.jpg") ;
     background-size:cover ;
     border-radius: 10px;
     padding: 5% ;
     width: 100%;
+    box-shadow: 2px 4px 4px 0px #0000001F;
   }
+  .coin h2{
+    font-size:20px ;
+    margin-bottom:5px ;
+  }
+
   }
 `;
