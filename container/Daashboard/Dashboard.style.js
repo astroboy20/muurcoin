@@ -194,7 +194,7 @@ export const DashboardContainer = styled.div`
     #chart{
       width:100% ;
       flex-direction:column ;
-      height:550px ;
+      height:500px ;
       padding:5% ;
     }
     .coins {
@@ -213,6 +213,7 @@ export const DashboardContainer = styled.div`
     }
 .line{
   height:700px ;
+  margin-bottom:5% ;
 }
     .table {
       width: 100%;
