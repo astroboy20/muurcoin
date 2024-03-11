@@ -92,6 +92,14 @@ const TraderHeader = () => {
             >
               Dashboard
             </Link>
+            <Link
+              className={`section-link ${
+                isActiveLink("/withdrawal") && "active"
+              }`}
+              href={"/withdrawal"}
+            >
+              Withdrawal
+            </Link>
           </div>
 
           <div className="icons">
@@ -123,6 +131,9 @@ const TraderHeader = () => {
               </Link>
               <Link className="section-link" href={"/dashboard"}>
                 Dashboard
+              </Link>
+              <Link className="section-link" href={"/withdrawal"}>
+                Withdrawal
               </Link>
               {user ? (
                 <span className="section-link" onClick={handleLogout}>

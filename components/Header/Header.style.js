@@ -15,7 +15,7 @@ export const HeaderContainer = styled.header`
     backdrop-filter: blur(13.1px);
     -webkit-backdrop-filter: blur(13.1px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    color: blue !important ;
+    /* color: blue !important ; */
     
   }
   nav {

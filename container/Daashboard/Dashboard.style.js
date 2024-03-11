@@ -17,38 +17,36 @@ export const DashboardContainer = styled.div`
     /* justify-content:space-evenly ; */
     padding: 4%;
     gap: 20px;
-   
   }
   .spot {
-    background:url("images/dash.jpg") ;
-    background-size:contain ;
-    
-    border-radius: 10px;
-    box-shadow: 2px 4px 4px 0px #0000001F;
+    background: url("images/dash.jpg");
+    background-size: contain;
 
     border-radius: 10px;
-    padding: 15px 20px ;
+    box-shadow: 2px 4px 4px 0px #0000001f;
+
+    border-radius: 10px;
+    padding: 15px 20px;
     width: 30%;
-    font-size:24px ;
+    font-size: 24px;
     /* background-image:url("images/dashboard-bg.jpg") ; */
-    background-size:cover ;
-    color:black ;
-    
+    background-size: cover;
+    color: black;
   }
-  
+
   #chart {
     /* background: rgba(255, 255, 255, 0.26);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(13.1px);
     -webkit-backdrop-filter: blur(13.1px); */
     /* border-radius:0 0 10px 10px; */
-    box-shadow: 2px 4px 4px 0px #0000001F;
+    box-shadow: 2px 4px 4px 0px #0000001f;
     border-radius: 10px;
     width: 100%;
-    height:300px ;
-    display:flex ;
-    justify-content:space-between ;
-    align-items:center ;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     /* margin: auto auto;
     align-items:center ;
     display:flex ;
@@ -69,42 +67,39 @@ export const DashboardContainer = styled.div`
   }
   .coin-chart {
     display: flex;
-    justify-content:space-between ;
+    justify-content: space-between;
     width: 100%;
     padding: 4%;
     height: 1000px;
     /* border-top: 1px solid #fff; */
   }
-  .line{
-    gap:20px;
-    justify-content:center ;
-    padding:2% 0 ;
-    font-size:20px ;
-    width:100% ;
-   
-    
+  .line {
+    gap: 20px;
+    justify-content: center;
+    padding: 2% 0;
+    font-size: 20px;
+    width: 100%;
   }
-  .line-chart{
-    height:500px ;
-    border-radius:10px ;
-    padding:2% 0 ;
-    box-shadow: 2px 4px 4px 0px #0000001F;
+  .line-chart {
+    height: 500px;
+    border-radius: 10px;
+    padding: 2% 0;
+    box-shadow: 2px 4px 4px 0px #0000001f;
   }
   .chart {
     width: 80%;
-    display:flex ;
-    flex-direction:column ;
-    text-align:center ;
-
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
   .coins {
-    box-shadow: 2px 4px 4px 0px #0000001F;
+    box-shadow: 2px 4px 4px 0px #0000001f;
     color: black;
     width: 50%;
     padding: 2%;
-    margin:0 5% ;
+    margin: 0 5%;
     height: fit-content;
-    border-radius:10px ;
+    border-radius: 10px;
     /* border-left: 1px solid #fff; */
   }
   .coin-icon {
@@ -112,8 +107,8 @@ export const DashboardContainer = styled.div`
     gap: 15px;
     align-items: center;
   }
-  .coin h2{
-    margin-bottom:20px ;
+  .coin h2 {
+    margin-bottom: 20px;
   }
   ul {
     display: flex;
@@ -160,28 +155,27 @@ export const DashboardContainer = styled.div`
   }
   .logs {
     width: 100%;
-    color:white ;
+    color: white;
     padding: 4%;
-    box-shadow: 2px 4px 4px 0px #0000001F;
-    background: linear-gradient(to right, #744369, #4A3671, #3B3C8F);
+    box-shadow: 2px 4px 4px 0px #0000001f;
+    background: linear-gradient(to right, #744369, #4a3671, #3b3c8f);
   }
   .logs .text {
     display: flex;
     flex-direction: column;
     gap: 20px;
-   
   }
-  .logs p{
+  .logs p {
     font-size: 30px;
   }
   .small-coins {
     display: none;
   }
   .table,
-.table th,
-.table tbody td {
-  color: #3B3C8F !important;
-}
+  .table th,
+  .table tbody td {
+    color: #3b3c8f !important;
+  }
   @media screen and (max-width: 800px) {
     margin-top: 100px;
     .header {
@@ -191,11 +185,11 @@ export const DashboardContainer = styled.div`
     .chart {
       width: 100%;
     }
-    #chart{
-      width:100% ;
-      flex-direction:column ;
-      height:500px ;
-      padding:5% ;
+    #chart {
+      width: 100%;
+      flex-direction: column;
+      height: 500px;
+      padding: 5%;
     }
     .coins {
       display: none;
@@ -207,18 +201,18 @@ export const DashboardContainer = styled.div`
       margin-top: 50px;
       padding: 2%;
       overflow-x: auto;
-      box-shadow: 2px 4px 4px 0px #0000001F;
-    background: linear-gradient(to right, #744369, #4A3671, #3B3C8F);
-    padding:4% ;
+      box-shadow: 2px 4px 4px 0px #0000001f;
+      background: linear-gradient(to right, #744369, #4a3671, #3b3c8f);
+      padding: 4%;
     }
-.line{
-  height:700px ;
-  margin-bottom:5% ;
-}
+    .line {
+      height: 700px;
+      margin-bottom: 5%;
+    }
     .table {
       width: 100%;
     }
-   
+
     .buy-sell {
       padding: 7% 3% 20% 3%;
       width: 100%;
@@ -242,23 +236,22 @@ export const DashboardContainer = styled.div`
       cursor: pointer;
     }
     .transaction-chart {
-   flex-direction:column ;
-    /* justify-content:space-evenly ; */
-    padding: 4%;
-    gap: 20px;
-  }
-  .spot {
-    background:url("images/dash.jpg") ;
-    background-size:cover ;
-    border-radius: 10px;
-    padding: 5% ;
-    width: 100%;
-    box-shadow: 2px 4px 4px 0px #0000001F;
-  }
-  .coin h2{
-    font-size:20px ;
-    margin-bottom:5px ;
-  }
-
+      flex-direction: column;
+      /* justify-content:space-evenly ; */
+      padding: 4%;
+      gap: 20px;
+    }
+    .spot {
+      background: url("images/dash.jpg");
+      background-size: cover;
+      border-radius: 10px;
+      padding: 5%;
+      width: 100%;
+      box-shadow: 2px 4px 4px 0px #0000001f;
+    }
+    .coin h2 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
   }
 `;

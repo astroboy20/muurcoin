@@ -65,6 +65,24 @@ const Fiat = () => {
   }, [token]);
 
   useEffect(() => {
+    if (token) {
+      axios
+        .get("https://162.254.35.120/api/crypto", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          setUserCoins(response.data.data.currencies);
+          console.log(response.data.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [token]);
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -105,8 +123,6 @@ const Fiat = () => {
               </thead>
               <tbody>
                 {data.map((item, index) => {
-                 
-
                   return (
                     <tr
                       key={item.id}
@@ -180,7 +196,6 @@ const Fiat = () => {
                 </thead>
                 <tbody>
                   {data.map((item, index) => {
-                   
                     return (
                       <tr
                         key={item.id}
