@@ -28,13 +28,13 @@ const Dashboard = () => {
   const [transfer, setTransfer] = useState("");
   const [withdrawal, setWithdrwal] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
-  
 
   const dispatch = useDispatch();
   const { isError, isSuccess, isLoading, user } = useSelector(
     (state) => state.auth
   );
-  const token = user?.data.token;
+  const token =user? user?.data?.token: "";
+  console.log("token", token)
 
   useEffect(() => {
     if (token) {
@@ -53,8 +53,6 @@ const Dashboard = () => {
         });
     }
   }, [token]);
-
- 
 
   useEffect(() => {
     if (token) {
@@ -112,9 +110,8 @@ const Dashboard = () => {
             0
           );
 
-        
           setTransaction(response.data.data);
-          console.log("data",response.data.data)
+          console.log("data", response.data.data);
         })
         .catch((error) => {
           console.log(error);
@@ -237,21 +234,19 @@ const Dashboard = () => {
   const seriesSpot = [
     {
       name: "Exchange",
-      data: spotID.slice(0,6),
+      data: spotID.slice(0, 6),
     },
     {
       name: "Transfer",
-      data: transferID.slice(0,6),
+      data: transferID.slice(0, 6),
     },
   ];
   const seriesTransfer = [
     {
       name: "series-1",
-      data: transferID.slice(0,6),
+      data: transferID.slice(0, 6),
     },
-    {
-
-    }
+    {},
   ];
   const depositSpot = [
     {
@@ -288,7 +283,7 @@ const Dashboard = () => {
   const percentageValues = percentageData.map((item) => item.percentage);
 
   const Pieseries = percentageValues;
-  const CountSeries = [spotCount, depositCount, withdrawalCount, transferCount]
+  const CountSeries = [spotCount, depositCount, withdrawalCount, transferCount];
 
   const Countptions = {
     labels: ["EX", "DE", "WD", "TR"],
@@ -307,11 +302,11 @@ const Dashboard = () => {
         <div className="small-coins">
           <div className="coin">
             <ul className="coin">
-            <h2>User Coins</h2>
+              <h2>User Coins</h2>
               {UserCoins && (
                 <ul className="coin">
                   {Object.entries(UserCoins).map(([currency, value]) => (
-                    <li key={currency} >
+                    <li key={currency}>
                       <div className="coin-icon">
                         {" "}
                         {currencyIcons[currency] && (
@@ -398,14 +393,13 @@ const Dashboard = () => {
                 type="donut"
                 options={chartOptions}
                 series={Pieseries}
-               width={300}
+                width={300}
               />
               <ApexChart
                 type="donut"
                 options={Countptions}
                 series={CountSeries}
                 width={300}
-               
               />
             </div>
             <div className="line">
@@ -459,7 +453,7 @@ const Dashboard = () => {
               {UserCoins && (
                 <ul className="coin">
                   {Object.entries(UserCoins).map(([currency, value]) => (
-                    <li key={currency} >
+                    <li key={currency}>
                       <div className="coin-icon">
                         {" "}
                         {currencyIcons[currency] && (

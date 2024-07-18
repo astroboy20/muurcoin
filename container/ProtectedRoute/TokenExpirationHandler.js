@@ -9,7 +9,7 @@ const TokenExpirationHandler = () => {
     useEffect(() => {
         if (!user) { // Token is null or undefined
           dispatch(clearUser());
-          router.push('/'); // Redirect to login page when token is null
+          router.push('/login'); // Redirect to login page when token is null
         }
       }, [user]);
     

@@ -27,7 +27,6 @@ const Login = () => {
     (state) => state.auth
   );
 
-  const token = user?.data.token;
 
   const onChange = (e) => {
     const { name, value } = e.target;

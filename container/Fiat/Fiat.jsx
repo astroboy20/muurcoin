@@ -41,7 +41,7 @@ const Fiat = () => {
   const { isError, isSuccess, isLoading, user } = useSelector(
     (state) => state.auth
   );
-  const token = user?.data.token;
+  const token = user? user?.data?.token : "";
 
   useEffect(() => {
     if (token) {
@@ -122,7 +122,7 @@ const Fiat = () => {
                 </tr>
               </thead>
               <tbody>
-                {data.map((item, index) => {
+                {data?.map((item, index) => {
                   return (
                     <tr
                       key={item.id}
@@ -195,16 +195,16 @@ const Fiat = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((item, index) => {
+                  {data?.map((item, index) => {
                     return (
                       <tr
                         key={item.id}
-                        onClick={() => handleSelected(item.symbol, item.name)}
+                        onClick={() => handleSelected(item?.symbol, item?.name)}
                       >
                         <td>{index + 1}</td>
                         <td>{item.name}</td>
                         <td>
-                          ${Math.floor(item.quote?.USD?.price * 100) / 100}
+                          ${Math.floor(item?.quote?.USD?.price * 100) / 100}
                         </td>
                         <td
                           style={{
@@ -216,7 +216,7 @@ const Fiat = () => {
                           }}
                         >
                           {Math.floor(
-                            item.quote?.USD?.percent_change_24h * 100
+                            item?.quote?.USD?.percent_change_24h * 100
                           ) / 100}
                           %
                         </td>
@@ -242,7 +242,7 @@ const Fiat = () => {
                 </tr>
               </thead>
               <tbody>
-                {transactions.map((transaction) => (
+                {transactions?.map((transaction) => (
                   <tr key={transaction.id}>
                     <td>{transaction.reference_id}</td>
                     <td>{transaction.amount}</td>

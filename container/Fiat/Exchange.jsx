@@ -30,10 +30,10 @@ const Exchange = ({ UserCoins, token }) => {
         }
       );
       setLoading(false);
-      toast.success(response.data.message);
+      toast.success(response?.data?.message);
     } catch (error) {
       setLoading(false);
-      toast.error(error.response?.data.message);
+      toast.error(error.response?.data?.message);
     }
     setAmount("")
     setFromCurrency("")
